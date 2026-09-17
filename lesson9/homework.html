@@ -114,8 +114,9 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sa
 <div class="score-banner" id="scoreBanner">
   <div class="score-num" id="scoreNum">0</div>
   <div class="score-label">客观题得分（满分100）</div>
-  <button class="copy-summary-btn" id="copySummaryBtn" onclick="copySummary()" style="display:none;margin-top:16px;padding:10px 24px;background:var(--accent);color:var(--bg-primary);border:none;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s">复制提交摘要发给讲师</button>
-  <div class="copy-confirm" id="copyConfirm" style="display:none;margin-top:8px;font-size:13px;color:var(--success)">✓ 已复制到剪贴板，请发给讲师</div>
+  <button class="copy-summary-btn" id="copySummaryBtn" onclick="copySummary()" style="display:none;margin-top:16px;padding:10px 24px;background:var(--accent);color:var(--bg-primary);border:none;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s">复制提交摘要</button>
+  <a id="emailSummaryBtn" href="#" onclick="sendViaEmail()" style="display:none;margin-top:16px;margin-left:12px;padding:10px 24px;background:transparent;color:var(--accent);border:1px solid var(--accent);border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s;text-decoration:none">邮件发送给讲师</a>
+  <div class="copy-confirm" id="copyConfirm" style="display:none;margin-top:8px;font-size:13px;color:var(--success)">✓ 已复制到剪贴板</div>
 </div>
 
 <div class="progress-bar-wrap">
@@ -320,55 +321,54 @@ function submitQuiz() {
   document.getElementById('scoreNum').textContent = score;
   document.getElementById('scoreBanner').classList.add('visible');
 
-  // Show copy summary button
+  // Show copy summary button and email button
   document.getElementById('copySummaryBtn').style.display = 'inline-block';
+  document.getElementById('emailSummaryBtn').style.display = 'inline-block';
   window._lastScore = score;
 
-  // Collect all answers for backend submission
+  // Collect all answers for summary
   const answers = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
-  const submitTime = new Date().toISOString();
+  const submitTime = new Date().toLocaleString('zh-CN', {timeZone: 'Asia/Shanghai'});
 
-  // Build submission payload
-  const payload = {
-    _subject: 'Lesson 9 作业提交 - ' + studentName + ' - ' + score + '/100',
-    _template: 'table',
-    姓名: studentName,
-    课程: 'Lesson 9',
-    提交时间: new Date().toLocaleString('zh-CN', {timeZone: 'Asia/Shanghai'}),
-    客观题得分: score + '/100',
-    客观题详情: quizData.map(sec => sec.questions.filter(q => q.type === 'mc').map((q, i) => {
+  // Build summary text
+  let summary = '【Lesson 9 作业提交】\n';
+  summary += '姓名：' + studentName + '\n';
+  summary += '提交时间：' + submitTime + '\n';
+  summary += '客观题得分：' + score + '/100\n\n';
+
+  summary += '— 客观题答案 —\n';
+  quizData.forEach((sec, si) => {
+    summary += '\n' + sec.section.split('—')[0].trim() + '\n';
+    sec.questions.filter(q => q.type === 'mc').forEach((q, i) => {
       const ans = answers[q.id];
-      return q.id + ': ' + (ans !== undefined ? q.options[ans] : '未作答') + (parseInt(answers[q.id]) === q.answer ? '✓' : '✗');
-    }).join(' | ')).join('\n'),
-    主观题回答: quizData.map(sec => sec.questions.filter(q => q.type === 'subj').map(q => {
-      return q.id + ': ' + (answers[q.id] || '未作答');
-    }).join('\n')).join('\n')
-  };
-
-  // Send to backend via FormSubmit.co
-  const statusEl = document.getElementById('submitStatus');
-  statusEl.style.display = 'block';
-  statusEl.style.color = 'var(--text-muted)';
-  statusEl.textContent = '正在提交到讲师后台...';
-
-  fetch('https://formsubmit.co/ajax/arise@coze.email', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-    body: JSON.stringify(payload)
-  }).then(res => res.json()).then(data => {
-    if (data.success) {
-      statusEl.style.color = '#4CAF50';
-      statusEl.textContent = '✓ 已提交至讲师后台';
-    } else {
-      statusEl.style.color = '#FF9800';
-      statusEl.textContent = '提交未确认，请复制摘要手动发送';
-    }
-  }).catch(err => {
-    statusEl.style.color = '#FF9800';
-    statusEl.textContent = '网络异常，请复制摘要手动发送';
+      const isCorrect = parseInt(ans) === q.answer;
+      summary += '  ' + (si+1) + '-' + (i+1) + ': ' + (ans !== undefined ? q.options[ans].split('. ')[0] : '未作答') + (isCorrect ? ' ✓' : ' ✗') + '\n';
+    });
   });
 
-  document.getElementById('submitBtn').textContent = '已提交';
+  summary += '\n— 主观题回答 —\n';
+  quizData.forEach((sec, si) => {
+    summary += '\n' + sec.section.split('—')[0].trim() + '\n';
+    sec.questions.filter(q => q.type === 'subj').forEach((q, i) => {
+      const ans = answers[q.id] || '未作答';
+      summary += '  ' + (si+1) + '-主观' + (i+1) + '：' + ans.substring(0, 200) + (ans.length > 200 ? '...' : '') + '\n';
+    });
+  });
+
+  window._lastSummary = summary;
+  window._lastScore = score;
+  window._lastStudentName = studentName;
+
+  // Build mailto link for email submission
+  const mailSubject = encodeURIComponent('Lesson 9 作业提交 - ' + studentName + ' - ' + score + '/100');
+  const mailBody = encodeURIComponent(summary);
+  const mailtoLink = 'mailto:arise@coze.email?subject=' + mailSubject + '&body=' + mailBody;
+  window._mailtoLink = mailtoLink;
+
+  const statusEl = document.getElementById('submitStatus');
+  statusEl.style.display = 'block';
+  statusEl.style.color = '#4CAF50';
+  statusEl.textContent = '✓ 提交成功！请点击上方按钮将成绩发送给讲师';
 
   // Save submission locally
   const submissions = JSON.parse(localStorage.getItem(SUBMISSION_KEY) || '[]');
@@ -384,6 +384,12 @@ function submitQuiz() {
 
 function toggleInstructor() {
   document.getElementById('instructorPanel').classList.toggle('visible');
+}
+
+function sendViaEmail() {
+  if (window._mailtoLink) {
+    window.location.href = window._mailtoLink;
+  }
 }
 
 function copySummary() {
