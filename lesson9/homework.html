@@ -130,7 +130,12 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sa
 <main class="main" id="quizForm"></main>
 
 <div class="submit-area">
+  <div style="max-width:400px;margin:0 auto 16px;text-align:left">
+    <label style="font-size:14px;color:var(--text-secondary);display:block;margin-bottom:6px">姓名（必填，用于讲师统计）</label>
+    <input type="text" id="studentName" placeholder="请输入你的姓名" style="width:100%;padding:10px 14px;background:var(--bg-card);border:1px solid var(--border-light);border-radius:8px;color:var(--text-primary);font-size:14px;font-family:inherit;outline:none;transition:border-color .2s" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border-light)'" />
+  </div>
   <button class="submit-btn" id="submitBtn" onclick="submitQuiz()">提交作业</button>
+  <div id="submitStatus" style="margin-top:12px;font-size:13px;color:var(--text-muted);display:none"></div>
 </div>
 
 <button class="instructor-toggle" id="instructorToggle" onclick="toggleInstructor()">讲师入口</button>
@@ -267,9 +272,18 @@ function updateProgress() {
 
 function submitQuiz() {
   if (submitted) return;
+
+  // Check student name
+  const studentName = document.getElementById('studentName').value.trim();
+  if (!studentName) {
+    document.getElementById('studentName').style.borderColor = '#F44336';
+    document.getElementById('studentName').setAttribute('placeholder', '请输入姓名后再提交');
+    return;
+  }
+
   submitted = true;
   document.getElementById('submitBtn').disabled = true;
-  document.getElementById('submitBtn').textContent = '已提交';
+  document.getElementById('submitBtn').textContent = '提交中...';
 
   let score = 0;
   let totalMC = 0;
@@ -305,17 +319,64 @@ function submitQuiz() {
   // Show score
   document.getElementById('scoreNum').textContent = score;
   document.getElementById('scoreBanner').classList.add('visible');
-  
+
   // Show copy summary button
   document.getElementById('copySummaryBtn').style.display = 'inline-block';
   window._lastScore = score;
 
-  // Save submission
+  // Collect all answers for backend submission
+  const answers = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+  const submitTime = new Date().toISOString();
+
+  // Build submission payload
+  const payload = {
+    _subject: 'Lesson 9 作业提交 - ' + studentName + ' - ' + score + '/100',
+    _template: 'table',
+    姓名: studentName,
+    课程: 'Lesson 9',
+    提交时间: new Date().toLocaleString('zh-CN', {timeZone: 'Asia/Shanghai'}),
+    客观题得分: score + '/100',
+    客观题详情: quizData.map(sec => sec.questions.filter(q => q.type === 'mc').map((q, i) => {
+      const ans = answers[q.id];
+      return q.id + ': ' + (ans !== undefined ? q.options[ans] : '未作答') + (parseInt(answers[q.id]) === q.answer ? '✓' : '✗');
+    }).join(' | ')).join('\n'),
+    主观题回答: quizData.map(sec => sec.questions.filter(q => q.type === 'subj').map(q => {
+      return q.id + ': ' + (answers[q.id] || '未作答');
+    }).join('\n')).join('\n')
+  };
+
+  // Send to backend via FormSubmit.co
+  const statusEl = document.getElementById('submitStatus');
+  statusEl.style.display = 'block';
+  statusEl.style.color = 'var(--text-muted)';
+  statusEl.textContent = '正在提交到讲师后台...';
+
+  fetch('https://formsubmit.co/ajax/arise@coze.email', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+    body: JSON.stringify(payload)
+  }).then(res => res.json()).then(data => {
+    if (data.success) {
+      statusEl.style.color = '#4CAF50';
+      statusEl.textContent = '✓ 已提交至讲师后台';
+    } else {
+      statusEl.style.color = '#FF9800';
+      statusEl.textContent = '提交未确认，请复制摘要手动发送';
+    }
+  }).catch(err => {
+    statusEl.style.color = '#FF9800';
+    statusEl.textContent = '网络异常，请复制摘要手动发送';
+  });
+
+  document.getElementById('submitBtn').textContent = '已提交';
+
+  // Save submission locally
   const submissions = JSON.parse(localStorage.getItem(SUBMISSION_KEY) || '[]');
   submissions.push({
-    time: new Date().toISOString(),
+    time: submitTime,
     score: score,
-    answers: JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}')
+    name: studentName,
+    answers: answers
   });
   localStorage.setItem(SUBMISSION_KEY, JSON.stringify(submissions));
   loadInstructor();
