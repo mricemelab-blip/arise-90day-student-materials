@@ -1,189 +1,182 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="zh-CN">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>涌现·90天 — Lesson 9 课本</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Lesson 9 · 学员课本 — 否证、流变与身体系统</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 <style>
+:root{--bg-primary:#070709;--bg-card:#111115;--bg-card-hover:#18181E;--bg-elevated:#1A1A22;--accent:#C8A45E;--accent-dim:#8A7040;--accent-glow:rgba(200,164,94,0.15);--text-primary:#E8E6E3;--text-secondary:#9A9898;--text-muted:#6B6969;--border:#1E1E24;--border-light:#2A2A32}
 *{margin:0;padding:0;box-sizing:border-box}
-body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Noto Sans SC",sans-serif;background:#0b1120;color:#c8d6e5;line-height:1.8;font-size:16px}
-.page{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
-h1{font-size:1.6rem;font-weight:700;color:#f1f5f9;border-bottom:2px solid #1e293b;padding-bottom:.75rem;margin-bottom:1.5rem}
-h2{font-size:1.2rem;font-weight:700;color:#38bdf8;margin:2rem 0 1rem;padding-top:1rem;border-top:1px solid #1e293b}
-h3{font-size:1.05rem;font-weight:600;color:#e2e8f0;margin:1.5rem 0 .75rem}
-h4{font-size:.95rem;font-weight:600;color:#94a3b8;margin:1.25rem 0 .5rem}
-p{margin-bottom:1rem}
-strong{color:#f1f5f9}
-em{color:#67e8f9;font-style:normal}
-ul,ol{margin:0 0 1rem 1.5rem}
-li{margin-bottom:.5rem}
-code{background:#1a2332;padding:2px 6px;border-radius:4px;font-size:.9em;color:#38bdf8}
-blockquote{border-left:3px solid #38bdf8;background:#0f172a;padding:1rem 1.25rem;margin:1rem 0;border-radius:0 8px 8px 0;font-size:.95rem;line-height:1.7}
-blockquote p{margin-bottom:.5rem}
-blockquote p:last-child{margin-bottom:0}
-.kb-box{background:#1a2332;border:1px solid #1e293b;border-radius:10px;padding:1.25rem;margin:1.25rem 0}
-.kb-box .kb-title{color:#38bdf8;font-weight:600;margin-bottom:.5rem;font-size:.95rem}
-.practice-box{background:#1e2332;border:1px solid #2d2d5e;border-radius:10px;padding:1.25rem;margin:1.25rem 0}
-.practice-box .practice-title{color:#34d399;font-weight:600;margin-bottom:.5rem;font-size:.95rem}
-.highlight{color:#38bdf8;font-weight:500}
-hr{border:none;border-top:1px solid #1e293b;margin:2rem 0}
-a{color:#38bdf8;text-decoration:none}
-a:hover{text-decoration:underline}
-.table-wrap{overflow-x:auto;margin:1rem 0}
-table{width:100%;border-collapse:collapse}
-th,td{border:1px solid #1e293b;padding:.5rem .75rem;text-align:left;font-size:.9rem}
-th{background:#1a2332;color:#38bdf8;font-weight:600}
-.ref-item{margin-bottom:1rem;padding-left:1.5rem;text-indent:-1.5rem}
-@media(max-width:600px){.page{padding:1.5rem 1rem 2rem}h1{font-size:1.3rem}h2{font-size:1.1rem}}
-@media print{body{background:#fff;color:#1a1a1a}blockquote{border-left-color:#38bdf8;background:#f8f9fa}.kb-box,.practice-box{background:#f8f9fa;border-color:#ddd}code{background:#f0f0f0;color:#0369a1}h1,h2,h3,h4{color:#111}}
+html{scroll-behavior:smooth}
+body{background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sans SC','Inter',sans-serif;line-height:1.8;min-height:100vh}
+::selection{background:var(--accent);color:var(--bg-primary)}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg-primary)}
+::-webkit-scrollbar-thumb{background:var(--border-light);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--accent-dim)}
+.hero{padding:80px 24px 60px;text-align:center;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,var(--accent-glow) 0%,transparent 70%);pointer-events:none;opacity:.4}
+.hero-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent-dim);padding:4px 16px;border-radius:20px;margin-bottom:24px}
+.hero h1{font-family:'Noto Serif SC',serif;font-size:clamp(28px,5vw,48px);font-weight:900;background:linear-gradient(135deg,var(--text-primary) 0%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:16px;position:relative}
+.main{max-width:800px;margin:0 auto;padding:40px 24px 80px}
+.section{margin-bottom:56px}
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.section-badge{width:4px;height:32px;background:linear-gradient(180deg,var(--accent),var(--accent-dim));border-radius:2px;flex-shrink:0}
+.section-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:1px;margin-bottom:4px}
+.section-title{font-family:'Noto Serif SC',serif;font-size:clamp(20px,3vw,28px);font-weight:700;color:var(--text-primary)}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:28px;margin-bottom:20px;transition:all .25s ease}
+.card:hover{border-color:var(--border-light);background:var(--bg-card-hover);transform:translateY(-1px)}
+.card-title{font-family:'Noto Serif SC',serif;font-size:clamp(18px,2.5vw,24px);font-weight:700;color:var(--text-primary);margin-bottom:24px;padding-left:16px;border-left:3px solid var(--accent)}
+.sub-title{font-family:'Noto Serif SC',serif;font-size:18px;font-weight:700;color:var(--text-primary);margin:28px 0 16px;padding-left:12px;border-left:3px solid var(--accent-dim)}
+p{color:var(--text-secondary);margin-bottom:16px;font-size:15px;line-height:1.9}
+strong{color:var(--text-primary);font-weight:600}
+em{color:var(--accent);font-style:italic}
+blockquote{background:var(--bg-elevated);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:20px 24px;margin:20px 0;font-size:14px;color:var(--text-secondary);line-height:1.8}
+hr{border:none;height:1px;background:var(--border);margin:40px 0}
+.formula{background:var(--bg-elevated);border:1px solid var(--border-light);border-radius:8px;padding:16px 24px;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--accent);text-align:center}
+li{color:var(--text-secondary);font-size:15px;line-height:1.8;margin-bottom:8px;padding-left:8px;list-style:none}
+li::before{content:'\203A';color:var(--accent);font-weight:700;margin-right:8px}
+li.ref-item{padding-left:0}
+li.ref-item::before{content:none}
+.nav-bar{position:sticky;top:0;z-index:100;background:rgba(7,7,9,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:12px 24px;overflow-x:auto}
+.nav-inner{max-width:800px;margin:0 auto;display:flex;gap:8px;flex-wrap:nowrap}
+.nav-pill{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.5px;padding:6px 14px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;transition:all .2s;white-space:nowrap;text-decoration:none}
+.nav-pill:hover,.nav-pill.active{border-color:var(--accent-dim);color:var(--accent);background:var(--accent-glow)}
+@media(max-width:640px){.hero{padding:60px 16px 40px}.main{padding:24px 16px 60px}.card{padding:20px}blockquote{padding:16px 18px}}
 </style>
 </head>
 <body>
-<div class="page">
-<h1>Lesson 9 课本：否证、流变与身体系统</h1>
-<h2>板块一：科学哲学</h2>
-<h3>波普尔的否证主义——Chalmers第5章论证重构</h3>
+<div class="hero">
+<div class="hero-tag">TEXTBOOK</div>
+<h1>否证、流变与身体系统</h1>
+<p style="color:var(--text-secondary);font-size:16px;max-width:600px;margin:0 auto">Lesson 9 · 涌现90天</p>
+</div>
+<div class="nav-bar"><div class="nav-inner"><a class="nav-pill" href="#sec板块一科学哲学">板块一：科学哲学</a><a class="nav-pill" href="#sec板块二哲学">板块二：哲学</a><a class="nav-pill" href="#sec板块三营养学">板块三：营养学</a><a class="nav-pill" href="#sec板块四生物力学">板块四：生物力学</a><a class="nav-pill" href="#sec板块五解剖">板块五：解剖</a><a class="nav-pill" href="#sec全课总结">全课总结</a><a class="nav-pill" href="#sec引用原句">引用原句</a><a class="nav-pill" href="#sec参考文献">参考文献</a></div></div>
+<div class="main">
+<div class="section" id="sec-板块一科学哲学">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 01</div><h2 class="section-title">板块一：科学哲学</h2></div></div>
+<div class="card"><h3 class="card-title">波普尔的否证主义——Chalmers第5章论证重构</h3>
 <p><strong>教材</strong>：Chalmers, A. F., <em>What Is This Thing Called Science?</em>, 4th ed., Chapter 5</p>
 <hr>
-<h4>一、归纳主义困境之后：波普尔的替代方案</h4>
+<h4 class="sub-title">一、归纳主义困境之后：波普尔的替代方案</h4>
 <p>Lesson 8论证了归纳主义面临四重困境：观察不中立、归纳跳跃不保真、条件变化判断形成循环依赖、归纳原则本身不可辩护。Chalmers总结归纳主义"不充分且不准确"之后，第5章转向波普尔的否证主义（falsificationism）作为替代方案。</p>
 <p>波普尔（Karl Popper, 1902-1994）的出发点是：归纳问题在逻辑上不可解决。无论收集多少证实性观察，都无法在逻辑上保证普遍定律为真。但反过来，一个单一的反例就可以在逻辑上否定一个普遍定律。从"所有天鹅都是白的"到"存在一只非白天鹅"，这一步推理是演绎有效的——它使用了经典逻辑中的否定后件式（modus tollens）。</p>
 <p>波普尔的核心主张可以概括为一个划界标准（demarcation criterion）：一个理论是否具有科学地位，取决于它是否可以被经验否证（falsifiable）。可以被否证的理论是科学理论；不可以被否证的理论不属于科学范畴。</p>
-<blockquote>
-<p>"一个理论是否具有科学的地位，其衡量标准在于它的可否证性。……如果存在与理论相矛盾的可能观察，则该理论是可以否证的（falsifiable）。"</p>
-<p>(Chalmers, Ch5, p.59)</p>
-</blockquote>
+<blockquote>"一个理论是否具有科学的地位，其衡量标准在于它的可否证性。……如果存在与理论相矛盾的可能观察，则该理论是可以否证的（falsifiable）。"<br>(Chalmers, Ch5, p.59)</blockquote>
 <p>这一主张在1950至60年代的科学哲学界引发了重大争议。逻辑实证主义者（logical positivist）此前的划界标准是可证实性（verifiability）：一个命题有意义当且仅当它可以被经验证实。波普尔逆转了这一标准：科学理论的标志不在于它可以被证实，而在于它可以被否证。这一逆转不是修辞手法，而是基于深层的逻辑不对称性（logical asymmetry）：全称命题不可被有限观察证实，但可以被单一观察否证。</p>
-<h4>二、可否证性的精确含义</h4>
+<h4 class="sub-title">二、可否证性的精确含义</h4>
 <p>可否证性（falsifiability）的含义需要精确界定。一个理论是可否证的，当且仅当它在逻辑上允许存在某种可能的观察能够否定它。这里有两个关键限定词。</p>
 <p>第一，"逻辑上可能"而非"实际上已经"。可否证性是一个关于逻辑空间的判断：是否存在一种逻辑上可能的观察，如果该观察发生，理论就被否定。一个理论即使目前尚未被否证，只要它在逻辑上可以被否证，就满足科学性的要求。万有引力定律至今未被否证（在宏观低速领域），但它逻辑上可以被否证——如果观察到苹果向上掉落，理论就被否定了。</p>
 <p>第二，"否定"指的是逻辑矛盾。观察陈述与理论推导出的预测之间存在逻辑矛盾时，理论被否证。这不是"理论与观察不一致"这种模糊说法，而是严格的逻辑否定关系。</p>
-<blockquote>
-<p>"一个理论是可否证的，如果存在逻辑上可能的观察或观察陈述的集合，它们与理论推导出的预测相矛盾。"</p>
-<p>(Chalmers, Ch5, p.59)</p>
-</blockquote>
+<blockquote>"一个理论是可否证的，如果存在逻辑上可能的观察或观察陈述的集合，它们与理论推导出的预测相矛盾。"<br>(Chalmers, Ch5, p.59)</blockquote>
 <p>可否证性容易与一个常见误解混淆：将"可否证"等同于"已被否证"。波普尔从未主张科学理论是已被否证的理论。他主张的是，科学理论必须是原则上可以被否证的——它必须冒着被经验推翻的风险。科学理论的优越性不在于它已经被证明为真，而在于它敢于做出精确的预测，从而将自己暴露在否证的可能性之下。</p>
-<h4>三、否证的逻辑结构：否定后件式（modus tollens）</h4>
+<h4 class="sub-title">三、否证的逻辑结构：否定后件式（modus tollens）</h4>
 <p>否证推理的形式结构是经典逻辑中的否定后件式：</p>
 <p>如果P，则Q。非Q。因此，非P。</p>
 <p>在科学语境中，P代表理论（加上辅助假说和初始条件），Q代表从理论推导出的预测。如果预测Q被观察到为假，则P在逻辑上被否定。</p>
 <p>具体操作过程如下。从一个科学理论T出发，结合辅助假说（auxiliary hypotheses）A和初始条件（initial conditions）I，通过演绎推理推导出一个可检验的预测P。即：T ∧ A ∧ I → P。然后进行实验或观察。如果观察到非P（预测不成立），则根据否定后件式，T ∧ A ∧ I整体被否定。</p>
 <p>这里出现了一个重要的逻辑细节。否定后件式否定的是前件的整体，即T ∧ A ∧ I。当预测失败时，逻辑上被否定的不仅仅是理论T本身，还包括辅助假说A和初始条件I。科学家在面对否证时可以选择修改辅助假说或质疑初始条件的准确性，而非直接放弃核心理论。这一逻辑事实在后来的科学哲学讨论中被称为杜恒-奎因论题（Duhem-Quine thesis），波普尔本人也充分意识到这一问题。</p>
-<blockquote>
-<p>"当一个理论被否证时，我们总是可以质疑实验或观察是否真的如描述的那样。……我们可以永远为理论打补丁，使得理论在任何观察面前都不被否证。"</p>
-<p>(Chalmers, Ch5, p.61)</p>
-</blockquote>
+<blockquote>"当一个理论被否证时，我们总是可以质疑实验或观察是否真的如描述的那样。……我们可以永远为理论打补丁，使得理论在任何观察面前都不被否证。"<br>(Chalmers, Ch5, p.61)</blockquote>
 <p>波普尔对此的态度是方法论的而非逻辑的。从纯粹的逻辑角度看，一个理论永远可以被保护性策略（protective strategy）所保全。但波普尔主张，科学的方法论规范要求科学家以特定的态度面对否证：当理论被否证时，认真对待否证，而非用特设性假说（ad hoc hypothesis）来逃避。</p>
-<h4>四、大胆猜测与保守理论：预测精度与可否证度的正比关系</h4>
+<h4 class="sub-title">四、大胆猜测与保守理论：预测精度与可否证度的正比关系</h4>
 <p>波普尔对科学理论有一个重要的评价标准：理论的内容越丰富（content-rich），做出的预测越精确，它的可否证度（degree of falsifiability）就越高。一个做出精确预测的理论比一个做出模糊预测的理论更具科学性，因为它将自己暴露在更多潜在否证之下。</p>
 <p>波普尔用"大胆猜测"（bold conjecture）来表达这一思想。科学进步的路径是：提出大胆的理论猜测，从中演绎出精确的可检验预测，然后用经验来检验。如果预测成立，理论暂时被保留（corroborated，波普尔特意选用这个词而非confirmed，因为保留不等于证实）；如果预测失败，理论被否证，科学家提出新的更大胆的猜测。</p>
-<blockquote>
-<p>"科学不是收集观察事实的归纳过程，而是提出大胆猜测并尝试否证它们的过程。……好的理论敢于做出精确预测，将自己暴露在否证的风险之下。"</p>
-<p>(Chalmers, Ch5, p.63)</p>
-</blockquote>
+<blockquote>"科学不是收集观察事实的归纳过程，而是提出大胆猜测并尝试否证它们的过程。……好的理论敢于做出精确预测，将自己暴露在否证的风险之下。"<br>(Chalmers, Ch5, p.63)</blockquote>
 <p>爱因斯坦的广义相对论是波普尔反复引用的范例。1919年爱丁顿（Arthur Eddington）的日全食观测检验了广义相对论的一个精确预测：光线经过太阳附近时的偏折角度。广义相对论预测的偏折角度（1.75弧秒）与牛顿力学预测的偏折角度（0.87弧秒）不同。观测结果与广义相对论的预测吻合，理论暂时被保留。波普尔认为，广义相对论之所以是卓越的科學理论，恰恰在于它做出了如此精确且冒险的预测——如果观测结果不符，理论就被彻底否证。</p>
 <p>与之形成鲜明对比的是一个做出模糊预测的理论。"市场明天可能上涨也可能下跌"这一预测在逻辑上不可能被任何观察否证。它的内容贫乏（content-poor），可否证度为零。</p>
-<h4>五、不可否证的理论：占星术案例</h4>
+<h4 class="sub-title">五、不可否证的理论：占星术案例</h4>
 <p>波普尔用占星术（astrology）作为不可否证理论的典型案例。占星术的"预测"极其模糊和宽泛："你近期可能面临一个重要变化""你的努力将获得回报"。这类陈述可以被几乎任何经验事实所"证实"——无论发生了什么，占星术士都可以将事件解释为与预测一致。</p>
-<blockquote>
-<p>"占星术士的预测极其模糊，无论发生什么都可以被解释为与预测一致。……它们不具备可否证性。"</p>
-<p>(Chalmers, Ch5, p.60)</p>
-</blockquote>
+<blockquote>"占星术士的预测极其模糊，无论发生什么都可以被解释为与预测一致。……它们不具备可否证性。"<br>(Chalmers, Ch5, p.60)</blockquote>
 <p>波普尔进一步指出，占星术不仅不可否证，而且缺乏解释力。占星术不解释为什么星座与人格特征之间存在关联，不提供因果机制。它仅仅是一组经验概括（empirical generalization），而且这些概括模糊到不可能被检验。</p>
 <p>这里需要区分两个概念。"非科学"（non-science）指不属于科学范畴但不一定有意冒充科学的理论或实践。数学、逻辑、形而上学命题不可否证，但波普尔不认为它们是伪科学。"伪科学"（pseudoscience）指有意冒充科学但实际不可否证的理论体系。占星术在波普尔的分析中更多被定位为不可否证的理论体系。它在逻辑上不具备可否证性，因此不满足科学性的标准。波普尔对占星术的批评重点在于它的不可否证性，而非简单地贴上"伪科学"的标签。</p>
 <p>弗洛伊德的精神分析理论（Freudian psychoanalysis）和阿德勒的个体心理学（Adlerian individual psychology）是波普尔另一组常被讨论的案例。波普尔认为这两种理论具有"解释一切"的特征：无论患者的行为表现为什么，理论都可以提供事后解释。这种万能解释力恰恰是不可否证性的标志——理论不允许任何可能的观察与之矛盾。波普尔与弗洛伊德和阿德勒的对比案例是爱因斯坦的引力理论：爱因斯坦做出了一个精确的、可以被否证的预测（光线偏折1.75弧秒），而弗洛伊德的理论可以解释任何行为模式却无法被任何可能的观察否证。</p>
-<h4>六、科学进步的路径：猜测与反驳</h4>
+<h4 class="sub-title">六、科学进步的路径：猜测与反驳</h4>
 <p>波普尔将科学进步描述为一个持续的循环过程：</p>
 <p>问题（Problem）→ 试探性理论（Tentative Theory）→ 否证尝试（Elimination of Error）→ 新的问题（New Problem）</p>
 <p>科学家面对一个问题，提出大胆的理论猜测。从猜测中演绎出可检验的预测。通过严格的实验和观察来尝试否证预测。被否证的理论被淘汰，科学家提出新的猜测。科学进步不是通过归纳积累知识来实现的，而是通过消除错误（error elimination）来实现的。每一次否证都排除了一个错误答案，使科学更接近真理——尽管波普尔明确指出，科学永远不能宣称已经到达真理。</p>
 <p>波普尔使用"逼真度"（verisimilitude）这一概念来描述科学理论的进步方向。一个被充分检验且尚未被否证的理论比其前身具有更高的逼真度。但"更高的逼真度"不等于"真理"。科学理论永远是试探性的（conjectural），永远保持被未来经验否证的开放状态。</p>
 <p>这一科学进步观对"确定性"概念进行了根本性的重构。在归纳主义框架中，科学知识通过归纳积累逐步趋近确定真理。在波普尔框架中，科学知识本质上是试探性的——它不是被证明为真的知识，而是经受住了最严格检验的猜测。确定性不是科学追求的目标。科学的价值在于它的批判性：不断尝试否证自身的理论，在最严格的检验中存活下来的理论暂时被保留。</p>
-<h4>七、类比：法律中的举证责任倒置</h4>
+<h4 class="sub-title">七、类比：法律中的举证责任倒置</h4>
 <p>波普尔的否证逻辑与法律系统中的举证责任（burden of proof）分配原则存在结构上的相似性。在刑事审判中，"无罪推定"（presumption of innocence）意味着被告不需要证明自己无罪，控方需要证明被告有罪。被告的辩护策略之一不是证明自己无罪，而是揭示控方证据的矛盾——如果控方的证据链中存在无法解释的矛盾，合理的怀疑（reasonable doubt）成立，被告被宣判无罪。</p>
 <p>这一逻辑结构与否定后件式具有深层对应。控方的理论（"被告有罪"）推导出预测（"证据链应当自洽"）。如果观察到证据链存在矛盾（预测失败），则控方理论受到质疑。被告不需要提出替代理论来解释发生了什么——提出合理怀疑就足够了。</p>
 <p>波普尔的否证主义在法律逻辑中的映射是：科学理论如同控方的指控，必须承担被质疑的风险。科学家不需要证明理论为真（正如被告不需要证明自己无罪），但理论必须能够承受严格的检验尝试。无法承受检验的理论应当被放弃。</p>
 <p>类比的边界差异在于：法律中的无罪推定是一种程序性规则，服务于公正审判的价值目标；波普尔的否证主义是一种认识论方法论，服务于科学进步的知识目标。法律判决具有终局性（一事不再理）；科学否证不具有终局性——今天的否证明天可能因为新的辅助假说或更精确的测量仪器而被重新审视。</p>
-<h4>八、对教练思维的含义</h4>
+<h4 class="sub-title">八、对教练思维的含义</h4>
 <p>波普尔的否证主义对教练的思维方式具有直接的方法论意义。</p>
 <p>教练的训练体系可以被理解为一组试探性理论（tentative theories）。每一个训练方案、每一个动作选择、每一个负荷决策都隐含着一个假说："这个方案对这个客户在当下阶段是适当的。"否证主义的方法论要求教练为每一个假说设定明确的否证标准（falsifiability criteria）：在什么条件下，我将认为这个方案不起作用？</p>
 <p>一个没有否证标准的训练方案在逻辑上与占星术具有结构上的相似性：无论结果如何，方案都可以被解释为"有效"。客户力量增长了，说明方案有效；客户力量没有增长，说明"还在适应期"，方案仍然有效。一个永远不能被否证的方案不具有科学性——不是因为它无效，而是因为它没有给出可以被经验检验的精确预测。</p>
 <p>否证主义要求教练做出精确的预测并设定时间框架。"这个客户在接下来的四周内，深蹲1RM应当提高5-8%"是一个可否证的预测。如果四周后提高不到5%，预测被否证，方案需要调整。"这个客户的深蹲会慢慢提高"是不可否证的——"慢慢"没有操作性定义，无论多久没有提高都可以说"还不够慢"。</p>
 <p>否证主义对教练最深层的启示在于：科学进步不是通过积累证实来实现的，而是通过消除错误来实现的。教练的经验积累不应仅是"什么有效"的记录（这面临Lesson 8论证的归纳主义困境），而应是"什么被否证了"的记录。每次否证都排除了一个错误方案，使教练的工作假设更接近对这个客户的有效方案。</p>
 <hr>
-<h2>板块二：哲学</h2>
-<h3>赫拉克利特：万物皆流与逻各斯</h3>
+</div>
+</div>
+<div class="section" id="sec-板块二哲学">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 02</div><h2 class="section-title">板块二：哲学</h2></div></div>
+<div class="card"><h3 class="card-title">赫拉克利特：万物皆流与逻各斯</h3>
 <p><strong>教材</strong>：周濂，《打开：周濂的100堂西方哲学课》，第11讲</p>
 <hr>
-<h4>一、前苏格拉底哲学的核心关切</h4>
+<h4 class="sub-title">一、前苏格拉底哲学的核心关切</h4>
 <p>前苏格拉底哲学（Pre-Socratic philosophy）的核心问题是：万物的本原（arche）是什么？泰勒斯（Thales）回答"水"，阿那克西曼德（Anaximander）回答"无定"（apeiron），阿那克西美尼（Anaximenes）回答"气"。这些回答的共同特征是：在变化纷纭的现象背后寻找一种不变的基质（substrate），万物从它产生，最终回归于它。</p>
 <p>赫拉克利特（Heraclitus of Ephesus, 约前535-前475）从根本上质疑了这一传统。他的核心主张是：变化本身才是存在的根本特征，不存在变化背后的不变基质。</p>
-<h4>二、万物皆流（panta rhei）</h4>
+<h4 class="sub-title">二、万物皆流（panta rhei）</h4>
 <p>赫拉克利特最著名的命题是"万物皆流"（panta rhei, everything flows）。这一命题的核心含义是：一切事物都处于持续的变化之中，不存在永恒不变的东西。</p>
-<blockquote>
-<p>"人不能两次踏入同一条河流。"</p>
-<p>(Heraclitus, Fragment B91; 参见周濂，《打开》第11讲)</p>
-</blockquote>
+<blockquote>"人不能两次踏入同一条河流。"<br>(Heraclitus, Fragment B91; 参见周濂，《打开》第11讲)</blockquote>
 <p>这一命题的哲学含义需要精确解读。它不是说"河流在变化"——这是经验观察层面的事实陈述。它的含义更深：当你第二次踏入河流时，不仅是河水已经不同，踏入河流的"你"也已经不同了。变化不仅作用于对象，也作用于主体。"同一条河流"和"同一个人"都是语言构造的幻象——语言用名词（noun）固定了对象，给人造成了对象保持同一性的错觉，但实在（reality）本身是持续流动的过程。</p>
 <p>赫拉克利特的极端立场与巴门尼德（Parmenides, 约前515-前450）形成了西方哲学史上最早的重大对立。巴门尼德的核心主张是：存在（Being）是唯一的、不变的、不可分的。变化在逻辑上不可能——因为"非存在"不可思维、不可言说，所以"从无到有"或"从有到无"都不可能。我们感知到的变化只是感官的幻象（appearance），理性告诉我们的真理（truth）是：存在不动。</p>
 <p>赫拉克利特与巴门尼德的对立可以概括为：赫拉克利特主张感官经验中的变化才是真实的，理性所追求的不变性是虚构的；巴门尼德主张理性揭示的不变存在才是真实的，感官经验中的变化是幻象。这一对立贯穿了整个西方哲学史，在柏拉图的理念论（Theory of Forms）中获得了第一次系统性综合。</p>
-<h4>三、逻各斯（logos）：变化背后的理性秩序</h4>
+<h4 class="sub-title">三、逻各斯（logos）：变化背后的理性秩序</h4>
 <p>如果万物皆流，是否存在某种秩序使变化不至于沦为混沌？赫拉克利特的回答是：存在。这种秩序就是逻各斯（logos）。</p>
-<blockquote>
-<p>"虽然逻各斯是共同的（xynon），多数人却活得好像拥有私有的智慧。"</p>
-<p>(Heraclitus, Fragment B2; 参见周濂，《打开》第11讲)</p>
-</blockquote>
+<blockquote>"虽然逻各斯是共同的（xynon），多数人却活得好像拥有私有的智慧。"<br>(Heraclitus, Fragment B2; 参见周濂，《打开》第11讲)</blockquote>
 <p>逻各斯是赫拉克利特哲学中最复杂的概念之一。它同时包含多重含义：话语（word/speech）、理性（reason）、比例（proportion）、规律（law）、尺度（measure）。在赫拉克利特的用法中，逻各斯指的是统摄万物变化的理性秩序——万物虽然在流变，但流变遵循内在的比例和尺度，不是任意的混乱。</p>
 <p>火是赫拉克利特提出的万物本原。但这不是泰勒斯意义上的"水"——一种作为基质的物质。赫拉克利特的火是一个过程性的隐喻：火永远在燃烧和熄灭，永远在变化，但火的燃烧遵循"尺度"（measure）。</p>
-<blockquote>
-<p>"这个世界，对于一切存在物都是同一的，它不是任何神所创造的，也不是任何人所创造的；它过去、现在、未来永远是一团永恒的活火，在一定的分寸上燃烧，在一定的分寸上熄灭。"</p>
-<p>(Heraclitus, Fragment B30; 参见周濂，《打开》第11讲)</p>
-</blockquote>
+<blockquote>"这个世界，对于一切存在物都是同一的，它不是任何神所创造的，也不是任何人所创造的；它过去、现在、未来永远是一团永恒的活火，在一定的分寸上燃烧，在一定的分寸上熄灭。"<br>(Heraclitus, Fragment B30; 参见周濂，《打开》第11讲)</blockquote>
 <p>火的隐喻精妙地表达了赫拉克利特的核心思想：变化是永恒的（火永远在燃烧），但变化遵循尺度（在一定的分寸上）。火转化为万物，万物转化为火，这种转化遵循严格的等价交换原则——"在一定的分寸上"。逻各斯就是这种支配变化的尺度。</p>
 <p>赫拉克利特还提出了"对立统一"（unity of opposites）的思想。对立面不是彼此排斥的，而是相互依存、相互转化的。"生与死、醒与梦、少与老，在它们之中，前者变化了就成为后者，后者变化了就成为前者。"（Fragment B88）寒冷变温暖，温暖变寒冷；湿变干，干变湿。对立面的持续转化是万物皆流的具体机制。</p>
-<h4>四、火作为本原的深层含义</h4>
+<h4 class="sub-title">四、火作为本原的深层含义</h4>
 <p>赫拉克利特选择火作为万物本原，与之前哲学家的选择（水、气、无定）存在根本差异。水是相对稳定的物质，气是弥漫性的介质，无定是不确定的基质。火是一种过程（process），不是物质（substance）。火的存在本身就是变化——火不"是"什么，火在"做什么"。</p>
 <p>这一选择标志着哲学思维的重大转变。前赫拉克利特的哲学家在物质（substance）中寻找本原，试图用不变的东西来解释变化的世界。赫拉克利特在过程（process）中寻找本原，主张变化的过程本身就是本原。不变性是变化的幻觉，而非变化的基础。</p>
 <p>从哲学史的角度看，赫拉克利特的立场与当代过程哲学（process philosophy）存在深层共鸣。怀特海（Alfred North Whitehead, 1861-1947）在《过程与实在》（Process and Reality）中主张：实在的基本单位不是物质实体（material substance），而是"现实实有"（actual entity）——一种事件性的过程。赫拉克利特在两千五百年前以火为隐喻表达的直觉，在当代哲学和物理学中获得了新的回响。量子场论中的"粒子"不是固定不变的实体，而是量子场的激发态（excitation），其存在本身就是一种动态过程。</p>
-<h4>五、与巴门尼德的对立及其哲学史意义</h4>
+<h4 class="sub-title">五、与巴门尼德的对立及其哲学史意义</h4>
 <p>赫拉克利特与巴门尼德的对立构成了西方哲学的基本张力。这一张力在柏拉图哲学中获得了第一次系统性综合。</p>
 <p>柏拉图接受了巴门尼德的核心洞察：真正的知识（episteme）必须指向不变的、永恒的对象。如果一切都在流变，关于变化之物不可能有确定的知识——因为你描述它的瞬间它已经变了。但柏拉图也不愿完全接受赫拉克利特的万物皆流。他的综合方案是：可感世界（sensible world）处于流变之中（赫拉克利特是对的），但理念世界（world of Forms）是不变的永恒存在（巴门尼德是对的）。知识的可能性建立在不变的理念之上，可感世界只是理念的摹本。</p>
 <p>亚里士多德在《形而上学》（Metaphysics）中评论赫拉克利特时指出：如果万物都在变化，那么关于万物的命题就不可能有确定的真值——因为命题所指向的对象在命题被说出的瞬间已经不同了。这一批评指向赫拉克利特立场的极端版本所面临的逻辑困难。</p>
 <p>但赫拉克利特的洞见并未因此失去价值。他提出的核心问题——变化与秩序的共存——至今仍是哲学和科学的核心问题之一。耗散结构理论（dissipative structure theory）、复杂适应系统（complex adaptive systems）、自组织临界性（self-organized criticality）等当代科学概念，都在不同的层面上回应赫拉克利特两千五百年前提出的问题。</p>
-<h4>六、类比：周期化训练中的流变与秩序</h4>
+<h4 class="sub-title">六、类比：周期化训练中的流变与秩序</h4>
 <p>赫拉克利特的"万物皆流但遵循逻各斯"与运动训练中的周期化（periodization）原则存在结构上的深层对应。</p>
 <p>训练状态是持续流变的。运动员的神经肌肉状态、激素水平、糖原储备、恢复程度、心理状态在每一次训练之后都发生了变化。"同一次训练"和"同一个运动员"在不同时间点上是不同的存在——这正是赫拉克利特"人不能两次踏入同一条河流"的精确映射。</p>
 <p>但训练不是任意的混乱。周期化理论为训练变化提供了内在的尺度和秩序（logos）。宏观周期（macrocycle）、中周期（mesocycle）、微周期（microcycle）的层级结构规定了训练负荷变化的"分寸"。负荷的增加和减少不是随机的，而是遵循超量恢复（supercompensation）的生物学逻辑。赫拉克利特说火"在一定的分寸上燃烧，在一定的分寸上熄灭"——训练负荷"在一定的分寸上增加，在一定的分寸上减少"。</p>
 <p>没有逻各斯的训练是混沌的（随机变化负荷，无计划、无周期），没有流变的训练是僵死的（永远相同的负荷，无周期化、无适应性调整）。有效的训练计划是在流变中维持逻各斯——在持续变化中保持内在尺度和秩序。</p>
 <p>类比的边界差异在于：赫拉克利特的逻各斯是宇宙性的、超越人类控制的理性秩序；周期化的"逻各斯"是人为建构的理论模型，需要不断根据运动员的实际反馈进行调整。赫拉克利特的火不需要计划，训练计划需要人来设计和调整。</p>
-<h4>七、对教练思维的含义</h4>
+<h4 class="sub-title">七、对教练思维的含义</h4>
 <p>赫拉克利特的哲学对教练思维有两个层面的启示。</p>
 <p>第一，训练对象的流变性。教练面对的不是一个静态的对象，而是一个持续变化的过程。客户在每一次训练之后都不同了——肌肉适应了、神经通路优化了、心理状态变化了、生活背景改变了。如果教练用一个固定不变的方案应对持续变化的对象，就是在否认赫拉克利特的基本洞见。训练计划必须是活的文档（living document），随着对象的变化而持续调整。</p>
 <p>第二，变化中的秩序。赫拉克利特并非主张变化是混乱的。逻各斯的存在意味着变化遵循内在规律。教练的任务不是在变化面前手足无措，而是在变化中识别秩序、把握尺度。周期化理论是对训练变化中秩序的捕捉。一个好的教练既能看到流变（客户在变化），也能看到逻各斯（变化中的规律和尺度）。</p>
 <p>波普尔的否证主义为教练提供了方法论工具（设定否证标准来检验训练假说），赫拉克利特的哲学为教练提供了本体论框架（训练对象是持续变化的过程，变化遵循内在秩序）。两者结合，构成教练思维的哲学基础：在流变中识别秩序，用否证来逼近有效方案。</p>
 <hr>
-<h2>板块三：营养学</h2>
-<h3>碳水化合物的消化与吸收</h3>
+</div>
+</div>
+<div class="section" id="sec-板块三营养学">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 03</div><h2 class="section-title">板块三：营养学</h2></div></div>
+<div class="card"><h3 class="card-title">碳水化合物的消化与吸收</h3>
 <p><strong>教材</strong>：Loeffelholz, D. von, & Lefavi, R. G.,《健身营养全书》, 第2章</p>
 <hr>
-<h4>一、消化过程的起点：口腔中的机械与化学消化</h4>
+<h4 class="sub-title">一、消化过程的起点：口腔中的机械与化学消化</h4>
 <p>碳水化合物的消化在食物进入口腔的瞬间即已开始。口腔中同时发生两种消化过程。</p>
 <p>机械消化（mechanical digestion）：牙齿的咀嚼（mastication）将食物破碎为更小的颗粒，增大食物与消化酶的接触面积。唾液（saliva）的分泌使食物湿润形成食团（bolus），便于吞咽。</p>
 <p>化学消化（chemical digestion）：唾液腺（主要是腮腺和颌下腺）分泌唾液淀粉酶（salivary amylase，亦称α-淀粉酶），开始水解淀粉中的α-1,4糖苷键。唾液淀粉酶是一种内切酶（endoenzyme），它从淀粉分子内部的α-1,4键随机切断，而非从非还原末端逐个切下单糖。因此，唾液淀粉酶作用于直链淀粉（amylose）时产生麦芽糖（maltose）和麦芽三糖（maltotriose）；作用于支链淀粉（amylopectin）时，除产生麦芽糖和麦芽三糖外，还产生含有α-1,6分支点的糊精（dextrin），即α-极限糊精（α-limit dextrin）。</p>
-<blockquote>
-<p>"淀粉的消化从口腔开始。唾液中的α-淀粉酶在食物停留于口腔的短暂时间内即可开始水解淀粉的α-1,4糖苷键。"</p>
-<p>(Loeffelholz & Lefavi，《健身营养全书》第2章)</p>
-</blockquote>
+<blockquote>"淀粉的消化从口腔开始。唾液中的α-淀粉酶在食物停留于口腔的短暂时间内即可开始水解淀粉的α-1,4糖苷键。"<br>(Loeffelholz & Lefavi，《健身营养全书》第2章)</blockquote>
 <p>食物在口腔中停留的时间通常很短（15至20秒），唾液淀粉酶在此时间内能实现的淀粉水解程度有限。但这一"预消化"过程并非无意义——它使淀粉分子从高分子量聚合物降解为较小的片段，为后续在小肠中的彻底消化创造了有利条件。充分咀嚼的重要性不仅在于增大食物表面积，还在于让化学消化尽可能早地启动。</p>
 <p>唾液淀粉酶的最适pH约为6.8（接近中性），这与口腔的pH环境吻合。当食团进入胃后，胃酸的pH（1.5至3.5）使唾液淀粉酶迅速变性失活。因此，口腔中的淀粉消化在食团进入胃后终止。但在食团内部，由于唾液尚未完全被胃酸渗透，唾液淀粉酶可以在酸性环境侵入之前继续发挥作用一段时间。</p>
-<h4>二、胃中的消化中断与食糜形成</h4>
+<h4 class="sub-title">二、胃中的消化中断与食糜形成</h4>
 <p>食团经吞咽进入胃后，与胃液混合形成食糜（chyme）。胃液的主要成分是盐酸（HCl）和胃蛋白酶（pepsin），后者专一水解蛋白质中的肽键，对碳水化合物无消化作用。</p>
 <p>胃酸的低pH环境使唾液淀粉酶变性失活，口腔阶段启动的淀粉消化在胃中暂停。但这并不意味着碳水化合物在胃中完全不被处理。食糜在胃中的停留时间因食物组成和膳食大小而异，通常为1至4小时。在此期间，食团内部的微环境可能仍保持接近中性的pH，唾液淀粉酶在食团核心区域可以维持一定活性。这一"胃内淀粉酶延续消化"的效应在总淀粉消化中所占比例不大，但不能忽略。</p>
 <p>胃的蠕动（peristalsis）将食糜与胃液充分混合，同时将食糜逐步推送至幽门（pylorus），经幽门括约肌调控进入十二指肠（duodenum）。胃的机械混合使食糜成为均匀的半流体，为小肠中的消化创造了适宜的物理条件。</p>
-<h4>三、小肠中的胰淀粉酶消化</h4>
+<h4 class="sub-title">三、小肠中的胰淀粉酶消化</h4>
 <p>食糜进入十二指肠后，碳水化合物的消化进入最主要的阶段。胰腺（pancreas）的外分泌部（exocrine portion）分泌胰液（pancreatic juice），经胰管（pancreatic duct）排入十二指肠。胰液中含有胰淀粉酶（pancreatic amylase），其催化机制与唾液淀粉酶相似，也是一种α-淀粉酶，从淀粉分子内部随机切断α-1,4糖苷键。</p>
 <p>胰淀粉酶的消化效率远高于唾液淀粉酶。原因包括：胰液分泌量大，十二指肠的碱性环境（pH约7.5-8.0，由胆汁和胰液中的碳酸氢盐维持）为胰淀粉酶提供了适宜的反应条件，食糜在十二指肠和空肠上段的充分混合确保了酶与底物的有效接触。</p>
 <p>胰淀粉酶作用的终产物与唾液淀粉酶相同：麦芽糖、麦芽三糖和α-极限糊精。胰淀粉酶不能水解α-1,6糖苷键（支链淀粉的分支点）。因此，经过胰淀粉酶消化后，淀粉被降解为一组低聚糖片段，而非完全水解为单糖。</p>
-<h4>四、刷状缘酶的终末水解</h4>
+<h4 class="sub-title">四、刷状缘酶的终末水解</h4>
 <p>小肠黏膜上皮细胞的管腔面（luminal surface）密布微绒毛（microvilli），形成刷状缘（brush border）。刷状缘的细胞膜上嵌有多种寡糖酶（oligosaccharidase），也称为刷状缘酶（brush border enzymes）。这些酶完成了碳水化合物消化的最后步骤。</p>
 <p>麦芽糖酶（maltase，即α-葡萄糖苷酶）：水解麦芽糖中的α-1,4糖苷键，产生两分子葡萄糖。麦芽糖酶也水解麦芽三糖，产生三分子葡萄糖。</p>
 <p>蔗糖酶（sucrase）：水解蔗糖中葡萄糖与果糖之间的α-1,2-β-2糖苷键，产生一分子葡萄糖和一分子果糖。</p>
@@ -191,111 +184,105 @@ th{background:#1a2332;color:#38bdf8;font-weight:600}
 <p>α-糊精酶（α-dextrinase，即异麦芽糖酶 isomaltase）：专门水解α-极限糊精中α-1,6糖苷键（分支点），使分支结构被打开。这是唯一能水解α-1,6糖苷键的人体消化酶。</p>
 <p>四种刷状缘酶协同工作，将所有寡糖和二糖最终水解为单糖：葡萄糖、果糖、半乳糖。只有单糖才能被小肠上皮细胞吸收进入血液。</p>
 <p>刷状缘酶以膜结合蛋白（membrane-bound protein）的形式存在，其催化结构域朝向肠腔。这与大多数消化酶（分泌到消化腔中的游离酶）不同。这种排列方式确保了最终水解步骤在吸收表面附近完成，水解产生的单糖几乎立即被吸收，不存在扩散损失。</p>
-<h4>五、单糖的吸收机制：三种转运体</h4>
+<h4 class="sub-title">五、单糖的吸收机制：三种转运体</h4>
 <p>三种单糖通过不同的转运机制穿越小肠上皮细胞（enterocyte）的管腔面膜进入细胞内，再从基底侧膜（basolateral membrane）转运至血液。</p>
 <p><strong>葡萄糖和半乳糖的吸收</strong>：通过钠-葡萄糖协同转运蛋白1（sodium-glucose linked transporter 1, SGLT1）进行继发性主动转运（secondary active transport）。SGLT1位于管腔面膜上，利用钠钾ATP酶（Na⁺/K⁺-ATPase）在基底侧膜上建立的钠离子电化学梯度（细胞外Na⁺浓度高于细胞内），将Na⁺顺浓度梯度转运入细胞的同时，将葡萄糖或半乳糖逆浓度梯度共转运入细胞。每转运一分子葡萄糖或半乳糖，伴随转运两个Na⁺离子。</p>
 <p>这一机制的关键在于：葡萄糖的吸收不直接消耗ATP，而是间接利用Na⁺梯度中储存的势能。Na⁺梯度的维持依赖于基底侧膜上Na⁺/K⁺-ATP酶持续消耗ATP将Na⁺泵出细胞。因此，这是一个继发性主动转运过程——直接驱动力是Na⁺梯度，最终能量来源是ATP。</p>
 <p><strong>果糖的吸收</strong>：通过葡萄糖转运蛋白5（glucose transporter 5, GLUT5）进行易化扩散（facilitated diffusion）。GLUT5位于管腔面膜上，顺浓度梯度将果糖转运入细胞，不消耗能量、不依赖Na⁺梯度。果糖的吸收速率低于葡萄糖，因为易化扩散的驱动力仅为浓度梯度，而葡萄糖的继发性主动转运可以将葡萄糖逆浓度梯度积累在细胞内。</p>
 <p><strong>单糖从细胞到血液</strong>：葡萄糖、果糖和半乳糖在 enterocyte 内积累后，通过基底侧膜上的葡萄糖转运蛋白2（glucose transporter 2, GLUT2）以易化扩散方式顺浓度梯度转运至门静脉血液。GLUT2是一种低亲和力、高容量的转运体，能够高效处理餐后大量单糖的转运需求。</p>
-<blockquote>
-<p>"单糖通过不同的转运蛋白被吸收：葡萄糖和半乳糖通过SGLT1主动转运，果糖通过GLUT5易化扩散，最终都通过GLUT2进入门静脉循环。"</p>
-<p>(Loeffelholz & Lefavi，《健身营养全书》第2章)</p>
-</blockquote>
+<blockquote>"单糖通过不同的转运蛋白被吸收：葡萄糖和半乳糖通过SGLT1主动转运，果糖通过GLUT5易化扩散，最终都通过GLUT2进入门静脉循环。"<br>(Loeffelholz & Lefavi，《健身营养全书》第2章)</blockquote>
 <p>三种单糖的吸收速率存在差异：葡萄糖 > 半乳糖 > 果糖。葡萄糖和半乳糖共享SGLT1转运体，通过继发性主动转运被高效吸收；果糖通过GLUT5的易化扩散吸收，速率较低。这一差异在运动营养中有实际意义：大量摄入果糖时，小肠对果糖的吸收速率可能成为瓶颈，未被及时吸收的果糖进入大肠后被肠道菌群发酵，可能引起胃肠不适。</p>
-<h4>六、门静脉→肝脏→全身循环</h4>
+<h4 class="sub-title">六、门静脉→肝脏→全身循环</h4>
 <p>从 enterocyte 基底侧膜转运出的单糖进入肠系膜毛细血管，汇入肝门静脉（hepatic portal vein），首先到达肝脏。肝脏是单糖代谢的第一站——这一解剖安排具有明确的生理学意义。</p>
 <p>葡萄糖在肝脏中的命运取决于机体的能量状态和激素环境。餐后状态下，胰岛素水平升高，肝脏将部分葡萄糖转化为糖原（肝糖原合成，glycogenesis）储存。当肝糖原储备接近饱和时，过量的葡萄糖通过糖异生途径的逆过程转化为脂肪酸（de novo lipogenesis），以甘油三酯形式包装为极低密度脂蛋白（VLDL）输出至脂肪组织储存。</p>
 <p>果糖几乎全部在肝脏中处理。果糖经果糖激酶（fructokinase）磷酸化为果糖-1-磷酸，然后经醛缩酶B（aldolase B）裂解为甘油醛和磷酸二羟丙酮，进入糖酵解/糖异生的共同代谢通路。果糖可以在肝脏中转化为葡萄糖（释放入血）、补充糖原储备，或在能量过剩时转化为脂肪酸。果糖绕过磷酸果糖激酶-1（phosphofructokinase-1, PFK-1）这一糖酵解关键限速步骤，因此在大量摄入时，肝脏中的碳流向脂肪酸合成的倾向可能增强。</p>
 <p>半乳糖经Leloir途径在肝脏中转化为葡萄糖-1-磷酸，然后进入糖酵解或糖原合成途径。</p>
 <p>经过肝脏处理后，葡萄糖通过肝静脉汇入下腔静脉，进入全身血液循环，分配至大脑、骨骼肌、脂肪组织等外周组织。</p>
-<h4>七、乳糖不耐受的生化机制</h4>
+<h4 class="sub-title">七、乳糖不耐受的生化机制</h4>
 <p>乳糖不耐受（lactose intolerance）的生化基础是乳糖酶活性不足。乳糖酶（lactase-phlorizin hydrolase, LPH）是一种位于小肠刷状缘的膜结合酶。在正常哺乳动物婴儿中，乳糖酶活性很高，确保乳汁中的乳糖被充分水解为葡萄糖和半乳糖后吸收。</p>
 <p>断奶后，乳糖酶基因（LCT，位于人类第2号染色体）的表达在大多数哺乳动物中自然下调。这一现象被称为乳糖酶非持续性（lactase non-persistence）。人类基因组中存在LCT基因上游的调控变异，其中MCM6基因区域的单核苷酸多态性（SNP，如-13910C>T）与乳糖酶持续性（lactase persistence）密切相关。携带特定等位基因的个体在断奶后乳糖酶表达维持较高水平（乳糖酶持续性），不携带的个体乳糖酶表达随年龄下降。</p>
 <p>乳糖酶持续性的地理分布与人类畜牧史存在显著相关。北欧人群中乳糖酶持续性频率可达80-90%，这与斯堪的纳维亚半岛数千年的游牧传统一致。东亚人群中乳糖酶非持续性频率高达80-90%以上，与中国传统农耕（非游牧）生活方式一致。这一分布模式是人类基因-文化协同进化（gene-culture co-evolution）的典型案例。</p>
 <p>当乳糖酶活性不足时，膳食中的乳糖不能被充分水解。未被水解的乳糖具有渗透活性（osmotic activity），在肠腔中吸引水分，导致肠腔内容物体积增大。乳糖随后进入大肠，被大肠菌群（主要是双歧杆菌属和乳酸杆菌属）发酵，产生短链脂肪酸（乙酸、丙酸、丁酸）和气体（氢气、二氧化碳、甲烷）。渗透效应和发酵产物的共同作用导致腹胀、腹鸣、腹泻和产气等乳糖不耐受症状。</p>
 <p>乳糖不耐受的严重程度因人而异，取决于乳糖酶残余活性和摄入乳糖量。许多乳糖不耐受个体可以耐受少量乳糖（约12克，相当于一杯牛奶），特别是与食物同服时。发酵乳制品（如酸奶）的乳糖含量较低，通常耐受性更好。</p>
-<h4>八、血糖指数（GI）的定义与意义</h4>
+<h4 class="sub-title">八、血糖指数（GI）的定义与意义</h4>
 <p>血糖指数（glycemic index, GI）由David Jenkins等于1981年提出，用于量化不同碳水化合物食物对餐后血糖反应的影响。GI的定义是：摄入含50克可利用碳水化合物的测试食物后，0至120分钟内的血糖应答曲线下面积（incremental area under the curve, iAUC），与摄入等量碳水化合物的参照食物（葡萄糖或白面包）的iAUC之比，以百分比表示。</p>
-<p>GI = (测试食物iAUC / 参照食物iAUC) × 100%</p>
+<div class="formula">GI = (测试食物iAUC / 参照食物iAUC) × 100%</div>
 <p>GI的分类标准通常为：低GI ≤ 55，中GI 56-69，高GI ≥ 70。</p>
 <p>GI值受多种因素影响。食物的物理结构（整粒谷物vs精磨面粉）、淀粉的回生程度（retrogradation，冷却的米饭比热米饭GI更低）、膳食纤维含量（可溶性纤维延缓胃排空和葡萄糖吸收）、脂肪和蛋白质的共摄入（延缓胃排空）、食物的酸碱度（酸性食物GI较低）等均影响GI值。</p>
 <p>GI的临床意义在于：长期摄入高GI食物与2型糖尿病风险升高、心血管事件风险升高有关。高GI食物引起快速的血糖升高和大量胰岛素分泌，长期反复的高胰岛素应答可能导致胰岛素抵抗（insulin resistance）的发展。但GI作为单一指标存在局限性——它不反映食物的总碳水化合物含量。血糖负荷（glycemic load, GL）= GI × 碳水化合物含量(g) / 100，同时考虑了碳水质量和数量。</p>
 <p>在训练营养中，GI的应用需要结合训练阶段。训练后糖原恢复的窗口期内，较高GI的碳水化合物可以更快地提升血糖和刺激胰岛素分泌，促进肌糖原合成。非训练时段，低GI食物有助于维持较稳定的血糖和胰岛素水平。</p>
-<h4>九、类比：城市供水系统的多级处理</h4>
+<h4 class="sub-title">九、类比：城市供水系统的多级处理</h4>
 <p>碳水化合物的消化吸收过程与城市供水系统的多级处理存在结构上的对应关系。</p>
 <p>自来水从水源地经过多级处理最终到达用户水龙头。第一级：水库粗滤（去除大颗粒）——类比口腔中唾液淀粉酶的初步水解，将大分子淀粉切割为较小片段。第二级：沉淀与混凝——类比胃中的消化暂停和食糜形成，是一个"等待与准备"的阶段。第三级：砂滤与活性炭过滤（去除中小颗粒和有机物）——类比胰淀粉酶的进一步水解。第四级：精密膜过滤（反渗透或超滤，去除微小杂质和微生物）——类比刷状缘酶的终末水解，将所有底物处理为最终可被"用户"使用的形式。第五级：管网配送——类比门静脉系统将单糖输送至肝脏和全身。</p>
 <p>类比的精确之处在于：两者都涉及多级处理，每一级处理将底物逐步降解为更小的单位；处理顺序不可颠倒（每级处理为下一级创造适宜条件）；最终产物必须足够"小"才能被最终用户（细胞/水龙头）使用；整个系统的瓶颈可能出现在任何一级（如果精密膜堵塞，即使前级处理完善，最终水质仍不合格；如果SGLT1功能受损，即使消化完善，吸收仍不充分）。</p>
 <p>边界差异：城市供水系统是人为工程，各处理级的参数固定可控；消化吸收是生物系统，受激素、神经调节和个体差异影响，参数动态可调。</p>
-<h4>十、对教练思维的含义</h4>
+<h4 class="sub-title">十、对教练思维的含义</h4>
 <p>碳水化合物消化吸收的系统知识对教练实践有三个层面的意义。</p>
 <p>第一，理解训练前后的碳水选择机制。训练后快速补充碳水的目的是加速糖原恢复。SGLT1和GLUT5两种不同的转运通道同时工作——葡萄糖通过SGLT1，果糖通过GLUT5。如果训练后仅摄入大量葡萄糖，SGLT1可能接近饱和；而葡萄糖-果糖混合摄入可以利用双通道提高总碳水吸收率。这是葡萄糖-果糖混合运动饮料的生化基础。</p>
 <p>第二，理解乳糖不耐受的个体差异。客户报告"喝牛奶不舒服"时，教练需要区分乳糖不耐受（消化酶问题）和牛奶过敏（免疫反应），两者的处理方案完全不同。乳糖不耐受客户可以选择低乳糖乳制品（硬质奶酪、酸奶）或乳糖酶补充剂，不需要完全回避乳制品。</p>
 <p>第三，理解GI的应用价值和局限。GI是一个有用的工具，但不是唯一的工具。一碗白米饭的GI高于一个苹果，但一碗白米饭在训练后可能是比苹果更合适的碳水来源。食物的选择需要结合训练阶段、总碳水量和整体膳食结构，而非机械追求低GI。</p>
 <hr>
-<h2>板块四：生物力学</h2>
-<h3>关节接触面积与压力分布</h3>
+</div>
+</div>
+<div class="section" id="sec-板块四生物力学">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 04</div><h2 class="section-title">板块四：生物力学</h2></div></div>
+<div class="card"><h3 class="card-title">关节接触面积与压力分布</h3>
 <p><strong>教材</strong>：McGinnis, P. M., <em>Biomechanics of Sport and Exercise</em>, 3rd ed., Chapter 4</p>
 <hr>
-<h4>一、压强的基本定义</h4>
+<h4 class="sub-title">一、压强的基本定义</h4>
 <p>压强（pressure）定义为单位面积上的力：</p>
-<p>P = F / A</p>
+<div class="formula">P = F / A</div>
 <p>其中P为压强，F为垂直作用于表面的力，A为力作用的面积。在国际单位制中，压强的单位为帕斯卡（Pa），1 Pa = 1 N/m²。在生物力学中，由于关节面受力数值较大，常用兆帕（MPa，10⁶ Pa）作为单位。</p>
 <p>这一定义蕴含着对关节力学至关重要的推论：在力恒定的条件下，面积越小，压强越大；面积越大，压强越小。关节软骨所承受的机械应力不仅取决于通过关节的力的大小，还取决于力在多大的面积上分布。</p>
 <p>McGinnis在讨论人体材料的力学性质时指出：</p>
-<blockquote>
-<p>"应力（stress）定义为力除以力作用的面积。……压缩应力（compressive stress）垂直于截面，剪切应力（shear stress）平行于截面。"</p>
-<p>(McGinnis, <em>Biomechanics of Sport and Exercise</em>, 3rd ed., Ch4, p.113)</p>
-</blockquote>
-<h4>二、关节面的实际接触面积</h4>
+<blockquote>"应力（stress）定义为力除以力作用的面积。……压缩应力（compressive stress）垂直于截面，剪切应力（shear stress）平行于截面。"<br>(McGinnis, *Biomechanics of Sport and Exercise*, 3rd ed., Ch4, p.113)</blockquote>
+<h4 class="sub-title">二、关节面的实际接触面积</h4>
 <p>关节的解剖面积（anatomical area）——即关节面在解剖学上可见的总面积——并非关节在受力时的实际接触面积（contact area）。在低负荷下，两块骨的关节面之间的实际接触面积远小于解剖面积。原因在于关节面不是完全吻合的（perfectly congruent）：即使在最"吻合"的关节中，两块骨的关节面曲率也存在微小差异。</p>
 <p>以膝关节为例：股骨髁（femoral condyle）和胫骨平台（tibial plateau）的关节面在宏观上看似匹配，但在微观上，两者的曲率不完全一致。在不负重或低负荷状态下，股骨髁与胫骨平台仅在少数分散的区域发生接触，实际接触面积可能仅为解剖面积的10-30%。</p>
 <p>随着负荷增加，接触面积增大。增大的机制包括两个方面。第一，关节软骨在压力下发生形变（deformation），软骨的粘弹性（viscoelastic）性质使它在持续负荷下逐渐适应对侧关节面的形状，增加接触区域。第二，半月板（meniscus）在膝关节中起到重要的接触面积扩展作用。半月板的楔形截面填充了股骨髁和胫骨平台之间的不完全吻合间隙，将点接触或线接触扩展为面接触。研究表明，半月板可以将膝关节的接触面积增加约2至3倍。</p>
-<blockquote>
-<p>"关节的接触面积随负荷增加而增大，这是由于软骨形变和半月板等辅助结构的参与。"</p>
-<p>(McGinnis, <em>Biomechanics of Sport and Exercise</em>, 3rd ed., Ch4)</p>
-</blockquote>
+<blockquote>"关节的接触面积随负荷增加而增大，这是由于软骨形变和半月板等辅助结构的参与。"<br>(McGinnis, *Biomechanics of Sport and Exercise*, 3rd ed., Ch4)</blockquote>
 <p>这一力学特征具有重要的生理意义。如果接触面积不随负荷增加而增大，那么负荷加倍时压强也加倍。但由于接触面积同时增大，压强的增加幅度被缓冲。这种非线性关系使关节软骨在正常活动范围内能够在安全的应力水平下工作。</p>
-<h4>三、关节软骨的应力分布</h4>
+<h4 class="sub-title">三、关节软骨的应力分布</h4>
 <p>关节软骨（articular cartilage）的结构与其力学功能高度匹配。软骨由软骨细胞（chondrocyte）和细胞外基质（extracellular matrix, ECM）组成。ECM的主要成分包括：II型胶原纤维（提供抗张强度 tensile strength）、蛋白多糖（proteoglycan，主要是聚集蛋白聚糖 aggrecan，提供抗压刚度 compressive stiffness）和水（占湿重的65-80%）。</p>
 <p>蛋白多糖带有大量负电荷，吸引阳离子（主要是Na⁺），导致渗透压升高，水分被吸入基质。胶原纤维网络限制了水分的过度进入，使软骨维持一种"预应力"（pre-stress）状态——基质内部存在持续的膨胀压（swelling pressure）。这一预应力使软骨在承受外部压缩负荷之前就已经处于一定的张力状态，胶原纤维网络被持续拉紧。</p>
 <p>当外部压缩负荷施加于关节面时，负荷的传递路径如下：压缩力首先使软骨中的水分被挤出（exudation），水分流向低应力区域。水分的流动带走了溶质，但随着水分流动阻力增大，越来越多的负荷由固体基质（胶原网络和蛋白多糖）承担。在稳态负荷下（如站立），软骨中的应力由固体基质和流体压力共同承担——这一机制被称为双相力学模型（biphasic model），由Mow等人于1980年提出。</p>
 <p>关节软骨的应力分布不是均匀的。即使在正常对位的关节中，应力分布也存在区域性差异。应力集中区域通常位于关节面的中央或负荷传导的主要路径上。软骨在这些区域的厚度通常更大，胶原纤维的排列方向也更适应压缩应力的传导。</p>
-<h4>四、关节对位不良对压强分布的影响</h4>
+<h4 class="sub-title">四、关节对位不良对压强分布的影响</h4>
 <p>当两块骨的关节面对位良好（well-aligned）时，接触面积最大化，应力分布相对均匀，峰值压强保持在安全范围内。当关节对位不良（malalignment）时，接触面积减小，应力集中在局部区域，峰值压强显著升高。</p>
 <p>以膝关节为例。正常站立时，力线（mechanical axis）从髋关节中心经过膝关节中心到达踝关节中心，股骨髁和胫骨平台的接触面积充分展开，应力分布相对均匀。</p>
 <p>当膝关节出现内翻（varus，O型腿）对位不良时，负荷向膝关节内侧偏移。内侧胫股关节面的接触面积增加但承受的比例负荷过大，外侧关节面的接触面积减小。内侧软骨承受的压强可能超过正常值的2至3倍。长期内侧过载加速内侧关节软骨退变，是内侧室骨关节炎（medial compartment osteoarthritis）的重要力学因素。</p>
 <p>当膝关节出现外翻（valgus，X型腿）对位不良时，负荷向外侧偏移，产生与内翻相反但机制相同的效应。</p>
-<blockquote>
-<p>"关节对位不良导致接触面积减小和应力集中，这是骨关节炎发生和发展的重要力学因素。"</p>
-<p>(McGinnis, <em>Biomechanics of Sport and Exercise</em>, 3rd ed., Ch4)</p>
-</blockquote>
-<h4>五、膝关节外翻（valgus）时负荷转移的风险</h4>
+<blockquote>"关节对位不良导致接触面积减小和应力集中，这是骨关节炎发生和发展的重要力学因素。"<br>(McGinnis, *Biomechanics of Sport and Exercise*, 3rd ed., Ch4)</blockquote>
+<h4 class="sub-title">五、膝关节外翻（valgus）时负荷转移的风险</h4>
 <p>膝关节外翻（knee valgus）在动态动作中的出现比静态对位不良更具风险。原因如下。</p>
 <p>第一，动态外翻是一种突然出现的对位变化。在静态站立中，关节面有时间通过软骨蠕变（creep）来适应负荷分布。在快速运动（落地、变向、跳跃）中，外翻可能在毫秒级别内出现，软骨来不及通过形变来扩大接触面积，瞬时应力集中程度远高于静态情况。</p>
 <p>第二，动态外翻通常伴随胫骨内旋（tibial internal rotation）。外翻和内旋的联合使前交叉韧带（ACL）承受的负荷显著增大。ACL在膝关节外翻加内旋的体位下最容易被损伤。</p>
 <p>第三，动态外翻反映了一种神经肌肉控制缺陷。臀中肌（gluteus medius）和臀大肌的外展-外旋功能不足，股四头肌（尤其是股外侧肌）和腘绳肌的协同控制不佳，足部过度旋前（over-pronation），这些因素共同导致膝关节在动态动作中难以维持正常对位。</p>
-<h4>六、训练中的对位意识</h4>
+<h4 class="sub-title">六、训练中的对位意识</h4>
 <p>从压强-面积关系的力学原理可以推导出一个核心训练原则：在给定负荷下，最大化关节面的接触面积是保护关节软骨的关键策略。</p>
 <p>最大化接触面积的手段包括：维持关节正常对位（alignment）——力线通过关节中心，接触面积最大化；在全活动范围（full ROM）训练中避免极端的末端关节位置——在极端位置接触面积通常减小；渐进性负荷增加——给软骨形变和接触面积扩展留出适应时间。</p>
 <p>关节对位不良的力学后果不仅限于软骨。韧带在关节对位不良时承受的负荷模式也发生改变。正常情况下，韧带在关节活动范围的末端才被拉紧以限制过度运动。在关节对位不良时，韧带可能在关节活动的中间范围就已经承受了异常拉力。长期异常拉力可能导致韧带松弛（laxity），进一步恶化关节对位，形成恶性循环。</p>
-<h4>七、类比：轮胎接地面积与路面压强</h4>
+<h4 class="sub-title">七、类比：轮胎接地面积与路面压强</h4>
 <p>关节接触面积与压强分布的力学关系与轮胎接地面积（contact patch）和路面压强之间存在直接的力学对应。</p>
 <p>汽车轮胎的接地面积取决于轮胎宽度、胎压和载荷。当胎压恒定时，载荷越大，接地面积越大（轮胎形变增加），但单位面积上的压强也增大。如果胎压过高，接地面积减小（轮胎中部凸起），压强集中在轮胎中部。如果胎压过低，接地面积增大但轮胎侧壁过度弯曲变形，产生过热和结构损伤。</p>
 <p>关节软骨的力学处境与此高度相似。正常对位下，接触面积适中，压强分布均匀（类似正确的胎压）。对位不良时，接触面积减小，压强集中在局部区域（类似胎压过高）。负荷过大时，虽然接触面积增大，但软骨过度形变，固体基质承受的应力增加（类似胎压过低时轮胎侧壁的过度弯曲）。</p>
 <p>类比的精确之处在于：两者都涉及弹性体（轮胎橡胶/关节软骨）在两个刚体（路面与轮辋/两块骨的关节面）之间的力学行为；接触面积决定了压强的分布；偏离正常状态（胎压不当/关节对位不良）都导致应力集中和结构损伤。</p>
 <p>边界差异：轮胎是均匀各向同性的弹性体，关节软骨是不均匀各向异性的双相材料；轮胎接地面积的变化范围有限，关节接触面积可以通过半月板、软骨形变和关节位置的变化在更大范围内调节；轮胎磨损后不可修复，关节软骨虽然因其低细胞密度和无血管特性修复能力极为有限，但适度的力学刺激可以维持软骨健康。</p>
-<h4>八、对教练思维的含义</h4>
+<h4 class="sub-title">八、对教练思维的含义</h4>
 <p>压强-面积关系的力学原理对教练训练设计有三条直接指导。</p>
 <p>第一，膝关节对位是推举类动作（深蹲、硬拉、弓步蹲）的底线要求。深蹲过程中出现膝关节内扣（valgus collapse）时，膝关节内侧的接触面积减小，压强集中，软骨和韧带同时承受异常的力学负荷。在负重条件下反复出现膝关节内扣，每一次都是对关节结构的一次异常应力冲击。膝关节对位不是"动作好不好看"的美学问题，是关节安全的力学底线。</p>
 <p>第二，负荷渐进的逻辑。软骨的适应性需要时间。突然大幅增加负荷时，接触面积来不及通过软骨形变充分扩展，峰值压强可能急剧升高。负荷的渐进性增加给接触面积的力学适应留出了时间，使软骨在安全的应力水平下逐步增强。</p>
 <p>第三，疲劳状态下的动作监控。神经肌肉疲劳导致关节稳定性下降，对位控制能力降低。在训练课的末尾阶段，膝关节出现外翻的概率增大。如果在此阶段继续维持大负荷，关节面压强分布异常的风险显著升高。合理的做法是在疲劳导致动作质量下降时终止该组或降低负荷。</p>
 <p>板块二讨论的赫拉克利特的"万物皆流"在此获得了力学层面的印证。关节接触面积不是固定的，它随负荷、关节角度、对位状态和疲劳程度持续变化。教练需要在持续变化的力学环境中维持关节的安全对位——在流变中维持秩序。</p>
 <hr>
-<h2>板块五：解剖</h2>
-<h3>肩关节复合体</h3>
+</div>
+</div>
+<div class="section" id="sec-板块五解剖">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 05</div><h2 class="section-title">板块五：解剖</h2></div></div>
+<div class="card"><h3 class="card-title">肩关节复合体</h3>
 <p><strong>教材</strong>：Neumann, D. A., <em>Kinesiology of the Musculoskeletal System</em>, 3rd ed., Chapter 3;《功能解剖》, Chapter 4-6</p>
 <hr>
-<h4>一、肩关节复合体的四个关节</h4>
+<h4 class="sub-title">一、肩关节复合体的四个关节</h4>
 <p>肩关节（shoulder complex）不是单一关节，而是由四个关节组成的功能复合体。这一复合体的结构设计使上肢获得了全身最大范围的活动度，代价是牺牲了骨性稳定性。</p>
 <p><strong>盂肱关节（glenohumeral joint）</strong>：球窝关节（ball-and-socket joint），肱骨头（humeral head）与肩胛骨的关节盂（glenoid fossa）构成。这是肩关节复合体中活动度最大的关节，三个旋转自由度（屈伸、外展内收、内外旋），是上肢运动的"终端执行器"。</p>
 <p><strong>肩锁关节（acromioclavicular joint, AC joint）</strong>：平面关节（plane joint），锁骨外侧端（lateral end of clavicle）与肩峰（acromion）构成。活动度有限，主要允许肩胛骨相对于锁骨做前后和上下滑动以及少量旋转。</p>
@@ -303,64 +290,55 @@ th{background:#1a2332;color:#38bdf8;font-weight:600}
 <p><strong>肩胛胸壁关节（scapulothoracic joint）</strong>：非真正滑膜关节（not a true synovial joint）。肩胛骨的内侧面（腹侧面）通过肌肉层贴附在胸廓后壁上。虽然不具有关节囊、滑液等滑膜关节结构，但在功能上，肩胛骨在胸壁上的滑动、旋转和倾斜对上肢功能至关重要。</p>
 <p>四个关节的协同运动使上肢的整体活动范围远超任何单一关节的活动范围。盂肱关节提供主要的旋转自由度，肩胛胸壁关节通过改变关节盂的朝向来扩大盂肱关节的有效工作范围，胸锁关节和肩锁关节提供锁骨的运动自由度以配合肩胛骨的运动。</p>
 <p>Neumann指出：</p>
-<blockquote>
-<p>"肩关节复合体由四个关节组成——盂肱、肩锁、胸锁和肩胛胸壁关节。它们之间的运动协调称为肩肱节律（scapulohumeral rhythm），是上肢正常功能的基础。"</p>
-<p>(Neumann, <em>Kinesiology of the Musculoskeletal System</em>, 3rd ed., Ch3)</p>
-</blockquote>
-<h4>二、盂肱关节：自由度-稳定性的张力</h4>
+<blockquote>"肩关节复合体由四个关节组成——盂肱、肩锁、胸锁和肩胛胸壁关节。它们之间的运动协调称为肩肱节律（scapulohumeral rhythm），是上肢正常功能的基础。"<br>(Neumann, *Kinesiology of the Musculoskeletal System*, 3rd ed., Ch3)</blockquote>
+<h4 class="sub-title">二、盂肱关节：自由度-稳定性的张力</h4>
 <p>盂肱关节是全身活动度最大的关节，也是全身最不稳定的关节。自由度与稳定性之间的张力源于其骨性结构。</p>
 <p>肱骨头的关节面近似一个球体，面积较大。关节盂（glenoid fossa）是一个浅碟状的凹陷，面积仅为肱骨头关节面的约三分之一。解剖学比喻常将这一结构描述为"高尔夫球放在球座上"（golf ball on a tee）——球（肱骨头）远大于球座（关节盂）。但这一比喻高估了盂肱关节的骨性稳定性。高尔夫球座对球有一定的包绕和约束，而关节盂对肱骨头的包绕程度更低。</p>
 <p>关节盂的深度通过两个结构被部分增加。第一，盂唇（glenoid labrum）：一圈纤维软骨环附着在关节盂边缘，使关节盂的有效深度增加约50%。盂唇还增加了关节囊和韧带的附着面积。第二，关节盂的形态变异：部分个体的关节盂更浅（前倾角较小），骨性稳定性更差。</p>
 <p>骨性结构对盂肱关节稳定性的贡献极为有限。盂肱关节的稳定性必须主要依赖非骨性结构。</p>
-<h4>三、肩关节稳定性的三层结构</h4>
+<h4 class="sub-title">三、肩关节稳定性的三层结构</h4>
 <p>盂肱关节的稳定性可以按结构的性质分为三个层次，从最深层（被动）到最浅层（主动）。</p>
 <p><strong>第一层：骨性结构（最小贡献）</strong>。如前所述，关节盂的浅碟形态使骨性约束极为有限。即使盂唇增加了关节盂深度，骨性结构提供的被动稳定性仍然是三层中最弱的。盂肱关节是全身最依赖软组织和肌肉来维持稳定的关节。</p>
 <p><strong>第二层：被动稳定结构——韧带和盂唇</strong>。盂肱韧带复合体（glenohumeral ligament complex）由三条韧带组成：上盂肱韧带（superior glenohumeral ligament, SGHL）、中盂肱韧带（middle glenohumeral ligament, MGHL）和下盂肱韧带复合体（inferior glenohumeral ligament complex, IGHL）。三条韧带在不同关节位置发挥约束作用。</p>
 <p>SGHL在肩关节接近解剖位（手臂自然下垂）时限制肱骨头的下方平移。MGHL在肩关节外展至约45度时限制前方平移IGHL是肩关节在外展90度并外旋时最重要的前方稳定结构——这恰恰是投掷动作的早期阶段（cocking phase）。IGHL复合体被称为"前下方悬带"（anterior-inferior capsular sling），在外旋位时像吊带一样将肱骨头约束在关节盂内。</p>
 <p>关节囊（joint capsule）整体松弛，允许大范围运动，但在极端位置被拉紧以限制过度运动。盂唇通过增加关节盂深度和提供韧带附着点来增强被动稳定性。盂唇损伤（如SLAP损伤，superior labrum anterior to posterior）会同时降低关节盂的有效深度和韧带的约束功能。</p>
-<blockquote>
-<p>"下盂肱韧带复合体是肩关节在外展外旋位最主要的被动稳定结构。"</p>
-<p>(Neumann, <em>Kinesiology of the Musculoskeletal System</em>, 3rd ed., Ch3)</p>
-</blockquote>
+<blockquote>"下盂肱韧带复合体是肩关节在外展外旋位最主要的被动稳定结构。"<br>(Neumann, *Kinesiology of the Musculoskeletal System*, 3rd ed., Ch3)</blockquote>
 <p><strong>第三层：主动稳定结构——肌肉和肩袖</strong>。这是盂肱关节最重要的稳定性来源。肩袖（rotator cuff）由四块肌肉组成，它们的肌腱融合形成袖套状结构包裹盂肱关节。</p>
 <p>冈上肌（supraspinatus）：起自肩胛骨冈上窝（supraspinous fossa），止于肱骨大结节（greater tubercle）最上方。主要功能是肩关节外展的启动（0-15度最为关键），在更大角度协助三角肌完成外展。冈上肌在肩关节外展时通过其肌腱的向下拉力分量将肱骨头压入关节盂，抵消三角肌收缩时产生的向上剪切分量。</p>
 <p>冈下肌（infraspinatus）：起自肩胛骨冈下窝（infraspinous fossa），止于肱骨大结节中间。主要功能是肩关节外旋（external rotation）。</p>
 <p>小圆肌（teres minor）：起自肩胛骨外侧缘背面，止于肱骨大结节最下方。功能与冈下肌协同，协助外旋。</p>
 <p>肩胛下肌（subscapularis）：起自肩胛骨前面（腹侧面）的肩胛下窝（subscapular fossa），止于肱骨小结节（lesser tubercle）。是四块肩袖肌中唯一具有内旋（internal rotation）功能的肌肉。也是体积最大的肩袖肌。</p>
 <p>肩袖的核心功能不仅是产生旋转力矩，更重要的是"压缩-中心化"（compression-centering）机制。肩袖四块肌肉的协同收缩将肱骨头压入并保持在关节盂的中心位置。这一机制在三角肌收缩产生大幅度运动时尤为关键：三角肌（尤其是中束和前束）收缩时产生的力有一个将肱骨头向上方或前方推移的分量。如果没有肩袖的对抗性压缩力，肱骨头将在三角肌的牵拉下向上方或前方平移，撞击肩峰或拉伸关节囊。</p>
-<blockquote>
-<p>"肩袖的功能不仅是旋转，更关键的是通过压缩力将肱骨头保持在关节盂的中心，为三角肌提供稳定的工作平台。"</p>
-<p>(Neumann, <em>Kinesiology of the Musculoskeletal System</em>, 3rd ed., Ch3)</p>
-</blockquote>
-<h4>四、肩胛胸壁关节的功能重要性</h4>
+<blockquote>"肩袖的功能不仅是旋转，更关键的是通过压缩力将肱骨头保持在关节盂的中心，为三角肌提供稳定的工作平台。"<br>(Neumann, *Kinesiology of the Musculoskeletal System*, 3rd ed., Ch3)</blockquote>
+<h4 class="sub-title">四、肩胛胸壁关节的功能重要性</h4>
 <p>肩胛胸壁关节虽然不是一个真正的滑膜关节，但它对上肢功能的影响极为重大。肩胛骨在胸壁上的运动包括：上提（elevation）和下降（depression）、前伸（protraction）和后缩（retraction）、上回旋（upward rotation）和下回旋（downward rotation）、前倾（anterior tilt）和后倾（posterior tilt）、内旋（internal rotation）和外旋（external rotation）。</p>
 <p>肩胛骨的运动直接影响关节盂的朝向。关节盂的朝向决定了盂肱关节的有效活动范围。如果肩胛骨无法充分上回旋（upward rotation），盂肱关节在外展时的有效活动范围将受到限制——因为关节盂的朝上分量不足，肱骨头在外展末端将过早接近关节盂的上缘。</p>
 <p>肩胛胸壁关节的稳定性由多组肌肉提供。前锯肌（serratus anterior）将肩胛骨内侧面紧贴胸壁，是肩胛骨前伸和上回旋的主要动力来源。斜方肌（trapezius）的上束、中束和下束分别控制肩胛骨的上提、后缩和下降。菱形肌（rhomboids）协助后缩和下降。这些肌肉的协调收缩确保了肩胛骨在胸壁上的稳定贴附。</p>
 <p>前锯肌无力或功能障碍导致"翼状肩胛"（winged scapula）——肩胛骨内侧面翘起离开胸壁。翼状肩胛不仅影响肩胛骨的稳定性，还通过改变关节盂朝向间接影响盂肱关节的力学环境。</p>
-<h4>五、肩峰下撞击的机制</h4>
+<h4 class="sub-title">五、肩峰下撞击的机制</h4>
 <p>肩峰下间隙（subacromial space）是肱骨头上方与肩峰下方的空间。这一间隙中通过的结构包括：冈上肌腱、肱二头肌长头腱、肩峰下滑囊（subacromial bursa）。正常状态下，肩峰下间隙的宽度（约9-10mm）足以容纳这些结构在肩关节运动过程中自由滑动。</p>
 <p>肩峰下撞击综合征（subacromial impingement syndrome, SAIS）发生在肩峰下间隙的有效宽度减小时。间隙减小的机制可分为骨性因素和功能性因素。</p>
 <p>骨性因素：肩峰的形态变异。Bigliani于1972年根据肩峰的下面形态将其分为三型：I型（平坦型）、II型（弧形）、III型（钩型）。III型钩状肩峰使肩峰下间隙的骨性空间减小，冈上肌腱在肩关节外展过程中被挤压在肩峰和肱骨头之间的风险增加。肩峰骨刺（bone spur）的形成进一步减小间隙。</p>
 <p>功能性因素更为普遍。盂肱关节在运动中失去正常的肩肱节律（scapulohumeral rhythm）时，肱骨头在三角肌的牵拉下向上方平移（superior migration），挤压肩峰下间隙。正常情况下，肩袖（尤其是冈下肌、小圆肌和肩胛下肌）的向下拉力分量将肱骨头维持在中心位置，防止向上平移。如果肩袖功能不足——力量弱、激活延迟或疲劳——肱骨头在肩关节外展过程中的向上平移量增大，肩峰下间隙被压缩。</p>
 <p>肩胛骨运动障碍（scapular dyskinesis）也是肩峰下撞击的重要功能性因素。如果肩胛骨的上回旋不足，关节盂朝向不够朝上，肱骨头在外展时更早接近肩峰。如果肩胛骨后倾不足，肩峰的位置相对更低，进一步压缩间隙。</p>
-<blockquote>
-<p>"肩峰下撞击的发生是肩峰下间隙内容物在肩峰和肱骨头之间被压缩的结果。间隙的减小可以由骨性因素或功能性因素导致。"</p>
-<p>(Neumann, <em>Kinesiology of the Musculoskeletal System</em>, 3rd ed., Ch3)</p>
-</blockquote>
-<h4>六、类比：卫星天线的万向节支架</h4>
+<blockquote>"肩峰下撞击的发生是肩峰下间隙内容物在肩峰和肱骨头之间被压缩的结果。间隙的减小可以由骨性因素或功能性因素导致。"<br>(Neumann, *Kinesiology of the Musculoskeletal System*, 3rd ed., Ch3)</blockquote>
+<h4 class="sub-title">六、类比：卫星天线的万向节支架</h4>
 <p>肩关节复合体的四关节协同机制与卫星天线的万向节支架（gimbal mount）存在结构上的对应关系。</p>
 <p>卫星天线需要在大范围内精确指向不同方向的卫星。万向节支架通过多层旋转环的组合，使天线获得多自由度指向能力。每一层旋转环独立运动，但它们的组合使天线获得远超单一旋转轴的活动范围。</p>
 <p>肩关节复合体的四关节协同类似。盂肱关节是最内层的"旋转环"，提供主要的旋转自由度。肩胛骨在胸壁上的运动是外层"旋转环"，通过改变关节盂朝向来扩大盂肱关节的有效工作范围。胸锁关节和肩锁关节是最外层的"旋转环"，通过锁骨的运动为肩胛骨运动提供基础。</p>
 <p>类比的核心在于：多层旋转结构的协同运动使末端（天线/手）获得远超单一关节的活动范围。任何一层旋转环的功能障碍都会限制末端的整体活动能力。如果外层"旋转环"（肩胛胸壁关节）运动受限，内层"旋转环"（盂肱关节）将被迫在缩小的有效范围内工作，可能在极端位置超出其自身的安全边界。</p>
 <p>边界差异：万向节支架是刚性结构，旋转轴固定；肩关节复合体中肩胛胸壁关节的"旋转轴"不是固定的，它由肌肉的动态收缩模式决定，可因疲劳、习惯或损伤而改变。</p>
-<h4>七、对教练思维的含义</h4>
+<h4 class="sub-title">七、对教练思维的含义</h4>
 <p>肩关节复合体的解剖学知识对教练实践有两条核心指导。</p>
 <p>第一，推举类动作（过头推举、抓举等）的前提是肩胛骨的稳定性。过头推举要求肩胛骨在上回旋位稳定地贴附在胸壁上，为盂肱关节的伸展提供稳定的基础平台。如果前锯肌和斜方肌无力或协调不良，肩胛骨在上回旋位的稳定性不足，盂肱关节在一个不稳定的基底上做过头推举，肱骨头容易向上方平移，肩峰下间隙被压缩，冈上肌腱被挤压。肩关节的肩骨稳定性（scapular stability）是安全推举的前提条件，而非锦上添花。在增加推举负荷之前，教练需要确认客户的肩胛骨控制能力是否充分。</p>
 <p>第二，肩袖训练不是可选项。肩袖的核心功能是维持肱骨头在关节盂中的中心化位置——为三角肌提供稳定的工作平台。三角肌是肩关节最强大的运动肌，它的收缩力量远超肩袖。如果没有肩袖的持续中心化压缩，三角肌每次强力收缩都倾向于将肱骨头拉离关节盂中心。这不是偶尔发生的事，而是每一次肩部发力都在发生。肩袖的功能不是在某些特定动作中才被需要的额外稳定结构，而是每一次肩部发力的基础条件。忽视肩袖训练等同于忽视肩关节最基本的安全机制。</p>
 <p>板块四讨论的关节接触面积与压强分布在此获得了肩部应用。盂肱关节的骨性接触面积本身就很小（关节盂仅为肱骨头的三分之一），如果肩袖功能不足导致肱骨头偏离中心位置，有效接触面积进一步减小，局部压强集中，增加关节盂唇和软骨的损伤风险。肩袖训练的意义不仅是"预防损伤"——它是维持盂肱关节正常力学环境的基础条件。</p>
 <hr>
-<h2>全课总结</h2>
-<h3>否证、流变与身体系统的统一线索</h3>
+</div>
+</div>
+<div class="section" id="sec-全课总结">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SUMMARY</div><h2 class="section-title">全课总结</h2></div></div>
+<div class="card"><h3 class="card-title">否证、流变与身体系统的统一线索</h3>
 <p>本课五个板块呈现了一条从抽象方法论到具体身体系统的论证线索。</p>
 <p>板块一中，波普尔的否证主义回应了Lesson 8中归纳主义的四重困境。科学通过否证来进步，而非通过归纳来证实。一个理论的标志在于它可以被经验否证——它必须冒着被推翻的风险做出精确预测。</p>
 <p>板块二中，赫拉克利特的万物皆流提出了一个与波普尔深层共鸣的命题：实在的本质是变化。变化不是知识的障碍，而是知识必须面对的现实。逻各斯（logos）是变化中的秩序——万物在流变中遵循尺度。波普尔的科学通过否证不断修正来逼近真理，赫拉克利特的万物在变化中遵循逻各斯——两者共同指向一个核心洞见：知识不是静态的积累，而是在持续变化中维持秩序的过程。</p>
@@ -369,70 +347,56 @@ th{background:#1a2332;color:#38bdf8;font-weight:600}
 <p>板块五中，肩关节复合体是人体自由度与稳定性张力最为极端的案例。四个关节的协同运动赋予上肢全身最大的活动范围，代价是极低的骨性稳定性。肩袖的中心化压缩功能是肩关节安全运作的基石。</p>
 <p>五个板块的统一线索是：变化中的秩序。波普尔的科学在否证中逼近真理（变化中的知识秩序）。赫拉克利特的万物在流变中遵循逻各斯（变化中的本体秩序）。碳水化合物在多级消化中逐步降解（变化中的代谢秩序）。关节接触面积在运动中动态调整（变化中的力学秩序）。肩关节复合体在四关节协同中实现功能（变化中的结构秩序）。教练的任务是在所有这些层面识别秩序、维持秩序、在秩序被打破时及时干预。</p>
 <hr>
-<h2>引用原句</h2>
-<p><strong>1. Chalmers 论可否证性作为划界标准：</strong></p>
-<blockquote>
-<p>"一个理论是否具有科学的地位，其衡量标准在于它的可否证性。……如果存在与理论相矛盾的可能观察，则该理论是可以否证的（falsifiable）。"</p>
-<p>(Chalmers, <em>What Is This Thing Called Science?</em>, Ch5, p.59)</p>
-</blockquote>
-<p><strong>2. Chalmers 论不可否证的占星术：</strong></p>
-<blockquote>
-<p>"占星术士的预测极其模糊，无论发生什么都可以被解释为与预测一致。……它们不具备可否证性。"</p>
-<p>(Chalmers, <em>What Is This Thing Called Science?</em>, Ch5, p.60)</p>
-</blockquote>
-<p><strong>3. Chalmers 论大胆猜测：</strong></p>
-<blockquote>
-<p>"科学不是收集观察事实的归纳过程，而是提出大胆猜测并尝试否证它们的过程。……好的理论敢于做出精确预测，将自己暴露在否证的风险之下。"</p>
-<p>(Chalmers, <em>What Is This Thing Called Science?</em>, Ch5, p.63)</p>
-</blockquote>
-<p><strong>4. Chalmers 论否证后的保护性策略：</strong></p>
-<blockquote>
-<p>"当一个理论被否证时，我们总是可以质疑实验或观察是否真的如描述的那样。……我们可以永远为理论打补丁，使得理论在任何观察面前都不被否证。"</p>
-<p>(Chalmers, <em>What Is This Thing Called Science?</em>, Ch5, p.61)</p>
-</blockquote>
-<p><strong>5. 赫拉克利特论万物皆流：</strong></p>
-<blockquote>
-<p>"人不能两次踏入同一条河流。"</p>
-<p>(Heraclitus, Fragment B91; 参见周濂，《打开》第11讲)</p>
-</blockquote>
-<p><strong>6. 赫拉克利特论逻各斯：</strong></p>
-<blockquote>
-<p>"虽然逻各斯是共同的（xynon），多数人却活得好像拥有私有的智慧。"</p>
-<p>(Heraclitus, Fragment B2; 参见周濂，《打开》第11讲)</p>
-</blockquote>
-<p><strong>7. 赫拉克利特论永恒的活火：</strong></p>
-<blockquote>
-<p>"这个世界，对于一切存在物都是同一的，它不是任何神所创造的，也不是任何人所创造的；它过去、现在、未来永远是一团永恒的活火，在一定的分寸上燃烧，在一定的分寸上熄灭。"</p>
-<p>(Heraclitus, Fragment B30; 参见周濂，《打开》第11讲)</p>
-</blockquote>
-<p><strong>8. McGinnis 论应力定义：</strong></p>
-<blockquote>
-<p>"应力（stress）定义为力除以力作用的面积。……压缩应力（compressive stress）垂直于截面，剪切应力（shear stress）平行于截面。"</p>
-<p>(McGinnis, <em>Biomechanics of Sport and Exercise</em>, 3rd ed., Ch4, p.113)</p>
-</blockquote>
-<p><strong>9. Neumann 论肩关节复合体：</strong></p>
-<blockquote>
-<p>"肩关节复合体由四个关节组成——盂肱、肩锁、胸锁和肩胛胸壁关节。它们之间的运动协调称为肩肱节律（scapulohumeral rhythm），是上肢正常功能的基础。"</p>
-<p>(Neumann, <em>Kinesiology of the Musculoskeletal System</em>, 3rd ed., Ch3)</p>
-</blockquote>
-<p><strong>10. Neumann 论肩袖功能：</strong></p>
-<blockquote>
-<p>"肩袖的功能不仅是旋转，更关键的是通过压缩力将肱骨头保持在关节盂的中心，为三角肌提供稳定的工作平台。"</p>
-<p>(Neumann, <em>Kinesiology of the Musculoskeletal System</em>, 3rd ed., Ch3)</p>
-</blockquote>
-<hr>
-<h2>参考文献</h2>
-<p>1. Chalmers, A. F. (2013). <em>What Is This Thing Called Science?</em>, 4th ed. Open University Press.</p>
-<p>2. 周濂. (2019). 打开：周濂的100堂西方哲学课. 上海三联书店.</p>
-<p>3. Heraclitus. Fragments. (参见 Diels, H. & Kranz, W., <em>Die Fragmente der Vorsokratiker</em>.)</p>
-<p>4. Loeffelholz, D. von, & Lefavi, R. G. (2019). 健身营养全书. 北京科学技术出版社.</p>
-<p>5. McGinnis, P. M. (2005). <em>Biomechanics of Sport and Exercise</em>, 3rd ed. Human Kinetics.</p>
-<p>6. Neumann, D. A. (2017). <em>Kinesiology of the Musculoskeletal System: Foundations for Rehabilitation</em>, 3rd ed. Elsevier.</p>
-<p>7.《功能解剖》.</p>
-<p>8. Mow, V. C., Kuei, S. C., Lai, W. M., & Armstrong, C. G. (1980). Biphasic creep and stress relaxation of articular cartilage in compression: Theory and experiments. <em>Journal of Biomechanical Engineering</em>, 102(1), 73-84.</p>
-<p>9. Bigliani, L. U. (1972). The acromion process and its relationship to rotator cuff disease. <em>Orthopedic Transactions</em>, 6, 156.</p>
-<p>10. Jenkins, D. J., Wolever, T. M., Taylor, R. H., et al. (1981). Glycemic index of foods: a physiological basis for carbohydrate exchange. <em>American Journal of Clinical Nutrition</em>, 34(3), 362-366.</p>
-<p>11. Jeukendrup, A. E. (2010). Carbohydrate feeding during exercise. <em>European Journal of Sport Science</em>, 10(2), 77-86.</p>
 </div>
+</div>
+<div class="section" id="sec-引用原句">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">QUOTES</div><h2 class="section-title">引用原句</h2></div></div>
+<p><strong>1. Chalmers 论可否证性作为划界标准：</strong></p>
+<blockquote>"一个理论是否具有科学的地位，其衡量标准在于它的可否证性。……如果存在与理论相矛盾的可能观察，则该理论是可以否证的（falsifiable）。"<br>(Chalmers, *What Is This Thing Called Science?*, Ch5, p.59)</blockquote>
+<p><strong>2. Chalmers 论不可否证的占星术：</strong></p>
+<blockquote>"占星术士的预测极其模糊，无论发生什么都可以被解释为与预测一致。……它们不具备可否证性。"<br>(Chalmers, *What Is This Thing Called Science?*, Ch5, p.60)</blockquote>
+<p><strong>3. Chalmers 论大胆猜测：</strong></p>
+<blockquote>"科学不是收集观察事实的归纳过程，而是提出大胆猜测并尝试否证它们的过程。……好的理论敢于做出精确预测，将自己暴露在否证的风险之下。"<br>(Chalmers, *What Is This Thing Called Science?*, Ch5, p.63)</blockquote>
+<p><strong>4. Chalmers 论否证后的保护性策略：</strong></p>
+<blockquote>"当一个理论被否证时，我们总是可以质疑实验或观察是否真的如描述的那样。……我们可以永远为理论打补丁，使得理论在任何观察面前都不被否证。"<br>(Chalmers, *What Is This Thing Called Science?*, Ch5, p.61)</blockquote>
+<p><strong>5. 赫拉克利特论万物皆流：</strong></p>
+<blockquote>"人不能两次踏入同一条河流。"<br>(Heraclitus, Fragment B91; 参见周濂，《打开》第11讲)</blockquote>
+<p><strong>6. 赫拉克利特论逻各斯：</strong></p>
+<blockquote>"虽然逻各斯是共同的（xynon），多数人却活得好像拥有私有的智慧。"<br>(Heraclitus, Fragment B2; 参见周濂，《打开》第11讲)</blockquote>
+<p><strong>7. 赫拉克利特论永恒的活火：</strong></p>
+<blockquote>"这个世界，对于一切存在物都是同一的，它不是任何神所创造的，也不是任何人所创造的；它过去、现在、未来永远是一团永恒的活火，在一定的分寸上燃烧，在一定的分寸上熄灭。"<br>(Heraclitus, Fragment B30; 参见周濂，《打开》第11讲)</blockquote>
+<p><strong>8. McGinnis 论应力定义：</strong></p>
+<blockquote>"应力（stress）定义为力除以力作用的面积。……压缩应力（compressive stress）垂直于截面，剪切应力（shear stress）平行于截面。"<br>(McGinnis, *Biomechanics of Sport and Exercise*, 3rd ed., Ch4, p.113)</blockquote>
+<p><strong>9. Neumann 论肩关节复合体：</strong></p>
+<blockquote>"肩关节复合体由四个关节组成——盂肱、肩锁、胸锁和肩胛胸壁关节。它们之间的运动协调称为肩肱节律（scapulohumeral rhythm），是上肢正常功能的基础。"<br>(Neumann, *Kinesiology of the Musculoskeletal System*, 3rd ed., Ch3)</blockquote>
+<p><strong>10. Neumann 论肩袖功能：</strong></p>
+<blockquote>"肩袖的功能不仅是旋转，更关键的是通过压缩力将肱骨头保持在关节盂的中心，为三角肌提供稳定的工作平台。"<br>(Neumann, *Kinesiology of the Musculoskeletal System*, 3rd ed., Ch3)</blockquote>
+<hr>
+</div>
+<div class="section" id="sec-参考文献">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">REFERENCES</div><h2 class="section-title">参考文献</h2></div></div>
+<li class="ref-item">Chalmers, A. F. (2013). <em>What Is This Thing Called Science?</em>, 4th ed. Open University Press.</li>
+<li class="ref-item">周濂. (2019). 打开：周濂的100堂西方哲学课. 上海三联书店.</li>
+<li class="ref-item">Heraclitus. Fragments. (参见 Diels, H. & Kranz, W., <em>Die Fragmente der Vorsokratiker</em>.)</li>
+<li class="ref-item">Loeffelholz, D. von, & Lefavi, R. G. (2019). 健身营养全书. 北京科学技术出版社.</li>
+<li class="ref-item">McGinnis, P. M. (2005). <em>Biomechanics of Sport and Exercise</em>, 3rd ed. Human Kinetics.</li>
+<li class="ref-item">Neumann, D. A. (2017). <em>Kinesiology of the Musculoskeletal System: Foundations for Rehabilitation</em>, 3rd ed. Elsevier.</li>
+<p>7.《功能解剖》.</p>
+<li class="ref-item">Mow, V. C., Kuei, S. C., Lai, W. M., & Armstrong, C. G. (1980). Biphasic creep and stress relaxation of articular cartilage in compression: Theory and experiments. <em>Journal of Biomechanical Engineering</em>, 102(1), 73-84.</li>
+<li class="ref-item">Bigliani, L. U. (1972). The acromion process and its relationship to rotator cuff disease. <em>Orthopedic Transactions</em>, 6, 156.</li>
+<li class="ref-item">Jenkins, D. J., Wolever, T. M., Taylor, R. H., et al. (1981). Glycemic index of foods: a physiological basis for carbohydrate exchange. <em>American Journal of Clinical Nutrition</em>, 34(3), 362-366.</li>
+<li class="ref-item">Jeukendrup, A. E. (2010). Carbohydrate feeding during exercise. <em>European Journal of Sport Science</em>, 10(2), 77-86.</li>
+</div>
+</div>
+
+<script>
+document.querySelectorAll('.nav-pill').forEach(function(pill){
+  pill.addEventListener('click',function(){
+    document.querySelectorAll('.nav-pill').forEach(function(p){p.classList.remove('active')});
+    this.classList.add('active');
+  });
+});
+</script>
+
 </body>
 </html>
