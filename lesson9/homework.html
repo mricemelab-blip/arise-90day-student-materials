@@ -114,6 +114,8 @@ body{background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sa
 <div class="score-banner" id="scoreBanner">
   <div class="score-num" id="scoreNum">0</div>
   <div class="score-label">客观题得分（满分100）</div>
+  <button class="copy-summary-btn" id="copySummaryBtn" onclick="copySummary()" style="display:none;margin-top:16px;padding:10px 24px;background:var(--accent);color:var(--bg-primary);border:none;border-radius:6px;font-size:14px;font-weight:600;cursor:pointer;transition:all .2s">复制提交摘要发给讲师</button>
+  <div class="copy-confirm" id="copyConfirm" style="display:none;margin-top:8px;font-size:13px;color:var(--success)">✓ 已复制到剪贴板，请发给讲师</div>
 </div>
 
 <div class="progress-bar-wrap">
@@ -303,6 +305,10 @@ function submitQuiz() {
   // Show score
   document.getElementById('scoreNum').textContent = score;
   document.getElementById('scoreBanner').classList.add('visible');
+  
+  // Show copy summary button
+  document.getElementById('copySummaryBtn').style.display = 'inline-block';
+  window._lastScore = score;
 
   // Save submission
   const submissions = JSON.parse(localStorage.getItem(SUBMISSION_KEY) || '[]');
@@ -317,6 +323,64 @@ function submitQuiz() {
 
 function toggleInstructor() {
   document.getElementById('instructorPanel').classList.toggle('visible');
+}
+
+function copySummary() {
+  const score = window._lastScore || 0;
+  const now = new Date();
+  const timeStr = now.toLocaleDateString('zh-CN') + ' ' + now.toLocaleTimeString('zh-CN', {hour:'2-digit',minute:'2-digit'});
+  
+  // Collect all answers
+  const answers = JSON.parse(localStorage.getItem(STORAGE_KEY) || '{}');
+  
+  // Build summary text
+  let summary = '=== Lesson 9 作业提交 ===\n';
+  summary += '提交时间: ' + timeStr + '\n';
+  summary += '客观题得分: ' + score + '/100\n\n';
+  
+  // Add objective answers
+  summary += '--- 客观题答案 ---\n';
+  quizData.forEach(sec => {
+    sec.questions.forEach(q => {
+      if (q.type === 'mc') {
+        const ans = answers[q.id];
+        const ansText = ans !== undefined ? q.options[ans] : '未作答';
+        summary += q.id + ': ' + ansText + '\n';
+      }
+    });
+  });
+  
+  summary += '\n--- 主观题回答 ---\n';
+  quizData.forEach(sec => {
+    sec.questions.forEach(q => {
+      if (q.type === 'subj') {
+        const ans = answers[q.id] || '未作答';
+        summary += q.id + ': ' + ans + '\n';
+      }
+    });
+  });
+  
+  summary += '\n========================';
+  
+  // Copy to clipboard
+  navigator.clipboard.writeText(summary).then(() => {
+    document.getElementById('copyConfirm').style.display = 'block';
+    setTimeout(() => {
+      document.getElementById('copyConfirm').style.display = 'none';
+    }, 3000);
+  }).catch(err => {
+    // Fallback for older browsers
+    const textarea = document.createElement('textarea');
+    textarea.value = summary;
+    document.body.appendChild(textarea);
+    textarea.select();
+    document.execCommand('copy');
+    document.body.removeChild(textarea);
+    document.getElementById('copyConfirm').style.display = 'block';
+    setTimeout(() => {
+      document.getElementById('copyConfirm').style.display = 'none';
+    }, 3000);
+  });
 }
 
 function loadInstructor() {
