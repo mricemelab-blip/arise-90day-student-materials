@@ -1,643 +1,376 @@
 <!doctype html>
 <html lang="zh-CN">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Lesson 9 作业：否证、流变与分子结构</title>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>涌现·90天 — Lesson 9 作业</title>
 <style>
-:root {
-  --bg-primary: #0f1117;
-  --bg-secondary: #181b24;
-  --bg-card: #1e2130;
-  --bg-input: #252838;
-  --bg-hover: #2a2d40;
-  --border: #2e3248;
-  --border-focus: #4a7dff;
-  --text-primary: #e4e6f0;
-  --text-secondary: #9da3b8;
-  --text-muted: #6b7194;
-  --accent: #4a7dff;
-  --accent-soft: #3d6be6;
-  --correct: #34d399;
-  --correct-bg: rgba(52, 211, 153, 0.08);
-  --incorrect: #f87171;
-  --incorrect-bg: rgba(248, 113, 113, 0.08);
-  --warning: #fbbf24;
-  --radius: 8px;
-  --radius-lg: 12px;
-  --font-sans: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Hiragino Sans GB", "Microsoft YaHei", sans-serif;
-  --font-mono: "SF Mono", "Fira Code", "Cascadia Code", monospace;
-}
-
-*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-html { font-size: 16px; scroll-behavior: smooth; }
-
-body {
-  font-family: var(--font-sans);
-  background: var(--bg-primary);
-  color: var(--text-primary);
-  line-height: 1.7;
-  min-height: 100vh;
-  -webkit-font-smoothing: antialiased;
-}
-
-.container {
-  max-width: 820px;
-  margin: 0 auto;
-  padding: 2rem 1.5rem 4rem;
-}
-
-header {
-  border-bottom: 1px solid var(--border);
-  padding-bottom: 2rem;
-  margin-bottom: 2.5rem;
-}
-
-header h1 {
-  font-size: 1.75rem;
-  font-weight: 700;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.5rem;
-}
-
-header .subtitle {
-  color: var(--text-secondary);
-  font-size: 0.95rem;
-}
-
-.meta-row {
-  display: flex;
-  gap: 1rem;
-  margin-top: 1.25rem;
-  flex-wrap: wrap;
-}
-
-.meta-field {
-  flex: 1;
-  min-width: 200px;
-}
-
-.meta-field label {
-  display: block;
-  font-size: 0.8rem;
-  color: var(--text-muted);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-  margin-bottom: 0.4rem;
-}
-
-.meta-field input {
-  width: 100%;
-  background: var(--bg-input);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 0.6rem 0.8rem;
-  color: var(--text-primary);
-  font-size: 0.95rem;
-  font-family: var(--font-sans);
-  transition: border-color 0.2s;
-}
-
-.meta-field input:focus {
-  outline: none;
-  border-color: var(--border-focus);
-}
-
-.score-banner {
-  display: none;
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 1.5rem;
-  margin-bottom: 2rem;
-  text-align: center;
-}
-
-.score-banner.visible { display: block; }
-
-.score-banner .score-number {
-  font-size: 2.5rem;
-  font-weight: 700;
-  color: var(--accent);
-}
-
-.score-banner .score-label {
-  font-size: 0.85rem;
-  color: var(--text-secondary);
-  margin-top: 0.25rem;
-}
-
-.section-divider {
-  margin: 2.5rem 0 1.5rem;
-  padding-bottom: 0.75rem;
-  border-bottom: 1px solid var(--border);
-}
-
-.section-divider h2 {
-  font-size: 1.2rem;
-  font-weight: 600;
-  color: var(--text-primary);
-}
-
-.section-divider .section-desc {
-  font-size: 0.88rem;
-  color: var(--text-secondary);
-  margin-top: 0.35rem;
-}
-
-.question-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 1.5rem;
-  margin-bottom: 1.25rem;
-  transition: border-color 0.2s;
-}
-
-.question-card.correct { border-color: var(--correct); background: var(--correct-bg); }
-.question-card.incorrect { border-color: var(--incorrect); background: var(--incorrect-bg); }
-
-.question-tag {
-  display: inline-block;
-  font-size: 0.72rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  letter-spacing: 0.06em;
-  color: var(--text-muted);
-  background: var(--bg-input);
-  padding: 0.2rem 0.6rem;
-  border-radius: 4px;
-  margin-bottom: 0.75rem;
-}
-
-.question-text {
-  font-size: 0.95rem;
-  line-height: 1.75;
-  margin-bottom: 1rem;
-  color: var(--text-primary);
-}
-
-.options-list { list-style: none; }
-
-.options-list li {
-  margin-bottom: 0.5rem;
-}
-
-.option-label {
-  display: flex;
-  align-items: flex-start;
-  gap: 0.75rem;
-  padding: 0.7rem 0.9rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  cursor: pointer;
-  transition: background 0.15s, border-color 0.15s;
-  font-size: 0.92rem;
-  line-height: 1.6;
-}
-
-.option-label:hover { background: var(--bg-hover); }
-
-.option-label input[type="radio"] {
-  appearance: none;
-  -webkit-appearance: none;
-  width: 18px;
-  height: 18px;
-  border: 2px solid var(--border);
-  border-radius: 50%;
-  flex-shrink: 0;
-  margin-top: 2px;
-  cursor: pointer;
-  transition: border-color 0.15s, background 0.15s;
-  position: relative;
-}
-
-.option-label input[type="radio"]:checked {
-  border-color: var(--accent);
-  background: var(--accent);
-}
-
-.option-label input[type="radio"]:checked::after {
-  content: '';
-  position: absolute;
-  top: 50%; left: 50%;
-  transform: translate(-50%, -50%);
-  width: 6px; height: 6px;
-  border-radius: 50%;
-  background: #fff;
-}
-
-.option-label.correct-option { border-color: var(--correct); background: var(--correct-bg); }
-.option-label.incorrect-option { border-color: var(--incorrect); background: var(--incorrect-bg); }
-
-.explanation {
-  display: none;
-  margin-top: 0.85rem;
-  padding: 0.85rem 1rem;
-  background: var(--bg-secondary);
-  border-radius: var(--radius);
-  font-size: 0.88rem;
-  line-height: 1.7;
-  color: var(--text-secondary);
-  border-left: 3px solid var(--accent);
-}
-
-.explanation.visible { display: block; }
-
-.subjective-card {
-  background: var(--bg-card);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 1.5rem;
-  margin-bottom: 1.25rem;
-}
-
-.subjective-card textarea {
-  width: 100%;
-  min-height: 140px;
-  background: var(--bg-input);
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  padding: 0.8rem;
-  color: var(--text-primary);
-  font-size: 0.92rem;
-  font-family: var(--font-sans);
-  line-height: 1.7;
-  resize: vertical;
-  transition: border-color 0.2s;
-}
-
-.subjective-card textarea:focus {
-  outline: none;
-  border-color: var(--border-focus);
-}
-
-.submit-area {
-  margin-top: 2.5rem;
-  text-align: center;
-}
-
-.btn-submit {
-  display: inline-block;
-  background: var(--accent);
-  color: #fff;
-  font-size: 1rem;
-  font-weight: 600;
-  padding: 0.8rem 2.5rem;
-  border: none;
-  border-radius: var(--radius);
-  cursor: pointer;
-  transition: background 0.15s, transform 0.1s;
-  font-family: var(--font-sans);
-}
-
-.btn-submit:hover { background: var(--accent-soft); }
-.btn-submit:active { transform: scale(0.98); }
-.btn-submit:disabled { opacity: 0.5; cursor: not-allowed; }
-
-.result-section {
-  display: none;
-  margin-top: 2rem;
-}
-
-.result-section.visible { display: block; }
-
-.json-output {
-  background: var(--bg-secondary);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 1.25rem;
-  margin-top: 1rem;
-  max-height: 400px;
-  overflow-y: auto;
-}
-
-.json-output pre {
-  font-family: var(--font-mono);
-  font-size: 0.82rem;
-  line-height: 1.6;
-  color: var(--text-secondary);
-  white-space: pre-wrap;
-  word-break: break-all;
-}
-
-.copy-btn {
-  display: inline-block;
-  margin-top: 0.75rem;
-  background: var(--bg-input);
-  color: var(--text-secondary);
-  font-size: 0.82rem;
-  padding: 0.4rem 1rem;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  cursor: pointer;
-  font-family: var(--font-sans);
-  transition: background 0.15s;
-}
-
-.copy-btn:hover { background: var(--bg-hover); }
-
-footer {
-  margin-top: 3rem;
-  padding-top: 1.5rem;
-  border-top: 1px solid var(--border);
-  text-align: center;
-  color: var(--text-muted);
-  font-size: 0.8rem;
-}
-
-@media (max-width: 640px) {
-  .container { padding: 1.25rem 1rem 3rem; }
-  header h1 { font-size: 1.4rem; }
-  .meta-row { flex-direction: column; }
-  .question-card { padding: 1.15rem; }
-}
-
-@media print {
-  body { background: #fff; color: #111; }
-  .question-card, .subjective-card { border-color: #ccc; background: #fafafa; }
-  .btn-submit, .copy-btn, .json-output { display: none !important; }
-}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Noto Sans SC",sans-serif;background:#0b1120;color:#c8d6e5;line-height:1.8;font-size:16px}
+.page{max-width:720px;margin:0 auto;padding:2.5rem 1.5rem 4rem}
+h1{font-size:1.6rem;font-weight:700;color:#f1f5f9;border-bottom:2px solid #1e293b;padding-bottom:.75rem;margin-bottom:1.5rem}
+h2{font-size:1.2rem;font-weight:700;color:#38bdf8;margin:2rem 0 1rem;padding-top:1rem;border-top:1px solid #1e293b}
+h3{font-size:1.05rem;font-weight:600;color:#e2e8f0;margin:1.5rem 0 .75rem}
+h4{font-size:.95rem;font-weight:600;color:#94a3b8;margin:1.25rem 0 .5rem}
+p{margin-bottom:1rem}
+strong{color:#f1f5f9}
+em{color:#67e8f9;font-style:normal}
+ul,ol{margin:0 0 1rem 1.5rem}
+li{margin-bottom:.5rem}
+code{background:#1a2332;padding:2px 6px;border-radius:4px;font-size:.9em;color:#38bdf8}
+blockquote{border-left:3px solid #38bdf8;background:#0f172a;padding:1rem 1.25rem;margin:1rem 0;border-radius:0 8px 8px 0;font-size:.95rem;line-height:1.7}
+blockquote p{margin-bottom:.5rem}
+blockquote p:last-child{margin-bottom:0}
+.kb-box{background:#1a2332;border:1px solid #1e293b;border-radius:10px;padding:1.25rem;margin:1.25rem 0}
+.kb-box .kb-title{color:#38bdf8;font-weight:600;margin-bottom:.5rem;font-size:.95rem}
+.practice-box{background:#1e2332;border:1px solid #2d2d5e;border-radius:10px;padding:1.25rem;margin:1.25rem 0}
+.practice-box .practice-title{color:#34d399;font-weight:600;margin-bottom:.5rem;font-size:.95rem}
+.highlight{color:#38bdf8;font-weight:500}
+hr{border:none;border-top:1px solid #1e293b;margin:2rem 0}
+a{color:#38bdf8;text-decoration:none}
+a:hover{text-decoration:underline}
+.table-wrap{overflow-x:auto;margin:1rem 0}
+table{width:100%;border-collapse:collapse}
+th,td{border:1px solid #1e293b;padding:.5rem .75rem;text-align:left;font-size:.9rem}
+th{background:#1a2332;color:#38bdf8;font-weight:600}
+.ref-item{margin-bottom:1rem;padding-left:1.5rem;text-indent:-1.5rem}
+.mcq{margin-bottom:1.5rem}
+.mcq p{margin-bottom:.25rem}
+.mcq .options{margin-left:1.5rem;margin-top:.25rem}
+.mcq .options p{margin-bottom:.2rem}
+.summary-box{background:#1a2332;border:1px solid #1e293b;border-radius:10px;padding:1.5rem;margin:1.5rem 0}
+.answer-line{display:block;margin:.25rem 0;padding:.5rem .75rem;background:#0f172a;border:1px dashed #1e293b;border-radius:4px;min-height:2.2rem}
+.answer-block{display:block;margin:.5rem 0;padding:.75rem;background:#0f172a;border:1px dashed #1e293b;border-radius:4px;min-height:4rem}
+@media(max-width:600px){.page{padding:1.5rem 1rem 2rem}h1{font-size:1.3rem}h2{font-size:1.1rem}}
+@media print{body{background:#fff;color:#1a1a1a}blockquote{border-left-color:#38bdf8;background:#f8f9fa}.kb-box,.practice-box,.summary-box{background:#f8f9fa;border-color:#ddd}code{background:#f0f0f0;color:#0369a1}h1,h2,h3,h4{color:#111}}
 </style>
 </head>
 <body>
-<div class="container">
+<div class="page">
+<h1>Lesson 9 作业：否证、流变与身体系统</h1>
 
-<header>
-  <h1>Lesson 9 作业</h1>
-  <p class="subtitle">否证、流变与分子结构 | 涌现90天</p>
-  <div class="meta-row">
-    <div class="meta-field">
-      <label for="studentName">学员姓名</label>
-      <input type="text" id="studentName" placeholder="请输入姓名" autocomplete="name">
-    </div>
-    <div class="meta-field">
-      <label for="submitDate">提交日期</label>
-      <input type="date" id="submitDate">
-    </div>
-  </div>
-</header>
+<h2>第一部分：知识版图（初探）</h2>
+<p>下面这张表格覆盖今天课程涉及的五个板块。每个板块列出了几个核心问题，试着在横线上填写你的答案。</p>
+<p>不会填没关系，先写下你能想到的，学完后再回来。</p>
 
-<div class="score-banner" id="scoreBanner">
-  <div class="score-number" id="scoreNumber"></div>
-  <div class="score-label">客观题得分（满分 5 分）</div>
+<div class="table-wrap">
+<table>
+<tr><th>板块</th><th>引导性问题</th><th>你的回答</th></tr>
+<tr><td><strong>板块一：科学哲学</strong></td><td>1. 波普尔认为科学理论的标志不是可证实性，而是？</td><td></td></tr>
+<tr><td></td><td>2. 否定后件式的逻辑结构是：如果P则Q；？；因此？</td><td></td></tr>
+<tr><td></td><td>3. 爱因斯坦广义相对论预测光线偏折角度为？弧秒，与牛顿力学预测的？弧秒不同</td><td></td></tr>
+<tr><td></td><td>4. 波普尔描述的科学进步路径是：？→ 试探性理论 →？→ 新问题</td><td></td></tr>
+<tr><td><strong>板块二：哲学</strong></td><td>1. 赫拉克利特最著名的命题"万物皆流"的拉丁语是？</td><td></td></tr>
+<tr><td></td><td>2. 赫拉克利特用？作为万物本原，因为它的存在本身就是一个？</td><td></td></tr>
+<tr><td></td><td>3. 变化中的理性秩序叫做？，赫拉克利特说火"在一定的？上燃烧和熄灭"</td><td></td></tr>
+<tr><td></td><td>4. 柏拉图的综合方案：？世界处于流变，？世界不变</td><td></td></tr>
+<tr><td><strong>板块三：营养学</strong></td><td>1. 胰淀粉酶不能水解支链淀粉中的？键，这种键只能由？酶水解</td><td></td></tr>
+<tr><td></td><td>2. 葡萄糖通过？转运体以？方式被吸收；果糖通过？转运体以？方式被吸收</td><td></td></tr>
+<tr><td></td><td>3. 乳糖不耐受的两个致病机制：未消化乳糖的？效应和大肠菌群的？作用</td><td></td></tr>
+<tr><td></td><td>4. 血糖负荷（GL）的计算公式是：GL = ？</td><td></td></tr>
+<tr><td><strong>板块四：生物力学</strong></td><td>1. 压强公式P=F/A意味着：力恒定时，接触面积越小，？越大</td><td></td></tr>
+<tr><td></td><td>2. 膝关节在低负荷下实际接触面积可能仅为解剖面积的？%</td><td></td></tr>
+<tr><td></td><td>3. 关节软骨的"预应力"来源于？的负电荷吸引Na⁺导致水分吸入</td><td></td></tr>
+<tr><td></td><td>4. 动态膝关节外翻常伴随？，使ACL负荷显著增大</td><td></td></tr>
+<tr><td><strong>板块五：解剖</strong></td><td>1. 肩关节复合体中活动度最大且最不稳定的关节是？</td><td></td></tr>
+<tr><td></td><td>2. 盂肱关节稳定性三层结构从深到浅依次是：？、？、？</td><td></td></tr>
+<tr><td></td><td>3. 肩袖四块肌肉中唯一具有内旋功能的是？，体积最大的是？</td><td></td></tr>
+<tr><td></td><td>4. Bigliani将肩峰形态分为三型，其中？型（钩型）最易导致肩峰下撞击</td><td></td></tr>
+</table>
 </div>
 
-<!-- Part 1: Objective Questions -->
-<div class="section-divider">
-  <h2>第一部分：知识校准</h2>
-  <p class="section-desc">五道选择题，每个板块一道。提交后即时显示得分与解析。</p>
+<hr>
+
+<h2>第二部分：分段深入学习</h2>
+
+<hr>
+
+<h3>板块一：科学哲学——波普尔的否证主义</h3>
+
+<h4>A. 核心知识点回顾</h4>
+
+<div class="core-point">
+<p><strong>1. 否证主义的逻辑基础。</strong>波普尔指出归纳问题在逻辑上不可解决——无论多少证实性观察都无法保证普遍定律为真。但反过来，单一反例就可以逻辑上否定一个普遍定律。这一逻辑不对称性（全称命题不可证实但可否证）是波普尔否证主义的出发点。</p>
 </div>
 
-<form id="quizForm">
-
-<!-- Q1: 科学哲学 -->
-<div class="question-card" id="q1-card" data-answer="C">
-  <span class="question-tag">板块一 · 科学哲学</span>
-  <p class="question-text"><strong>Q1.</strong> 波普尔提出"否证"（falsification）作为科学与非科学的划界标准。以下哪项最准确地表达了波普尔的核心主张？</p>
-  <ul class="options-list">
-    <li><label class="option-label"><input type="radio" name="q1" value="A"><span>A. 科学理论通过大量观察的归纳来证实，观察越多，理论越可靠</span></label></li>
-    <li><label class="option-label"><input type="radio" name="q1" value="B"><span>B. 科学理论的本质在于可被经验事实反驳的可能性；一个理论越容易被否证，信息含量越大</span></label></li>
-    <li><label class="option-label"><input type="radio" name="q1" value="C"><span>C. 一个理论是科学的，当且仅当存在逻辑上可能的观察结果能否定它；不能否证的理论没有经验内容</span></label></li>
-    <li><label class="option-label"><input type="radio" name="q1" value="D"><span>D. 科学进步的方式是不断提出新假说并用归纳法逐一验证，淘汰不成立的假说</span></label></li>
-  </ul>
-  <div class="explanation" id="q1-explain">
-    <strong>解析：</strong>波普尔的核心主张是"可否证性"（falsifiability）作为划界标准：一个理论必须是逻辑上可以被经验观察所否证的，才算科学。A 是归纳主义立场，正是波普尔批评的对象。D 也混淆了否证与归纳验证的逻辑。C 最精确地表达了波普尔的原意：关键在于"逻辑上可能否证"，而非实际被否证。
-  </div>
+<div class="core-point">
+<p><strong>2. 划界标准与"大胆猜测"。</strong>波普尔将可否证性（<em>falsifiability</em>）作为科学划界标准。科学理论必须冒着被经验推翻的风险，做出精确的可检验预测。理论内容越丰富、预测越精确，可否证度越高。爱因斯坦广义相对论（预测光线偏折1.75弧秒）是"大胆猜测"的范例；"市场可能涨也可能跌"可否证度为零。</p>
 </div>
 
-<!-- Q2: 哲学 -->
-<div class="question-card" id="q2-card" data-answer="B">
-  <span class="question-tag">板块二 · 哲学</span>
-  <p class="question-text"><strong>Q2.</strong> 赫拉克利特提出"万物皆流"（panta rhei）。"人不能两次踏入同一条河流"这个命题的核心含义是什么？</p>
-  <ul class="options-list">
-    <li><label class="option-label"><input type="radio" name="q2" value="A"><span>A. 河流的水在不断流动，因此物理意义上的河水每次都不同，这是一个关于物质守恒的命题</span></label></li>
-    <li><label class="option-label"><input type="radio" name="q2" value="B"><span>B. 变化是存在的根本特征，没有任何事物在时间中保持完全同一；这不是关于水的命题，而是关于"存在即流变"的本体论主张</span></label></li>
-    <li><label class="option-label"><input type="radio" name="q2" value="C"><span>C. 人对事物的认识受主观视角限制，因此客观真理不可获得，这是一个认识论的怀疑主义命题</span></label></li>
-    <li><label class="option-label"><input type="radio" name="q2" value="D"><span>D. 世界由对立面的斗争构成，一切变化都是对立面之间的转化，流只是表象</span></label></li>
-  </ul>
-  <div class="explanation" id="q2-explain">
-    <strong>解析：</strong>赫拉克利特的"万物皆流"是一个本体论命题，核心是"存在即流变"——变化不是事物的属性，变化就是事物本身。A 把命题还原为物质层面的水流动，过于字面。C 将赫拉克利特误读为怀疑论者（那是后来的皮浪）。D 混淆了"对立统一"与"万物皆流"，虽然两者都是赫拉克利特的思想，但这个河流命题指向的是流变而非对立。B 抓住了核心：存在即流变，无物保持同一。
-  </div>
+<div class="core-point">
+<p><strong>3. 否证的操作逻辑与杜恒-奎因论题。</strong>否证使用否定后件式：从T ∧ A ∧ I → P，若观察到非P，则T ∧ A ∧ I整体被否定。但逻辑上科学家可以通过修改辅助假说或质疑初始条件来保护核心理论——这就是<em>杜恒-奎因论题</em>。波普尔的回应是方法论的：科学规范要求认真对待否证，而非用特设性假说逃避。</p>
 </div>
 
-<!-- Q3: 营养学 -->
-<div class="question-card" id="q3-card" data-answer="D">
-  <span class="question-tag">板块三 · 营养学</span>
-  <p class="question-text"><strong>Q3.</strong> 淀粉和纤维素均由葡萄糖单体聚合而成，但人类可以消化淀粉而不能消化纤维素。根本原因是什么？</p>
-  <ul class="options-list">
-    <li><label class="option-label"><input type="radio" name="q3" value="A"><span>A. 纤维素的分子量远大于淀粉，超出消化酶的处理能力</span></label></li>
-    <li><label class="option-label"><input type="radio" name="q3" value="B"><span>B. 纤维素含有果糖残基，人类消化酶只能水解葡萄糖残基之间的糖苷键</span></label></li>
-    <li><label class="option-label"><input type="radio" name="q3" value="C"><span>C. 淀粉是支链结构，纤维素是直链结构，支链更容易被酶切断</span></label></li>
-    <li><label class="option-label"><input type="radio" name="q3" value="D"><span>D. 淀粉中的糖苷键为 α-1,4-糖苷键（支链淀粉还有 α-1,6-分支），人类消化酶（淀粉酶）可以水解 α 键；纤维素中的糖苷键为 β-1,4-糖苷键，人类消化酶不能水解 β 键</span></label></li>
-  </ul>
-  <div class="explanation" id="q3-explain">
-    <strong>解析：</strong>淀粉和纤维素的单体都是葡萄糖（同分异构聚合物），区别完全在于糖苷键类型。α-1,4-糖苷键的构型可被人类淀粉酶识别和水解；β-1,4-糖苷键的空间构型不同，人类消化酶无法处理。这就是为什么化学组成相同（都是葡萄糖聚合物），代谢命运却截然不同。A 错误，分子量不是关键。B 错误，纤维素不含果糖。C 不准确，淀粉也有直链的（直链淀粉），关键区别在键型而非分支。
-  </div>
+<div class="core-point">
+<p><strong>4. 科学进步：消除错误而非积累证实。</strong>问题→试探性理论→否证尝试→新问题。波普尔用"逼真度"（verisimilitude）描述进步方向。科学理论永远是试探性的，永远保持被否证的开放状态。确定性不是科学追求的目标，科学的价值在于批判性。</p>
 </div>
 
-<!-- Q4: 生物力学 -->
-<div class="question-card" id="q4-card" data-answer="B">
-  <span class="question-tag">板块四 · 生物力学</span>
-  <p class="question-text"><strong>Q4.</strong> 在关节力学中，接触面积（contact area）与压力分布（pressure distribution）的关系是什么？当膝关节承受固定载荷时，接触面积减小会导致什么结果？</p>
-  <ul class="options-list">
-    <li><label class="option-label"><input type="radio" name="q4" value="A"><span>A. 接触面积不影响压力分布；关节面的形状完全由骨骼结构决定，与载荷无关</span></label></li>
-    <li><label class="option-label"><input type="radio" name="q4" value="B"><span>B. 压力 = 力 / 面积。相同载荷下，接触面积减小则局部压强增大；膝关节半月板的功能之一正是通过增大接触面积来分散载荷、降低局部压强</span></label></li>
-    <li><label class="option-label"><input type="radio" name="q4" value="C"><span>C. 接触面积减小会增加关节面之间的摩擦系数，从而增大剪切力</span></label></li>
-    <li><label class="option-label"><input type="radio" name="q4" value="D"><span>D. 接触面积减小时，关节面之间的压缩力总量减小，因为力被更集中地传递</span></label></li>
-  </ul>
-  <div class="explanation" id="q4-explain">
-    <strong>解析：</strong>压力 = 力 / 面积（P = F/A），这是基本力学原理。相同载荷下，面积越小，局部压强越大。膝关节半月板的核心功能之一就是将接触面积增大2-3倍，从而显著降低关节面的局部压强。A 错误，接触面积受半月板变形、肌肉共收缩等多因素影响。C 混淆了压强与摩擦系数，摩擦系数取决于接触面的材料性质。D 错误，力的总量不变，只是分布更集中。
-  </div>
+<h4>B. 封闭式选择题</h4>
+
+<div class="mcq">
+<p><strong>1. 波普尔认为一个理论被"corroborated"（暂时保留）意味着什么？</strong></p>
+<div class="options">
+<p>A. 该理论已被证明为真</p>
+<p>B. 该理论经受住了最严格的检验尝试但尚未被否证，不等于被证实</p>
+<p>C. 该理论永远不会被否证</p>
+<p>D. 该理论与归纳法一致</p>
+</div>
 </div>
 
-<!-- Q5: 解剖 -->
-<div class="question-card" id="q5-card" data-answer="A">
-  <span class="question-tag">板块五 · 解剖</span>
-  <p class="question-text"><strong>Q5.</strong> 肩关节复合体由四个关节协同运作。在稳定性-灵活性光谱上，肩关节位于极度灵活性一端。其结构基础是什么？</p>
-  <ul class="options-list">
-    <li><label class="option-label"><input type="radio" name="q5" value="A"><span>A. 关节盂（glenoid fossa）极浅，肱骨头约1/3-1/4暴露在关节盂边缘之外，骨骼提供的被动稳定性极为有限；关节盂唇（labrum）虽加深关节盂约50%，但仍远不足以提供类似髋臼的深度包裹</span></label></li>
-    <li><label class="option-label"><input type="radio" name="q5" value="B"><span>B. 肩关节有三个旋转自由度但韧带极为厚实，限制活动度的主要因素是肌肉张力而非骨骼结构</span></label></li>
-    <li><label class="option-label"><input type="radio" name="q5" value="C"><span>C. 肩关节盂唇完全包裹肱骨头，提供被动的骨性约束，灵活性主要来自肩袖肌群的主动松弛</span></label></li>
-    <li><label class="option-label"><input type="radio" name="q5" value="D"><span>D. 肩关节的灵活性主要来自锁骨和肩锁关节的运动，盂肱关节本身的贡献有限</span></label></li>
-  </ul>
-  <div class="explanation" id="q5-explain">
-    <strong>解析：</strong>肩关节（盂肱关节）灵活性的结构根源在于关节盂极浅。肱骨头的面积约为关节盂的3-4倍，约1/3到1/4的肱骨头暴露在关节盂边缘之外。关节盂唇（fibrocartilaginous labrum）虽然能将关节盂深度增加约50%，但与髋臼的深度包裹相比仍远远不够。因此肩关节的被动稳定性极差，主要依赖动态稳定结构（肩袖四肌）来维持肱骨头在关节盂中的中心定位。B 错误，肩关节韧带薄而非厚实。C 错误，盂唇不"完全包裹"。D 错误，盂肱关节贡献了肩复合体约60%的活动度。
-  </div>
+<div class="mcq">
+<p><strong>2. 杜恒-奎因论题的核心观点是什么？</strong></p>
+<div class="options">
+<p>A. 科学理论总是可以被单独否证的</p>
+<p>B. 当预测失败时，被否定的是理论+辅助假说+初始条件的整体，科学家可以选择修改辅助假说来保护核心理论</p>
+<p>C. 辅助假说在科学检验中不重要</p>
+<p>D. 否证总是直接指向核心理论</p>
+</div>
 </div>
 
-<!-- Part 2: Subjective Questions -->
-<div class="section-divider">
-  <h2>第二部分：批判性分析</h2>
-  <p class="section-desc">两道分析题，每题附参考答案。独立完成后再对照。提交后由讲师批改。</p>
+<div class="mcq">
+<p><strong>3. 从波普尔视角看，以下哪种训练方案最具有"科学性"？</strong></p>
+<div class="options">
+<p>A. "这个方案适合所有人，无论什么体质"</p>
+<p>B. "该客户4周内深蹲1RM预计提高5-8%，若未达到则调整方案"</p>
+<p>C. "坚持训练总会有效果的"</p>
+<p>D. "根据经验，这个方案效果不错"</p>
+</div>
 </div>
 
-<div class="subjective-card">
-  <span class="question-tag">Q6 · 跨板块分析</span>
-  <p class="question-text">一位教练说："我的训练方案经过三年实践检验，100个客户中87个取得了显著进步，所以这套方案是可靠的。"从波普尔否证主义的视角分析这个论证面临哪些逻辑困难。至少涉及两个层面。</p>
-  <textarea id="q6" placeholder="在此输入你的分析..."></textarea>
+<hr>
+
+<h3>板块二：哲学——赫拉克利特：万物皆流与逻各斯</h3>
+
+<h4>A. 核心知识点回顾</h4>
+
+<div class="core-point">
+<p><strong>1. 万物皆流的深层含义。</strong>赫拉克利特的核心主张：变化本身是存在的根本特征，不存在变化背后的不变基质。"人不能两次踏入同一条河流"——变化不仅作用于对象（河水已不同），也作用于主体（"你"已不同）。语言用名词固定对象造成同一性幻象，实在是持续流动的过程。</p>
 </div>
 
-<div class="subjective-card">
-  <span class="question-tag">Q7 · 整合分析</span>
-  <p class="question-text">一个客户主诉下背痛，久坐办公，胸椎旋转活动度明显受限。从相邻关节假说的分析逻辑出发，给出一个评估框架。同时，结合板块五的"审视与边界"部分，指出这个分析框架的至少两个局限。</p>
-  <textarea id="q7" placeholder="在此输入你的分析..."></textarea>
+<div class="core-point">
+<p><strong>2. 逻各斯与火的隐喻。</strong>万物皆流但非混沌——逻各斯是统摄万物变化的理性秩序，同时包含话语、理性、比例、规律、尺度等多重含义。火作为本原不是物质而是过程："在一定的分寸上燃烧和熄灭"——变化是永恒的，但遵循尺度。</p>
 </div>
 
-</form>
-
-<div class="submit-area">
-  <button class="btn-submit" id="submitBtn" type="button">提交作业</button>
+<div class="core-point">
+<p><strong>3. 对立统一与哲学史影响。</strong>对立面相互依存、相互转化——"生与死、醒与梦、少与老"互为前后。赫拉克利特与巴门尼德的对立贯穿西方哲学史。柏拉图在理念论中综合：可感世界流变，理念世界不变。当代过程哲学（怀特海）和量子场论与赫拉克利特存在深层共鸣。</p>
 </div>
 
-<div class="result-section" id="resultSection">
-  <div class="section-divider">
-    <h2>提交记录</h2>
-    <p class="section-desc">以下为你的提交数据，可复制后发送给讲师。</p>
-  </div>
-  <div class="json-output">
-    <pre id="jsonOutput"></pre>
-  </div>
-  <button class="copy-btn" id="copyBtn" type="button">复制提交数据</button>
+<h4>B. 封闭式选择题</h4>
+
+<div class="mcq">
+<p><strong>1. 赫拉克利特"对立统一"思想的核心含义是什么？</strong></p>
+<div class="options">
+<p>A. 对立面互相排斥，不可共存</p>
+<p>B. 对立面相互依存、相互转化，前者变化成为后者，后者变化成为前者</p>
+<p>C. 对立面只存在于主观认知中</p>
+<p>D. 对立面的存在证明世界是混沌的</p>
+</div>
 </div>
 
-<footer>
-  <p>涌现90天 · Lesson 9 | 3HFIT 教培中心</p>
-</footer>
-
+<div class="mcq">
+<p><strong>2. 柏拉图如何综合赫拉克利特与巴门尼德的对立？</strong></p>
+<div class="options">
+<p>A. 完全接受赫拉克利特的万物皆流</p>
+<p>B. 完全接受巴门尼德的不变存在</p>
+<p>C. 可感世界处于流变（赫拉克利特对），理念世界是不变的永恒存在（巴门尼德对），知识建立在不变的理念之上</p>
+<p>D. 否定两者的观点，提出全新方案</p>
+</div>
 </div>
 
-<script>
-(function() {
-  'use strict';
+<div class="mcq">
+<p><strong>3. 在训练语境中，赫拉克利特"万物皆流"的启示是什么？</strong></p>
+<div class="options">
+<p>A. 训练方案应固定不变，因为客户体质是恒定的</p>
+<p>B. 客户在每次训练后都不同了（肌肉适应、神经优化、心理变化），训练计划必须是活的文档，随对象变化持续调整</p>
+<p>C. 训练效果完全不可预测</p>
+<p>D. 教练不需要关注客户的变化</p>
+</div>
+</div>
 
-  try {
-    document.getElementById('submitDate').valueAsDate = new Date();
-  } catch(e) {}
+<hr>
 
-  var submitBtn = document.getElementById('submitBtn');
-  var scoreBanner = document.getElementById('scoreBanner');
-  var scoreNumber = document.getElementById('scoreNumber');
-  var resultSection = document.getElementById('resultSection');
-  var jsonOutput = document.getElementById('jsonOutput');
-  var copyBtn = document.getElementById('copyBtn');
+<h3>板块三：营养学——碳水化合物的消化与吸收</h3>
 
-  submitBtn.addEventListener('click', function() {
-    var name = document.getElementById('studentName').value.trim();
-    var date = document.getElementById('submitDate').value;
-    if (!name) { alert('请填写学员姓名'); return; }
+<h4>A. 核心知识点回顾</h4>
 
-    var cards = document.querySelectorAll('.question-card[data-answer]');
-    var score = 0;
-    var total = cards.length;
-    var details = [];
+<div class="core-point">
+<p><strong>1. 多级消化过程。</strong>口腔：唾液淀粉酶（内切酶）水解α-1,4糖苷键，产生麦芽糖、麦芽三糖和α-极限糊精，胃酸使其失活。胃：消化基本暂停，食团内部可短暂延续。小肠：胰淀粉酶效率远高于唾液淀粉酶（分泌量大、碱性环境、充分混合），终产物相同，不能水解α-1,6键。刷状缘：四种寡糖酶完成终末水解，将所有底物降解为单糖。</p>
+</div>
 
-    for (var i = 0; i < cards.length; i++) {
-      var card = cards[i];
-      var qid = card.id.replace('-card', '');
-      var answer = card.getAttribute('data-answer');
-      var selected = card.querySelector('input[type="radio"]:checked');
-      var userAnswer = selected ? selected.value : '未作答';
-      var isCorrect = userAnswer === answer;
-      if (isCorrect) score++;
+<div class="core-point">
+<p><strong>2. 三种转运机制。</strong>SGLT1（管腔面膜）：继发性主动转运葡萄糖和半乳糖，利用Na⁺梯度，间接消耗ATP。GLUT5（管腔面膜）：易化扩散转运果糖，不耗能。GLUT2（基底侧膜）：低亲和力高容量，三种单糖都经此进入门静脉。吸收速率：葡萄糖 > 半乳糖 > 果糖。</p>
+</div>
 
-      card.classList.remove('correct', 'incorrect');
-      card.classList.add(isCorrect ? 'correct' : 'incorrect');
+<div class="core-point">
+<p><strong>3. 乳糖不耐受与GI。</strong>乳糖酶活性不足→未消化乳糖渗透活性吸引水分→大肠菌群发酵产气产酸→症状。乳糖酶非持续性由MCM6区域SNP调控。GI = 测试食物iAUC / 参照食物iAUC × 100%；GL = GI × 碳水化合物含量(g) / 100。训练后可选高GI加速糖原恢复；葡萄糖-果糖混合利用双通道提高总吸收率。</p>
+</div>
 
-      var explain = document.getElementById(qid + '-explain');
-      if (explain) explain.classList.add('visible');
+<h4>B. 封闭式选择题</h4>
 
-      var labels = card.querySelectorAll('.option-label');
-      for (var j = 0; j < labels.length; j++) {
-        labels[j].classList.remove('correct-option', 'incorrect-option');
-        var radio = labels[j].querySelector('input[type="radio"]');
-        if (radio.value === answer) {
-          labels[j].classList.add('correct-option');
-        } else if (radio.checked && radio.value !== answer) {
-          labels[j].classList.add('incorrect-option');
-        }
-      }
+<div class="mcq">
+<p><strong>1. 以下关于刷状缘酶的描述，哪项正确？</strong></p>
+<div class="options">
+<p>A. 刷状缘酶是分泌到消化腔中的游离酶</p>
+<p>B. 刷状缘酶以膜结合蛋白形式存在，催化结构域朝向肠腔，确保水解产物几乎立即被吸收</p>
+<p>C. 刷状缘酶只能水解淀粉中的α-1,4糖苷键</p>
+<p>D. 刷状缘酶只有一种——乳糖酶</p>
+</div>
+</div>
 
-      details.push({
-        question: qid,
-        answer: userAnswer,
-        correct: answer,
-        is_correct: isCorrect
-      });
-    }
+<div class="mcq">
+<p><strong>2. 关于果糖代谢的特点，以下哪项描述正确？</strong></p>
+<div class="options">
+<p>A. 果糖在小肠中通过SGLT1主动转运吸收</p>
+<p>B. 果糖几乎全部在肝脏处理，绕过PFK-1限速步骤，大量摄入时碳流向脂肪酸合成倾向增强</p>
+<p>C. 果糖的吸收速率高于葡萄糖</p>
+<p>D. 果糖不需要经过肝脏处理直接进入全身循环</p>
+</div>
+</div>
 
-    scoreNumber.textContent = score + ' / ' + total;
-    scoreBanner.classList.add('visible');
+<div class="mcq">
+<p><strong>3. 东亚人群中乳糖酶非持续性频率高达80-90%以上，这与什么历史因素相关？</strong></p>
+<div class="options">
+<p>A. 东亚人群长期大量饮用牛奶</p>
+<p>B. 中国传统农耕（非游牧）生活方式，与斯堪的纳维亚半岛的游牧传统形成对比</p>
+<p>C. 乳糖酶非持续性是基因突变的结果，与生活方式无关</p>
+<p>D. 东亚人群的乳糖酶基因发生了缺失</p>
+</div>
+</div>
 
-    var subjectiveData = {};
-    var textareas = document.querySelectorAll('.subjective-card textarea');
-    for (var k = 0; k < textareas.length; k++) {
-      subjectiveData[textareas[k].id] = textareas[k].value.trim() || '未作答';
-    }
+<hr>
 
-    var result = {
-      submission: {
-        lesson: 'Lesson 9',
-        title: '否证、流变与分子结构',
-        student_name: name,
-        submit_date: date,
-        timestamp: new Date().toISOString()
-      },
-      objective: {
-        score: score,
-        total: total,
-        details: details
-      },
-      subjective: subjectiveData
-    };
+<h3>板块四：生物力学——关节接触面积与压力分布</h3>
 
-    jsonOutput.textContent = JSON.stringify(result, null, 2);
-    resultSection.classList.add('visible');
-    resultSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+<h4>A. 核心知识点回顾</h4>
 
-    try { localStorage.setItem('lesson9_submission', JSON.stringify(result)); } catch(e) {}
+<div class="core-point">
+<p><strong>1. 压强与接触面积的动态关系。</strong>P = F/A。低负荷下关节面实际接触面积远小于解剖面积（膝关节仅10-30%），随负荷增加通过软骨粘弹性形变和半月板参与而增大（增加约2-3倍）。这种非线性关系缓冲了压强的增长。</p>
+</div>
 
-    submitBtn.disabled = true;
-    submitBtn.textContent = '已提交';
-  });
+<div class="core-point">
+<p><strong>2. 双相力学模型与预应力。</strong>软骨由II型胶原纤维、蛋白聚糖和水组成。蛋白聚糖带负电荷→吸引Na⁺→水分吸入→胶原网络限制膨胀→形成预应力状态。Mow等（1980）双相模型：负荷由固体基质和流体压力共同承担。应力分布不均匀，应力集中区软骨更厚。</p>
+</div>
 
-  copyBtn.addEventListener('click', function() {
-    try {
-      var text = jsonOutput.textContent;
-      if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(text).then(function() {
-          copyBtn.textContent = '已复制';
-          setTimeout(function() { copyBtn.textContent = '复制提交数据'; }, 2000);
-        });
-      } else {
-        var ta = document.createElement('textarea');
-        ta.value = text;
-        document.body.appendChild(ta);
-        ta.select();
-        document.execCommand('copy');
-        document.body.removeChild(ta);
-        copyBtn.textContent = '已复制';
-        setTimeout(function() { copyBtn.textContent = '复制提交数据'; }, 2000);
-      }
-    } catch(e) {
-      alert('复制失败，请手动选择文本复制');
-    }
-  });
+<div class="core-point">
+<p><strong>3. 对位不良与训练原则。</strong>关节对位不良→接触面积减小→应力集中→压强急剧升高。膝关节内翻使内侧压强达正常2-3倍。动态外翻更危险（软骨来不及形变、伴随胫骨内旋增大ACL负荷、反映神经肌肉控制缺陷）。训练原则：维持正常对位、避免极端位置、渐进负荷、疲劳时降低强度。</p>
+</div>
 
-  try {
-    var saved = localStorage.getItem('lesson9_submission');
-    if (saved) {
-      var data = JSON.parse(saved);
-      if (data && data.submission) {
-        document.getElementById('studentName').value = data.submission.student_name || '';
-        if (data.submission.submit_date) {
-          document.getElementById('submitDate').value = data.submission.submit_date;
-        }
-      }
-    }
-  } catch(e) {}
-})();
-</script>
+<h4>B. 封闭式选择题</h4>
+
+<div class="mcq">
+<p><strong>1. 关节软骨双相力学模型的核心观点是什么？</strong></p>
+<div class="options">
+<p>A. 负荷完全由软骨中的水分承担</p>
+<p>B. 负荷由固体基质和流体压力共同承担，水分流动带走溶质但流动阻力增大后固体基质承担更多</p>
+<p>C. 负荷完全由胶原纤维承担</p>
+<p>D. 双相模型只适用于脊柱椎间盘</p>
+</div>
+</div>
+
+<div class="mcq">
+<p><strong>2. 为什么疲劳状态下应降低训练负荷或终止该组？</strong></p>
+<div class="options">
+<p>A. 疲劳时肌肉力量增大，容易过度训练</p>
+<p>B. 神经肌肉疲劳导致关节稳定性下降、对位控制能力降低，膝关节外翻概率增大，压强分布异常风险显著升高</p>
+<p>C. 疲劳时心率过快，有生命危险</p>
+<p>D. 疲劳不影响关节力学，只是主观感受</p>
+</div>
+</div>
+
+<div class="mcq">
+<p><strong>3. 关于关节软骨的应力分布，以下哪项描述正确？</strong></p>
+<div class="options">
+<p>A. 应力在关节面上均匀分布</p>
+<p>B. 应力集中区域通常位于关节面中央或负荷传导主路径上，这些区域软骨通常更厚</p>
+<p>C. 应力分布与关节面对位无关</p>
+<p>D. 应力只取决于肌肉力量，与接触面积无关</p>
+</div>
+</div>
+
+<hr>
+
+<h3>板块五：解剖——肩关节复合体</h3>
+
+<h4>A. 核心知识点回顾</h4>
+
+<div class="core-point">
+<p><strong>1. 四关节协同与自由度-稳定性张力。</strong>盂肱关节（球窝，全身活动度最大、最不稳定）、肩锁关节（平面，肩胛骨相对锁骨滑动）、胸锁关节（鞍状，上肢与躯干唯一真正连接）、肩胛胸壁关节（非真正滑膜，肩胛骨贴附胸壁）。关节盂面积仅为肱骨头约1/3，骨性稳定性极弱。</p>
+</div>
+
+<div class="core-point">
+<p><strong>2. 肩袖与压缩-中心化。</strong>三层稳定性：骨性（最弱）→韧带盂唇（被动）→肩袖肌肉（最重要）。肩袖四肌：冈上肌（外展启动0-15°）、冈下肌（外旋）、小圆肌（协助外旋）、肩胛下肌（内旋，体积最大）。核心功能是压缩-中心化——将肱骨头保持在关节盂中心，为三角肌提供稳定工作平台。</p>
+</div>
+
+<div class="core-point">
+<p><strong>3. 肩峰下撞击与教练实践。</strong>肩峰下间隙约9-10mm，含冈上肌腱、肱二头肌长头腱和滑囊。撞击可因骨性因素（Bigliani III型钩状肩峰）或功能性因素（肩袖不足→肱骨头上移、肩胛骨上回旋/后倾不足）引起。推举前提是肩胛骨稳定性；肩袖训练不是可选项而是每次肩部发力的基础条件。</p>
+</div>
+
+<h4>B. 封闭式选择题</h4>
+
+<div class="mcq">
+<p><strong>1. 肩关节复合体中，上肢与躯干之间的唯一真正关节连接是：</strong></p>
+<div class="options">
+<p>A. 盂肱关节</p>
+<p>B. 肩锁关节</p>
+<p>C. 胸锁关节</p>
+<p>D. 肩胛胸壁关节</p>
+</div>
+</div>
+
+<div class="mcq">
+<p><strong>2. 关于盂肱关节的稳定性，以下哪项描述最准确？</strong></p>
+<div class="options">
+<p>A. 骨性结构提供了足够的稳定性，因为关节盂很深</p>
+<p>B. 盂肱关节的稳定性主要依赖韧带，肌肉的贡献不大</p>
+<p>C. 骨性结构贡献最小，最重要的稳定性来源是肩袖肌肉的压缩-中心化机制</p>
+<p>D. 关节盂面积与肱骨头面积基本相等</p>
+</div>
+</div>
+
+<div class="mcq">
+<p><strong>3. 肩袖四块肌肉的最关键功能是：</strong></p>
+<div class="options">
+<p>A. 产生肩关节的全部旋转力矩</p>
+<p>B. 通过压缩-中心化机制将肱骨头保持在关节盂中心，为三角肌提供稳定工作平台</p>
+<p>C. 替代韧带限制关节过度运动</p>
+<p>D. 产生肩胛骨的上回旋运动</p>
+</div>
+</div>
+
+<div class="mcq">
+<p><strong>4. 肩峰下撞击综合征的功能性因素主要包括：</strong></p>
+<div class="options">
+<p>A. 肩峰骨刺和Bigliani III型钩状肩峰</p>
+<p>B. 肩袖功能不足导致肱骨头上移，以及肩胛骨运动障碍（上回旋/后倾不足）</p>
+<p>C. 盂唇撕裂</p>
+<p>D. 锁骨骨折</p>
+</div>
+</div>
+
+<div class="mcq">
+<p><strong>5. 关于推举类动作的肩部安全，以下哪项是正确的前提条件？</strong></p>
+<div class="options">
+<p>A. 只需要三角肌足够强壮即可</p>
+<p>B. 肩胛骨在上回旋位的稳定性（前锯肌和斜方肌功能充分）是安全推举的前提</p>
+<p>C. 肩袖训练只对运动员重要，对普通客户不重要</p>
+<p>D. 推举时不需要关注肩胛骨位置</p>
+</div>
+</div>
+
+<hr>
+
+<h2>第三部分：今日核心逻辑</h2>
+
+<div class="summary-box">
+<p>今天五个板块的主线：<strong>变化中的秩序。</strong></p>
+<p>波普尔的否证主义——科学通过否证不断修正来逼近真理，知识不是静态积累而是在持续变化中维持秩序的过程。</p>
+<p>赫拉克利特的万物皆流——变化是存在的根本特征，但变化遵循逻各斯（尺度与秩序）。</p>
+<p>碳水化合物的消化吸收——食物在体内持续变化，每一步都遵循精确的酶学尺度，从口腔到小肠到肝脏的多级处理系统。</p>
+<p>关节接触面积与压强分布——接触面积随负荷、角度和对位状态持续动态变化，维持对位就是维持力学秩序。</p>
+<p>肩关节复合体——四关节协同在持续变化中实现功能，肩袖的中心化压缩是安全运作的基础条件。</p>
+<p>教练的任务：在流变中识别秩序，用否证来逼近有效方案。波普尔提供方法论（设定否证标准），赫拉克利特提供本体论框架（训练对象是持续变化的过程）。两者结合：在流变中识别秩序，用否证来逼近有效方案。</p>
+</div>
+
+</div>
 </body>
 </html>
