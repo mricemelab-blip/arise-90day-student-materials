@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M14 · 特殊人群营养干预 — 加五磅 · 三天营养课</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg-primary:#070709;--bg-card:#111115;--bg-card-hover:#18181E;--bg-elevated:#1A1A22;--accent:#C8A45E;--accent-dim:#8A7040;--accent-glow:rgba(200,164,94,0.15);--text-primary:#E8E6E3;--text-secondary:#9A9898;--text-muted:#6B6969;--border:#1E1E24;--border-light:#2A2A32}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sans SC','Inter',sans-serif;line-height:1.8;min-height:100vh}
+::selection{background:var(--accent);color:var(--bg-primary)}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg-primary)}
+::-webkit-scrollbar-thumb{background:var(--border-light);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--accent-dim)}
+.hero{padding:80px 24px 60px;text-align:center;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,var(--accent-glow) 0%,transparent 70%);pointer-events:none;opacity:.4}
+.hero-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent-dim);padding:4px 16px;border-radius:20px;margin-bottom:24px}
+.hero h1{font-family:'Noto Serif SC',serif;font-size:clamp(28px,5vw,48px);font-weight:900;background:linear-gradient(135deg,var(--text-primary) 0%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:16px;position:relative}
+.main{max-width:800px;margin:0 auto;padding:40px 24px 80px}
+.section{margin-bottom:56px}
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.section-badge{width:4px;height:32px;background:linear-gradient(180deg,var(--accent),var(--accent-dim));border-radius:2px;flex-shrink:0}
+.section-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:1px;margin-bottom:4px}
+.section-title{font-family:'Noto Serif SC',serif;font-size:clamp(20px,3vw,28px);font-weight:700;color:var(--text-primary)}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:28px;margin-bottom:20px;transition:all .25s ease}
+.card:hover{border-color:var(--border-light);background:var(--bg-card-hover);transform:translateY(-1px)}
+.card-title{font-family:'Noto Serif SC',serif;font-size:clamp(18px,2.5vw,24px);font-weight:700;color:var(--text-primary);margin-bottom:24px;padding-left:16px;border-left:3px solid var(--accent)}
+.sub-title{font-family:'Noto Serif SC',serif;font-size:18px;font-weight:700;color:var(--text-primary);margin:28px 0 16px;padding-left:12px;border-left:3px solid var(--accent-dim)}
+p{color:var(--text-secondary);margin-bottom:16px;font-size:15px;line-height:1.9}
+strong{color:var(--text-primary);font-weight:600}
+em{color:var(--accent);font-style:italic}
+blockquote{background:var(--bg-elevated);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:20px 24px;margin:20px 0;font-size:14px;color:var(--text-secondary);line-height:1.8}
+hr{border:none;height:1px;background:var(--border);margin:40px 0}
+.formula{background:var(--bg-elevated);border:1px solid var(--border-light);border-radius:8px;padding:16px 24px;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--accent);text-align:center}
+li{color:var(--text-secondary);font-size:15px;line-height:1.8;margin-bottom:8px;padding-left:8px;list-style:none}
+li::before{content:'\203A';color:var(--accent);font-weight:700;margin-right:8px}
+ul,ol{margin-bottom:16px;padding-left:8px}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+th{background:var(--bg-elevated);color:var(--accent);font-weight:600;text-align:left;padding:12px 16px;border:1px solid var(--border-light)}
+td{color:var(--text-secondary);padding:10px 16px;border:1px solid var(--border)}
+tr:nth-child(even) td{background:rgba(26,26,34,0.5)}
+.nav-bar{position:sticky;top:0;z-index:100;background:rgba(7,7,9,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:12px 24px;overflow-x:auto}
+.nav-inner{max-width:800px;margin:0 auto;display:flex;gap:8px;flex-wrap:nowrap}
+.nav-pill{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.5px;padding:6px 14px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;transition:all .2s;white-space:nowrap;text-decoration:none}
+.nav-pill:hover,.nav-pill.active{border-color:var(--accent-dim);color:var(--accent);background:var(--accent-glow)}
+@media(max-width:640px){.hero{padding:60px 16px 40px}.main{padding:24px 16px 60px}.card{padding:20px}blockquote{padding:16px 18px}}
+</style>
+</head>
+<body>
+<div class="hero">
+<div class="hero-tag">MODULE 14</div>
+<h1>特殊人群营养干预</h1>
+<p style="color:var(--text-secondary);font-size:16px;max-width:600px;margin:0 auto">加五磅 · 三天营养课</p>
+</div>
+<div class="nav-bar"><div class="nav-inner"><a class="nav-pill" href="#sec-学术导言">学术导言</a><a class="nav-pill" href="#sec-140特殊人群营养干预的基础逻辑">14.0 特殊人群营养干预的基础逻辑</a><a class="nav-pill" href="#sec-141三高人群营养干预">14.1 三高人群营养干预</a><a class="nav-pill" href="#sec-14250人群营养策略">14.2 50+ 人群营养策略</a><a class="nav-pill" href="#sec-143更年期女性营养干预">14.3 更年期女性营养干预</a><a class="nav-pill" href="#sec-章末小结">章末小结</a><a class="nav-pill" href="#sec-思考题">思考题</a><a class="nav-pill" href="#sec-教练转化清单">教练转化清单</a><a class="nav-pill" href="#sec-参考文献">参考文献</a></div></div>
+<div class="main">
+<h1>M14 特殊人群营养干预</h1>
+<div class="section" id="sec-学术导言">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 01</div><h2 class="section-title">学术导言</h2></div></div>
+<div class="card"><p>本章覆盖三类特殊人群的营养干预策略：三高（高血压、血脂异常、高血糖/2型糖尿病/代谢综合征）人群、50岁以上训练者（合成代谢抵抗与肌少症预防）、围绝经期及绝经后女性。核心文献锚点为ACC/AHA 2017高血压指南[1]、ESC 2024高血压指南[2]、ADA 2024糖尿病诊疗标准[14]、PROT-AGE Study Group蛋白质推荐[23]、EWGSOP2肌少症共识[25]。</p>
+<p>读完本章应能建立以下判断力：</p>
+<ul>
+<li>特殊人群的营养需求参数因病理生理改变、年龄相关改变（合成代谢抵抗）和激素环境改变而发生系统性偏移，不能从健康成年人模板简单外推</li>
+<li>三高人群的营养干预以减脂5%–10%为通用循证内核，DASH饮食模式、限钠个体化、低GI/GL碳水和高剂量omega-3降TG是可叠加的独立剂量-反应锚点</li>
+<li>50岁以上训练者的蛋白质需求上调至1.0–1.6 g/kg/d，每餐须跨过升高的亮氨酸阈值（约2.5–4.0 g亮氨酸/餐）才能触发等效MPS响应，骨骼健康需钙+维生素D+K2三联支持</li>
+<li>绝经后雌激素下降同时驱动内脏脂肪重分布、肌肉加速下降和骨密度流失，营养方案须同步应对三个维度，蛋白质进一步上调至1.6–2.0 g/kg/d，热量下限不低于1200 kcal/d</li>
+<li>教练的执业边界是"不诊断、不调药、在医疗团队框架内提供营养支持"，无近期体检报告不开方案</li>
+</ul>
+<p><strong>本章编排的逻辑如下：</strong> 先建立特殊人群营养参数偏移的底层逻辑框架（§14.0），明确三类导致参数变化的机制（病理生理、年龄、激素）和教练执业的四条核心原则；再逐一展开三高人群的营养干预（§14.1），按高血压、血脂异常、高血糖/T2DM、代谢综合征分别给出循证方案与教练操作要点；然后覆盖50岁以上训练者的合成代谢抵抗、蛋白需求上调和肌少症预防（§14.2）；最后聚焦更年期女性的代谢重塑与营养策略调整（§14.3）。这三类人群在病理生理层面差异显著，但在操作层面共享"更保守的热量限制、更严格的蛋白下限、更频繁的监测节点"三条原则。</p>
+<p>GLP-1受体激动剂（司美格鲁肽、替尔泊肽）的广泛使用正在制造新的特殊人群营养管理需求。大量合并T2DM或代谢综合征的客户在医生指导下使用GLP-1类药物减重，其食欲抑制和胃排空延迟的药理效应与抗阻训练的营养需求之间存在尚未被充分研究的交互：蛋白质摄入因食欲下降而严重不足、减重速度过快导致肌肉流失加速、微量营养素缺乏风险上升。教练在遇到这类客户时，需要在医疗团队框架内重新评估蛋白质密度、监测减重成分而非仅关注体重变化。更年期女性的运动营养策略也是当前教练实务中增长最快的需求场景，绝经后脂肪重分布的不可控性使许多长期有效的减脂方案突然失效，客户需要教练理解激素环境变化对代谢基线的系统性影响。</p>
+<hr /></div>
+</div><div class="section" id="sec-140特殊人群营养干预的基础逻辑">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 02</div><h2 class="section-title">14.0 特殊人群营养干预的基础逻辑</h2></div></div>
+<div class="card"><h4 class="sub-title">14.0.1 健康成年人模板的适用边界</h4>
+<p>基础教材中能量平衡模型（Ch04）、蛋白质推荐量（Ch08）、碳水分配策略（Ch07）和脂肪摄入指南（M3）的循证基础，主要来自18–50岁、无慢性代谢疾病、体成分处于正常范围、规律运动的成年人群数据。这些推荐量隐含一组前提条件：胰岛素敏感性正常、脂质代谢通路完整、合成代谢信号对营养刺激的反应处于基线水平、激素环境稳定[14][23]。</p>
+<p>一旦超出这些边界，营养需求的底层参数发生系统性偏移。这种偏移不是简单的"数值上调或下调"，而是代谢基线本身发生了质变。同一套热量缺口方案，对健康年轻训练者是安全的减脂工具，对合并T2DM的55岁客户可能触发低血糖风险；同一份蛋白质推荐量，对30岁的抗阻训练者足以支持MPS最大化，对70岁的肌少症风险客户则可能因为合成代谢抵抗而显著不足[19][23][25]。</p><h4 class="sub-title">14.0.2 三类导致参数变化的机制</h4>
+<p>导致营养需求参数偏移的机制可以归纳为三个层面。</p>
+<p><strong>第一层：病理生理改变。</strong> 高血压、血脂异常和T2DM不是独立的"标签"，而是代谢系统基线状态的持续偏移。高血压改变血管内皮功能和肾脏灌注压，影响钠钾平衡和肾素-血管紧张素系统活性[1][5]。血脂异常反映脂质代谢通路的紊乱，LDL受体下调或载脂蛋白B代谢异常使外源性脂肪的质和量比健康人群更敏感地影响循环脂蛋白谱[9]。T2DM的核心缺陷是胰岛素抵抗叠加β细胞功能下降，骨骼肌葡萄糖摄取效率降低，肝糖输出调控失灵[14]。这些病理生理改变意味着：营养干预不仅要考虑"提供什么营养素"，还要考虑营养素与疾病本身代谢状态的交互，以及营养素与降血压药、降脂药、降糖药之间的药物-营养交互[14][5]。</p>
+<p><strong>第二层：年龄相关改变。</strong> 衰老带来一组相互关联的代谢改变。合成代谢抵抗（Anabolic Resistance）使肌肉蛋白质合成（MPS）对氨基酸和抗阻训练刺激的反应迟钝，同等蛋白质量在老年人中触发的MPS增量比年轻人低约30%–40%[19][20]。生长激素和IGF-1水平逐十年下降，进一步削弱合成代谢信号的放大能力[23]。骨转换率下降，骨矿物质密度（Bone Mineral Density, BMD）以每年约1%的速率流失（女性绝经后加速至2%–3%/年）[28]。内脏脂肪比例上升，即使体重稳定，脂肪分布从外周（皮下）向中心（内脏）迁移，加重胰岛素抵抗和慢性低度炎症[14][25]。这些变化使50岁以上训练者的蛋白质下限、钙和维生素D需求、以及热量限制的安全速度都偏离年轻成人模板[19][23][24]。</p>
+<p><strong>第三层：激素环境改变。</strong> 围绝经期和绝经后女性经历雌激素（Estradiol, E2）和孕激素的急剧下降。雌激素对代谢系统的影响远比"生殖激素"这一标签所暗示的更广泛。雌激素维持皮下脂肪分布（臀股区优势），其下降驱动脂肪向腹部内脏迁移，独立于年龄和总脂肪量的变化[29][30]。雌激素促进骨保护（抑制破骨细胞活性、维持RANKL/OPG比值平衡），其急剧缺失使骨转换失衡向骨吸收倾斜[28][31]。雌激素还参与调节肌肉代谢：绝经后女性MPS对氨基酸刺激的敏感性进一步下降，独立于年龄因素[29][30]。这意味着更年期女性的营养方案需要同时应对体成分重组（脂肪再分布）、骨保护（钙+维生素D+抗阻训练负荷管理）和蛋白质需求上调（对抗叠加的合成代谢抵抗），任何单一维度的调整都不够[29][30][31]。</p><h4 class="sub-title">14.0.3 教练执业的四条核心原则</h4>
+<p>特殊人群的营养干预存在明确的执业边界。以下四条原则构成教练行为的硬约束。</p>
+<p><strong>原则一：不诊断。</strong> 高血压、血脂异常、T2DM、代谢综合征和肌少症的诊断属于临床行为，需要实验室检查（空腹血糖、HbA1c、血脂全套、肝肾功能）和临床评估。教练不得基于客户自述或可穿戴设备数据做出任何诊断性判断。</p>
+<p><strong>原则二：不调整药物。</strong> 降血压药、降糖药、降脂药和激素替代疗法（Hormone Replacement Therapy, HRT）的剂量调整由处方医生决定。教练发现客户出现药物相关副作用（如β阻滞剂导致运动耐量异常下降、磺脲类导致反复低血糖）时，应建议客户与主治医生沟通，而非自行调整训练或营养方案来"代偿"。</p>
+<p><strong>原则三：在医疗团队框架内提供营养支持。</strong> 教练的角色是在医生和注册营养师（Registered Dietitian, RD）制定的总体方案框架内，提供营养教育和生活方式支持。具体包括：帮助客户理解和执行DASH或低GI膳食模式的操作细节、协助记录饮食并识别趋势、提供训练日的营养时机建议。</p>
+<p><strong>原则四：识别红线指标并转介。</strong> SBP ≥200 mmHg、HbA1c &gt;9.0%、LDL-C ≥4.9 mmol/L、反复低血糖发作、不明原因体重骤降等指标触发强制转介[1][14][9]。教练应维护一份清晰的转介阈值清单，在首次评估时与客户沟通这些阈值。</p><h4 class="sub-title">14.0.4 三类亚人群的共性特征</h4>
+<p>三高人群、50岁以上训练者和更年期女性虽然在病理生理层面差异显著，但在营养干预的操作层面共享三个特征。</p>
+<p>第一，热量限制速度需要更保守。健康年轻训练者的标准减脂速度为每周0.25–0.5 kg，特殊人群建议控制在每周0.25 kg或更慢，以降低肌肉流失风险和代谢代偿幅度[14][23]。</p>
+<p>第二，蛋白质下限需要更严格。合成代谢抵抗（50+人群）和慢性低度炎症（三高人群）都抬升了维持正氮平衡和最大化MPS所需的蛋白质量。M3 §3.2给出的1.6–2.2 g·kg⁻¹·d⁻¹是健康训练者的范围，特殊人群的下限可能需要贴近甚至超过该范围的上端[19][23][24]。</p>
+<p>第三，监测节点需要更频繁。标准方案的2–6周校准周期对这些人群不够敏感。建议每1–2周进行一次体重和训练表现的趋势回顾，每4–6周评估一次体成分变化和主观疲劳状态，出现红线指标立即转介[14][25]。</p>
+<p>上述框架为§14.1至§14.3的具体干预方案提供底层逻辑。各亚人群的具体营养策略将在这一框架基础上展开。</p>
+<hr /></div>
+</div><div class="section" id="sec-141三高人群营养干预">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 03</div><h2 class="section-title">14.1 三高人群营养干预</h2></div></div>
+<div class="card"><h4 class="sub-title">14.1.1 高血压</h4>
+<p>高血压是全球患病率最高的慢性非传染性疾病之一。ACC/AHA 2017 指南将高血压定义下调至收缩压（Systolic Blood Pressure, SBP）≥130 mmHg 或舒张压（Diastolic Blood Pressure, DBP）≥80 mmHg，分为 1 期（130–139/80–89 mmHg）和 2 期（≥140/90 mmHg）[1]。ESC 2024 指南在此基础上进一步新增"血压升高"分类（SBP 120–139 或 DBP 70–89 mmHg），对合并高心血管风险者即推荐干预，并将降压目标更新为 SBP 120–129 mmHg [2]。两套指南的趋同方向是：低于历史标准的血压已被纳入需要管理的范围。</p>
+<p><strong>DASH 饮食模式的循证基础。</strong> Filippou 等 2020 年在 <em>Advances in Nutrition</em> 发表的 meta 分析纳入 30 项随机对照试验（Randomized Controlled Trial, RCT）共 5,545 名受试者，DASH 饮食整体降低 SBP 3.2 mmHg、DBP 2.5 mmHg；高血压亚组效应更大（SBP −4.4 mmHg、DBP −2.5 mmHg）[3]。DASH 模式的核心结构为富含水果、蔬菜、全谷物、低脂乳制品和坚果，限制饱和脂肪、钠和含糖饮料，不依赖单一"功能食物"，而是膳食模式的整体效应。</p>
+<p><strong>钠摄入的个体化。</strong> 限钠的降压效应有明确的剂量-反应证据。He 等 2013 年在 <em>BMJ</em> 发表的 Cochrane meta 分析纳入 34 项 RCT 共 3,230 名受试者，减盐 4.4 g/d（约对应钠减少 1,760 mg/d）后，高血压亚组 SBP 降低 4.18 mmHg、DBP 降低 2.06 mmHg [4]。中国高血压指南 2024 推荐食盐 &lt;5 g/d（约对应钠 &lt;2 g/d）[5]。</p>
+<p>限钠建议不能一刀切。对 1 期高血压且钠摄入偏高的客户，限钠至 2,000 mg/d 是有循证基础的一线策略。对已在使用利尿剂或 ACEI/ARB 类药物的客户，过度限钠可能叠加低钠血症风险，需结合血清电解质监测。对运动量大、出汗量高的训练客户，训练中钠的额外丢失需要在限钠框架内做个体化补偿，而非简单执行"一律少盐"。</p>
+<p><strong>运动对血压的急性与长期效应。</strong> Cornelissen 与 Smart 2013 年在 <em>J Am Heart Assoc</em> 发表的 meta 分析整合 93 项 RCT 共 5,223 例，量化了三类训练的降压幅度 [6]：耐力训练降低高血压人群 SBP/DBP 8.3/5.2 mmHg；动态抗阻训练降低 3.0/2.1 mmHg；等长抗阻训练（如握力训练）降低 10.0/6.2 mmHg。单次有氧运动后可观察到持续 12–24 h 的运动后低血压效应（Post-Exercise Hypotension, PEH），这一效应在 SBP 基线较高的个体中更为显著 [7]。</p>
+<p>Naci 等 2019 年在 <em>Br J Sports Med</em> 发表的网络荟萃分析直接比较运动与降压药物的效力：在控制高血压方面，有氧运动与 β 受体阻滞剂和利尿剂的效力相当，但略弱于 ACEI、ARB 和 CCB [8]。该研究明确指出这一结论不应被误解为"运动可以替代药物"，而应理解为"运动是值得优先尝试的一线干预组件"。</p>
+<p><strong>教练操作要点。</strong> 运动前血压测量是硬要求。SBP ≥200 mmHg 或 DBP ≥110 mmHg 时禁止训练并转诊评估。使用 β 阻滞剂的客户以 RPE（Rating of Perceived Exertion, RPE）替代心率作为强度指标，因为药物会压低静息和运动心率。训练中避免 Valsalva 动作，保持呼吸节奏，负荷控制在 60%–80% 1RM 的中等范围。训练后监测体位性低血压，尤其是使用 CCB 或利尿剂的客户。</p><h4 class="sub-title">14.1.2 血脂异常</h4>
+<p>血脂异常的营养干预在过去十年经历了从"低脂一刀切"向"以饮食模式为核心、以 LDL-C 分层目标为导向"的范式转变。ESC/EAS 2019 指南确立了基于心血管风险的 LDL-C 分层目标：极高危（已确诊动脉粥样硬化性心血管疾病, ASCVD）&lt;1.4 mmol/L，高危 &lt;1.8 mmol/L，中危 &lt;2.6 mmol/L [9]。</p>
+<p><strong>饱和脂肪与反式脂肪。</strong> 主流指南（AHA 2017、ESC/EAS 2019、WHO 2023）一致建议将饱和脂肪摄入限制在总能量 &lt;10%，反式脂肪趋零 [9][10]。代谢病房试验在严格控制能量的条件下证实，饱和脂肪摄入量与 LDL-C 呈直接正相关。PURE 研究（Dehghan 2017, <em>Lancet</em>）的发现，即较高脂肪摄入与死亡率降低相关，在方法学上存在营养素测量系统误差、替代性混杂和"健康人群偏倚"等局限，不能推翻 RCT 级别的代谢病房证据 [11]。教练向客户解释时的核心信息是：用不饱和脂肪（橄榄油、坚果、深海鱼）替代饱和脂肪（肥肉、黄油、棕榈油），比单纯计算"脂肪占总能量百分比"更有实践意义。</p>
+<p><strong>Omega-3 与高甘油三酯血症。</strong> Wang 等 2023 年在 <em>J Am Heart Assoc</em> 发表的剂量响应 meta 分析纳入 86 项 RCT 共 67,359 例，确认 omega-3 脂肪酸（EPA + DHA）的甘油三酯（Triglycerides, TG）降低效应呈剂量依赖性 [12]：每摄入 1 g/d EPA+DHA，TG 降低约 5%–8%；高剂量（2–4 g/d）可实现 TG 降低 15%–30%。Skulas-Ray 等 2019 年 AHA 建议指出，TG 2.3–5.6 mmol/L 的人群可使用高剂量 omega-3（Icosapent ethyl 4 g/d）作为降低残余心血管风险的辅助策略 [13]。Omega-3 对 LDL-C 和 HDL-C 的影响较小或不一致，不应作为这两种指标管理的首选。</p>
+<p><strong>碳水质量优于碳水总量。</strong> ADA 2024 指南明确不再推荐固定碳水比例，转向 pattern-based eating [14]。对血脂异常客户，低 GI/GL 碳水来源（全谷物、豆类、薯类）替代精制碳水（白米、白面包、含糖饮料）的证据优于"一刀切低碳水"。低 GI 饮食在 Chiavaroli 等 2021 年 <em>BMJ</em> meta 分析中显示 T2DM 人群 HbA1c 降低 0.31%（29 项试验比较, n=1,617）[15]。</p>
+<p><strong>食物替换方案。</strong> 教练可将以下替换建议整合进客户方案：将红肉（每周 ≤300 g）部分替换为深海鱼（每周 ≥2 次，每次 120–150 g）；用橄榄油或菜籽油替代黄油和棕榈油；每日坚果 25–30 g（约一把杏仁或核桃）；用全谷物和豆类替代至少一半精制主食。这些替换策略同时作用于 LDL-C 降低和 TG 控制，且与客户的食物文化兼容性较好。</p><h4 class="sub-title">14.1.3 高血糖 / 2 型糖尿病</h4>
+<p><strong>运动对血糖的急性影响。</strong> 骨骼肌葡萄糖摄取在运动中通过胰岛素非依赖性通路增加。肌肉收缩通过 AMPK 与 Ca²⁺/CaMKII 信号促进 GLUT4 转位至肌膜，单次运动可在 24–72 h 内提升胰岛素敏感性 [14]。这一机制是"运动作为 T2DM 基础干预"的分子基础。对教练执业的意义在于：客户在训练日的餐后血糖峰值通常会低于休息日，这一效应在中等强度有氧运动（30–45 min）后最为显著。</p>
+<p><strong>碳水分配策略。</strong> ADA 2024 推荐 T2DM 人群将碳水化合物均匀分配至三餐，每餐 30–60 g，避免单餐负荷过大 [14]。低 GI/GL 饮食的 HbA1c 改善已在多项 meta 分析中得到确认 [15]。实践中的操作框架：优先选择 GI ≤55 的食物；每餐搭配优质蛋白质（20–30 g）和膳食纤维（≥5 g/餐）以减缓胃排空和葡萄糖吸收；避免含糖饮料和果汁作为训练中补给的常规选择。</p>
+<p><strong>HbA1c 的含义。</strong> 糖化血红蛋白（Hemoglobin A1c, HbA1c）反映过去 2–3 个月的平均血糖水平，是 T2DM 管理的核心终点指标。ADA 2024 的一般控制目标为 HbA1c &lt;7.0%，更严格的 &lt;6.5% 适用于病程短、无严重并发症且低血糖风险低的客户 [14]。减重 ≥5% 可同时改善 HbA1c、血压和血脂；减重 7%–10% 可使部分 T2DM 客户实现缓解（HbA1c &lt;6.5% 持续 ≥3 个月不用降糖药）[14]。</p>
+<p><strong>二甲双胍与维生素 B12 缺乏。</strong> 长期（≥4 年）使用二甲双胍与血清维生素 B12 水平下降相关，机制涉及二甲双胍对回肠末端 B12-内因子复合物吸收的干扰 [14]。ADA 2024 建议长期使用二甲双胍的客户定期监测 B12 水平。B12 缺乏可表现为外周神经病变和巨幼细胞性贫血，其神经症状可与糖尿病周围神经病变混淆，导致诊断延迟。教练可在营养方案中提示客户关注 B12 膳食来源（动物性蛋白、强化食品），并在复评时建议客户与主治医生讨论是否需要检测 B12。</p>
+<p><strong>教练监控边界。</strong> 教练不得参与降糖药物剂量调整。使用磺脲类（如格列美脲）的客户在运动中发生低血糖的风险显著，因为磺脲类驱动胰岛素分泌的机制不受运动状态调节。教练应提示客户在运动前监测血糖、随身携带速效碳水化合物（葡萄糖片 15–20 g），并在出现低血糖症状（出汗、震颤、心悸、意识模糊）时立即停止训练。使用 SGLT-2 抑制剂的客户需注意训练中脱水风险和酮体监测。任何 HbA1c &gt;9.0% 或出现急性并发症迹象的客户，必须转介至内分泌科。</p><h4 class="sub-title">14.1.4 代谢综合征</h4>
+<p>代谢综合征是心血管疾病和 T2DM 的独立危险因素，其诊断标准在不同机构间存在差异。IDF/AHA 2009 联合声明采用的标准为：中心性肥胖（腰围：男性 ≥90 cm、女性 ≥85 cm，中国标准）合并以下至少两项 [16]：</p>
+<ul>
+<li>TG ≥1.7 mmol/L 或已接受降 TG 治疗</li>
+<li>HDL-C 降低（男性 &lt;1.0 mmol/L、女性 &lt;1.3 mmol/L）</li>
+<li>SBP ≥130 或 DBP ≥85 mmHg 或已接受降压治疗</li>
+<li>空腹血糖 ≥5.6 mmol/L 或已确诊 T2DM</li>
+</ul>
+<p><strong>核心干预：减脂 5%–10% 即可显著改善全部指标。</strong> 代谢综合征的五类组分共享同一组循证内核。Neter 等 2003 年 <em>Hypertension</em> meta 分析（25 项 RCT, n=4,874）显示，净减重 5.1 kg 平均降低 SBP 4.44 mmHg、DBP 3.57 mmHg [17]。ADA 2024 确认减重 ≥5% 改善 HbA1c、血压和血脂 [14]。Vilar-Gomez 等 2015 年 <em>Gastroenterology</em> 研究（n=293, 52 周随访）证明减重 7%–10% 改善 NASH 组织学 [18]。</p>
+<p>代谢综合征的营养干预以减脂方案为基础，整合 14.1.1–14.1.3 的 DASH 模式、限钠、低 GI/GL 碳水和 omega-3 策略，而非为"代谢综合征"设计一套独立的饮食配方。国际权威指南已收敛到三点共识：减重幅度第一，模式选择第二，营养素百分比第三 [14][5][18]。教练向客户传达时的关键信息是：不需要找到"完美配方"，需要找到客户能持续依从且与本土食物习惯匹配的健康饮食模式。</p><h4 class="sub-title">14.1.5 教练执业红线</h4>
+<p>三高及代谢综合征客户的首诊管理必须遵守以下执业边界：</p>
+<p><strong>必须持有近期体检报告（3 个月内）。</strong> 客户的首诊资料应至少包括：血压测量值、空腹血糖/HbA1c、血脂四项（TC、TG、LDL-C、HDL-C）、肝肾功能、当前用药清单。无客观证据不开方案，只有口头主诉的客户应降级为信息收集阶段。</p>
+<p><strong>不得替代医嘱。</strong> 每一份方案中必须明确写入：本方案不替代医生处方；减药/降级/缓解决策由主治医生评估；复评数据需同步反馈给医生。教练的角色是"营养支持配合医生的治疗节奏"。</p>
+<p><strong>必须转介的触发条件。</strong> SBP ≥180 mmHg 或 DBP ≥110 mmHg（任一次测量）；随机血糖 ≥16.7 mmol/L 伴酮体阳性或 HbA1c &gt;9.0%；近 3 个月内发生心梗、脑卒中或不稳定型心绞痛；eGFR &lt;60 mL/min/1.73 m²。上述任一阳性，首诊不启动营养方案设计，改为支持性会谈加转介对接。</p>
+<hr /></div>
+</div><div class="section" id="sec-14250人群营养策略">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 04</div><h2 class="section-title">14.2 50+ 人群营养策略</h2></div></div>
+<div class="card"><h4 class="sub-title">14.2.1 合成代谢抵抗</h4>
+<p>合成代谢抵抗（Anabolic Resistance）是理解 50 岁以上训练者营养需求的核心生理概念 [19]。它指的是骨骼肌对合成代谢刺激的敏感性随年龄系统性下降的现象，无论这种刺激来自蛋白质/氨基酸摄入还是抗阻运动。</p>
+<p>在分子层面，合成代谢抵抗涉及多重机制。卫星细胞（Satellite Cell）活性和数量下降，限制肌肉修复和增粗的细胞学基础 [19]。mTOR（哺乳动物雷帕霉素靶蛋白）信号通路对氨基酸刺激的磷酸化激活强度下降 [19]。肌肉血流和氨基酸递送能力因外周血管内皮功能衰退而降低 [20]。慢性低度炎症（炎性衰老, Inflammaging）通过 NF-κB 通路干扰合成代谢信号 [19]。</p>
+<p><strong>亮氨酸阈值上调。</strong> 老年人触发 MPS 最大速率所需的亮氨酸剂量显著高于年轻人。Moore 等 2015 年在 <em>J Gerontol</em> 发表的研究直接比较了年轻男性（18–40 岁）和老年男性（60–75 岁）在递增剂量乳清蛋白后的 MPS 响应：年轻男性在 0.24 g/kg 乳清蛋白（约含 0.033 g/kg 亮氨酸）时 MPS 达平台；老年男性需要 0.40 g/kg（约含 0.055 g/kg 亮氨酸）才能达到等效响应 [21]。老年人的亮氨酸阈值约为年轻人的 1.67 倍。</p>
+<p><strong>蛋白源选择。</strong> 50 岁以上训练者应优先选择高生物价、高亮氨酸含量的蛋白来源。乳清蛋白（亮氨酸含量约 11%）是最高效的触发源；鸡蛋（亮氨酸含量约 9%）和鱼类（亮氨酸含量约 8%）也是优质选择。植物蛋白（大豆约 8%、豌豆约 7%）的亮氨酸贡献相对不足，等量蛋白质克数下需要更大的食物量才能触发等效 MPS 响应 [19][21]。Tarnopolsky 2008 建议老年人摄入的蛋白质中至少 50% 来自高生物价蛋白 [22]。</p>
+<p>对教练的实践意义是：50 岁以上客户的训练后蛋白补充不能沿用"一勺蛋白粉（约 20 g）"的年轻人模板。他们需要每餐 25–40 g 高质量蛋白才能克服合成代谢抵抗，训练后更应靠近上限（30–40 g）。</p><h4 class="sub-title">14.2.2 蛋白需求上调</h4>
+<p>全球营养权威机构对一般成人的蛋白质 RDA 为 0.8 g/kg/d。这一推荐值基于零氮平衡研究，目标函数是"维持"蛋白质平衡，而非"逆转"肌肉衰退。将其直接应用于 50 岁以上训练者存在根本性问题：合成代谢抵抗使等量蛋白的利用率下降，老年人的能量摄入通常低于年轻训练者导致蛋白质密度的满足难度增加 [19][22]。</p>
+<p>PROT-AGE Study Group（Bauer 等 2013）在 <em>J Am Med Dir Assoc</em> 发表的立场声明是老年蛋白质营养领域被引用最广泛的共识文件 [23]。核心推荐如下：</p>
+<ul>
+<li>健康老年人（&gt;65 岁）：1.0–1.2 g/kg/d</li>
+<li>身体功能良好或急性疾病恢复期老年人：1.2–1.5 g/kg/d</li>
+<li>单餐蛋白质剂量：25–40 g 高质量蛋白（含约 2.5–4.0 g 亮氨酸），以克服合成代谢抵抗</li>
+<li>蛋白质均匀分配至 3–4 餐，而非集中在 1–2 餐</li>
+</ul>
+<p>ESPEN Expert Group（Deutz 等 2014）从临床营养学角度进一步推荐老年人蛋白质摄入 1.2–1.5 g/kg/d（疾病或急性应激状态下可进一步上调），并强调仅靠营养干预不足以维持肌肉功能，必须联合抗阻训练 [24]。</p>
+<p><strong>与一般成人的差异对比。</strong> 0.8 g/kg/d 的 RDA 基于 18–65 岁静坐人群数据。PROT-AGE 的 1.0–1.2 g/kg/d 下限已高于 RDA 25%–50%，对应合成代谢抵抗对蛋白质需求的实质性影响。对 50 岁以上规律进行抗阻训练的客户，1.2–1.6 g/kg/d 是一个合理的起始目标，这一区间高于 PROT-AGE 下限但低于精英年轻运动员的 1.6–2.2 g/kg/d。65 岁以上持续高强度训练人群的蛋白质需求缺乏直接 RCT 数据，1.2–1.6 g/kg/d 的推荐来自专家共识和机制外推。</p><h4 class="sub-title">14.2.3 肌少症预防</h4>
+<p>肌少症（Sarcopenia）是以骨骼肌质量、肌肉力量和身体功能进行性下降为特征的老年综合征。Cruz-Jentoft 等 2019 年代表 EWGSOP2（European Working Group on Sarcopenia in Older People 2）发布的立场文件将肌少症正式定义为"肌肉力量低下"的临床综合征，而非仅关注肌肉质量 [25]。</p>
+<p><strong>SARC-F 筛查工具。</strong> SARC-F 为五项自评问卷：肌力（Strength）、辅助行走（Assistance walking）、从椅子起立（Rise from chair）、爬楼梯（Climb stairs）、跌倒（Falls），每项 0–2 分，总分 ≥4 分提示肌少症风险 [25]。教练可在首诊评估中使用 SARC-F 作为快速筛查工具，≥4 分的客户应在方案中标注"肌少症风险"并建议客户进行 DXA 或 BIA 肌肉质量评估。</p>
+<p><strong>EWGSOP2 三步评估路径。</strong> 第一步，使用 SARC-F 或临床怀疑识别"可能肌少症"（低握力或低椅子起立测试成绩）。第二步，应用 DXA 或 BIA 检测低肌肉质量（男性 &lt;7.0 kg/m²、女性 &lt;5.5 kg/m² 肌肉质量指数）。第三步，应用 SPPB（简易体能测试）或 6 米步行速度评估低体能，将确诊肌少症进一步分级 [25]。</p>
+<p><strong>干预三要素：抗阻训练 + 蛋白质优化 + 维生素 D。</strong> Cermak 等 2012 年在 <em>Am J Clin Nutr</em> 发表的 meta 分析综合 22 项 RCT 共 954 名受试者，确认蛋白质补充联合抗阻训练的去脂体重（Fat-Free Mass, FFM）增益显著大于单独抗阻训练（平均差值 +0.30 kg, 95% CI 0.14–0.46 kg）[26]。这一效应在老年与年轻亚组间无显著差异。Breen 与 Phillips 2011 年的综述明确指出：蛋白质补充和抗阻训练分别从不同通路激活 MPS，两者联合产生的协同效应远大于各自单独效应之和 [27]。</p>
+<p>维生素 D 在肌少症预防中的角色来自 Bischoff-Ferrari 等 2009 年 <em>BMJ</em> meta 分析：补充维生素 D（800–1,000 IU/d）的老年人跌倒发生率比安慰剂组低约 20% [28]。PROT-AGE 建议老年人维生素 D 摄入量达到 800–1,000 IU/d，维持血清 25(OH)D ≥75 nmol/L（30 ng/mL）[23]。</p>
+<p>三者缺一不可：单独增加蛋白质摄入而不进行抗阻训练，无法有效逆转肌肉衰退；单独抗阻训练而不优化蛋白质摄入，无法最大化训练适应；维生素 D 缺乏则叠加跌倒风险和肌肉功能下降。</p><h4 class="sub-title">14.2.4 骨健康与训练日调整</h4>
+<p>50 岁以上训练者的骨健康管理需要钙、维生素 D 和维生素 K2 三者的协同。维生素 D 状态是决定肠道钙吸收效率的首要因素：充足时吸收率约 30%–40%，缺乏时降至 10%–15% [29]。维生素 K2（甲萘醌类，主要为 MK-4 和 MK-7）作为 γ-谷氨酰羧化酶的辅因子，催化骨钙素（Osteocalcin）的羧化，使其获得结合钙离子的能力。未羧化骨钙素（Undercarboxylated Osteocalcin, ucOC）是维生素 K 缺乏的敏感标志物。MK-7 的半衰期（约 72 h）远长于 MK-4（约 1.5 h），在维持持续骨钙素羧化方面更有效 [29]。</p>
+<p>51 岁以上推荐钙摄入 1,000–1,200 mg/d，优先通过饮食满足。乳制品中的钙吸收率最高（约 30%–35%），十字花科蔬菜（西兰花、羽衣甘蓝）的钙吸收率可达 50% 以上，而高草酸蔬菜（菠菜）的钙吸收率极低（约 5%）。维生素 D 推荐 800–2,000 IU/d，目标血清 25(OH)D 维持 40–60 ng/mL。柠檬酸钙适合胃酸分泌减少的绝经后/老年人群，不依赖胃酸环境即可吸收 [29]。</p>
+<p><strong>训练日与休息日的差异化。</strong> 训练日的钙补充应避开训练前后 2 h，因为运动中内脏血流再分配可能影响钙的吸收效率。训练日的蛋白质分配应靠近上限（每餐 30–40 g），休息日可维持在每餐 25–30 g。钙剂与铁剂应分开服用（间隔 ≥2 h），二价阳离子之间会竞争吸收转运体。</p>
+<p><strong>高咖啡因与高钠对钙的影响。</strong> 高咖啡因摄入（&gt;4 杯咖啡/d, 约 &gt;400 mg 咖啡因）可增加尿钙排泄，对骨密度存在潜在不利影响。高钠摄入同样通过增加尿钠排泄伴随尿钙丢失。50 岁以上训练者应将咖啡因控制在 300–400 mg/d 以内，钠摄入按 14.1.1 的限钠建议执行。</p>
+<hr /></div>
+</div><div class="section" id="sec-143更年期女性营养干预">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 05</div><h2 class="section-title">14.3 更年期女性营养干预</h2></div></div>
+<div class="card"><h4 class="sub-title">14.3.1 雌激素下降的代谢影响</h4>
+<p>围绝经期是一个持续 4–8 年的渐进过程（SWAN 研究中位数为 6.2 年），卵巢功能并非突然衰竭，而是经历卵泡数量加速减少、排卵频率降低和激素波动加大的过程。绝经后雌激素水平的持续下降通过 RANKL/OPG 通路、脂代谢重塑和肌肉蛋白合成效率下降三个维度，同时加速骨丢失、内脏脂肪积累和肌少症 [29][30]。</p>
+<p><strong>内脏脂肪重分布。</strong> 雌激素下降导致脂肪分布从臀部/股部（gynoid）向腹部（android）转变，内脏脂肪（Visceral Adipose Tissue, VAT）显著增加。绝经过渡期较生育后期能量需求约减少 200 kcal/d，绝经后再减少 50–100 kcal/d；若不调整摄入，每年可增加体重约 2–3 kg [30]。这一变化独立于总能量摄入的变化，说明雌激素下降本身即改变了脂肪组织的分配逻辑。</p>
+<p><strong>肌肉加速下降。</strong> 雌激素通过 ERα 信号通路抑制肌肉细胞凋亡并维持神经肌肉功能。绝经后这一保护作用消失，叠加合成代谢抵抗的年龄效应，肌肉量下降速度较绝经前加速 [29][30]。绝经后蛋白质需要量因此升高：围绝经期 1.0–1.2 g/kg/d，绝经过渡期 ≥1.2 g/kg/d，绝经后 1.2–1.6 g/kg/d [31]。</p>
+<p><strong>骨密度流失。</strong> 雌激素通过 ERα 抑制 RANKL 信号并上调骨保护素（Osteoprotegerin, OPG），从而抑制破骨细胞生成和骨吸收。绝经后雌激素消失导致 RANKL/OPG 比值升高，触发高转换型骨丢失。绝经后前 5 年骨小梁评分（Trabecular Bone Score, TBS）下降约 6.3% [30]。</p>
+<p><strong>胰岛素敏感性下降。</strong> 雌激素通过 ER 信号通路维持骨骼肌胰岛素敏感性。绝经后雌激素下降叠加内脏脂肪增加（内脏脂肪本身是促炎和致胰岛素抵抗的），T2DM 风险在绝经后显著上升 [29]。</p><h4 class="sub-title">14.3.2 营养策略调整</h4>
+<p><strong>蛋白质上调至 1.6–2.0 g/kg/d。</strong> 绝经后女性的蛋白质推荐需要同时对抗合成代谢抵抗和雌激素对肌肉保护作用消失的双重打击。1.2–1.6 g/kg/d 是预防肌少症的基础推荐；对正在进行减脂的绝经后女性，1.6–2.0 g/kg/d 的蛋白质摄入有助于在热量赤字下保护瘦体重。均匀分配至三餐（每餐 0.4 g/kg 以上），优先选择富含亮氨酸的优质蛋白来源。乳清蛋白因其高亮氨酸含量和快速消化吸收特性，是绝经后女性的优选之一 [29][31]。证据等级：PROT-AGE 和 ESPEN 立场声明为 GRADE 中等，绝经后女性的特异性 RCT 仍然有限。</p>
+<p><strong>钙 + 维生素 D + 维生素 K2。</strong> 三者协同构成完整的骨矿化链条：维生素 D 促进肠道钙吸收，钙提供骨矿化底物，维生素 K2 确保骨钙素活化以促进钙在骨基质中的沉积。Meta 分析显示联合方案的骨保护效果优于任何单一成分 [29]。51 岁以上女性钙 1,000–1,200 mg/d，维生素 D 800–2,000 IU/d，维生素 K2（优选 MK-7 形式）90–180 μg/d。证据等级：钙 + 维生素 D 为 GRADE 中等至高等，K2 的附加效应为 GRADE 低至中等。</p>
+<p><strong>植物雌激素。</strong> 大豆异黄酮通过与 ERβ 结合发挥选择性雌激素受体调节剂（Selective Estrogen Receptor Modulator, SERM）样作用。Luan 等 2025 年 meta 分析（12 项 RCT, n=533）显示对围绝经期症状的总体效应量 Hedges' g = −0.25（95% CI −0.42 至 −0.08），属于小至中等效应 [32]。Advances in Nutrition 2024/2025 的 meta 分析（40 项 RCT, n=3,285）确认对子宫内膜厚度、阴道成熟指数、FSH 和雌二醇均无显著雌激素样效应，支持其安全性 [33]。植物雌激素不能替代激素替代治疗（Hormone Replacement Therapy, HRT）用于中重度血管舒缩症状，其效应量远不及 HRT。证据等级：安全性为 GRADE 高等，疗效为 GRADE 低至中等。</p>
+<p><strong>Omega-3 脂肪酸。</strong> 绝经后女性的心血管风险因雌激素保护作用消失而上升。EPA + DHA 2–4 g/d 的 TG 降低效应 [12]、对慢性低度炎症的调节作用以及对肌肉蛋白质合成的潜在支持 [19]，使 omega-3 成为绝经后女性营养方案中值得推荐的组件。证据等级：TG 降低为 GRADE 高等，抗炎和肌肉保护的直接证据为 GRADE 低至中等。</p><h4 class="sub-title">14.3.3 体成分管理与 HRT</h4>
+<p><strong>减脂速度比年轻女性慢 20%–30%。</strong> 绝经后女性的代谢率下降叠加肌肉量减少，使减脂的难度显著高于绝经前。能量赤字的设计应更加保守：每日 300–500 kcal 的温和赤字优于激进的大幅限制。过快的减脂速度会进一步加速骨丢失和肌肉流失。</p>
+<p><strong>避免过度热量限制。</strong> 每日能量摄入 &lt;1,200 kcal 在绝经后女性中可加速骨丢失，因为极低能量摄入导致钙、蛋白质和微量营养素的绝对摄入严重不足，叠加皮质醇升高的分解代谢效应 [30]。这是绝经后女性减脂方案与年轻女性方案的关键差异。对绝经后女性，即使客户有强烈的减脂意愿，热量下限也不应低于 1,200 kcal/d，且必须在蛋白质充足（≥1.6 g/kg/d）和骨营养素充足的前提下执行。</p>
+<p><strong>BR（Body Recomposition, 体成分重组）特别适用。</strong> 对绝经后女性，同时增肌减脂的 Body Recomposition 策略比单纯减重更为合理。抗阻训练维持或增加肌肉量、控制体脂，配合高蛋白摄入（1.6–2.0 g/kg/d）和温和热量赤字，可以在改善体成分的同时最小化骨丢失风险。这一策略的减重速度可能慢于传统减脂方案，但对整体健康指标（骨密度、肌肉力量、代谢健康）的改善更为全面。</p>
+<p><strong>HRT 对营养方案的影响。</strong> 钙和维生素 D 充足是 HRT 骨保护作用的基础条件。在钙和维生素 D 充足的前提下，HRT 对骨密度的保护效果可达 2%–4% 的 BMD 差异；营养缺乏状态下这一效果显著降低 [30]。HRT 使用期间需维持健康体重和限制酒精摄入，因为酒精与 HRT 的联合使用可能进一步增加乳腺组织密度。植物雌激素与 HRT 联合使用的证据有限，不做常规推荐。教练在遇到使用 HRT 的客户时，应了解 HRT 对骨保护的正面效应和对营养充足性的前提要求，将钙、维生素 D 和蛋白质的充足摄入作为营养方案的硬指标。</p>
+<hr /></div>
+</div><div class="section" id="sec-章末小结">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 06</div><h2 class="section-title">章末小结</h2></div></div>
+<div class="card"><p>四类亚人群营养干预策略的核心要点如下：</p>
+<p>三高及代谢综合征客户的管理以减脂 5%–10% 为通用循证内核，DASH 饮食模式、限钠、低 GI/GL 碳水和 omega-3 是可叠加的独立剂量-反应锚点。教练的执业边界是"营养支持配合医生节奏"，不调药、不替代医嘱。</p>
+<p>50 岁以上训练者的营养策略围绕合成代谢抵抗展开。蛋白质需求上调至 1.0–1.6 g/kg/d，每餐 25–40 g 高质量蛋白以克服亮氨酸阈值上调，配合抗阻训练实现蛋白质-运动协同。骨骼健康需要钙 + 维生素 D + 维生素 K2 三联支持。</p>
+<p>更年期女性的代谢重塑使内脏脂肪增加、肌肉加速下降和骨密度流失同时发生。蛋白质进一步上调至 1.6–2.0 g/kg/d（减脂期），避免过度热量限制（&lt;1,200 kcal/d 加速骨丢失），BR 策略比单纯减重更为适用。植物雌激素的安全性已获高等级证据支持，但其疗效仅属小至中等效应，不能替代 HRT。</p>
+<p>四类人群共享一条执业红线：没有近期体检报告，不开方案。</p>
+<hr /></div>
+</div><div class="section" id="sec-思考题">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 07</div><h2 class="section-title">思考题</h2></div></div>
+<div class="card"><ol>
+<li>
+<p>一位 52 岁男性客户，BMI 28.5，SBP 138/88 mmHg，空腹血糖 6.4 mmol/L，TG 2.1 mmol/L，HDL-C 0.95 mmol/L，腰围 94 cm。请根据 IDF/AHA 标准判断他是否符合代谢综合征诊断，并为其设计一份整合 DASH 模式、限钠和低 GI/GL 策略的 12 周营养干预框架。</p>
+</li>
+<li>
+<p>解释 Moore 2015 研究中"0.24 g/kg vs 0.40 g/kg/餐"这一数据的含义。一位 68 岁女性训练者（体重 60 kg），请计算她每餐需要多少克乳清蛋白才能触发 MPS 最大响应，并设计一份覆盖三餐 + 训练后的蛋白质分配方案。</p>
+</li>
+<li>
+<p>一位 55 岁绝经后女性客户（体重 65 kg, BMI 26），主诉"更年期后体重增加了 8 kg，肚子越来越大"。她希望快速减脂。请为她设计一份 BR 策略优先的营养方案，说明为什么不能采用 &lt;1,200 kcal/d 的热量限制，以及蛋白质、钙 + 维生素 D + K2 的推荐量及其循证依据。</p>
+</li>
+<li>
+<p>对比 ACC/AHA 2017 和 ESC 2024 高血压指南在判定阈值和降压目标上的差异。Cornelissen 2013 meta 分析报告的动态抗阻训练降压幅度是多少？为什么教练在使用 β 阻滞剂的客户身上需要用 RPE 替代心率作为强度指标？</p>
+</li>
+<li>
+<p>一位 60 岁男性 T2DM 客户，已使用二甲双胍 5 年，HbA1c 6.8%，BMI 27，正在进行每周 3 次抗阻训练。请说明二甲双胍与维生素 B12 缺乏的关联机制，并为其设计运动日的碳水分配方案（每餐 30–60 g，低 GI/GL），同时标注哪些操作属于教练职责范围、哪些需要转介医生。</p>
+</li>
+</ol>
+<hr /></div>
+</div><div class="section" id="sec-教练转化清单">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 08</div><h2 class="section-title">教练转化清单</h2></div></div>
+<div class="card"><p><strong>三高/代谢综合征客户</strong></p>
+<ul>
+<li>首诊必查：血压、空腹血糖/HbA1c、血脂四项、腰围、当前用药清单（3 个月内体检报告）</li>
+<li>营养锚点：DASH 模式、限钠 &lt;2 g/d（盐 &lt;5 g/d）、碳水每餐 30–60 g + 低 GI/GL、omega-3 EPA+DHA 2–4 g/d（高 TG 者）</li>
+<li>减脂目标：5%–10% 体重下降即可显著改善全部代谢指标</li>
+<li>运动注意：SBP ≥200 或 DBP ≥110 禁训练；β 阻滞剂使用者用 RPE；避免 Valsalva</li>
+<li>转介红线：SBP ≥180/DBP ≥110；HbA1c &gt;9.0%；急性心血管事件 &lt;3 个月</li>
+</ul>
+<p><strong>50+ 训练者</strong></p>
+<ul>
+<li>蛋白质上调：1.0–1.6 g/kg/d（取决于训练强度和健康状态），每餐 25–40 g 高质量蛋白</li>
+<li>亮氨酸优先：乳清蛋白、鸡蛋、鱼类，训练后靠近上限（30–40 g）</li>
+<li>骨骼三联：钙 1,000–1,200 mg/d + 维生素 D 800–2,000 IU/d + 维生素 K2（MK-7）90–180 μg/d</li>
+<li>SARC-F 筛查：≥4 分标注"肌少症风险"，建议 DXA/BIA 评估</li>
+<li>咖啡因控制：&lt;400 mg/d；训练日钙补充避开训练前后 2 h</li>
+</ul>
+<p><strong>更年期/绝经后女性</strong></p>
+<ul>
+<li>蛋白质进一步上调：1.6–2.0 g/kg/d（减脂期），均匀分配至三餐</li>
+<li>热量底线：≥1,200 kcal/d，温和赤字 300–500 kcal/d</li>
+<li>BR 优先于单纯减重：抗阻训练 + 高蛋白 + 温和赤字</li>
+<li>植物雌激素可推荐（安全性 GRADE 高等），但不替代 HRT</li>
+<li>HRT 客户：确保钙 + 维生素 D 充足（HRT 骨保护的前提条件），限制酒精</li>
+</ul>
+<hr /></div>
+</div><div class="section" id="sec-参考文献">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 09</div><h2 class="section-title">参考文献</h2></div></div>
+<div class="card"><p>[1] Whelton PK, Carey RM, Aronow WS, et al. 2017 ACC/AHA/AAPA/ABC/ACPM/AGS/APhA/ASH/ASPC/NMA/PCNA Guideline for the Prevention, Detection, Evaluation, and Management of High Blood Pressure in Adults. <em>Hypertension</em>. 2018;71(6):e13–e115.</p>
+<p>[2] McEvoy JW, McCarthy S, Bruno D, et al. 2024 ESC Guidelines for the management of elevated blood pressure and hypertension. <em>Eur Heart J</em>. 2024;45(34):3912–4018.</p>
+<p>[3] Filippou CD, Thomopoulos CG, Dimopoulos CG, et al. Dietary Approaches to Stop Hypertension (DASH) diet lowers blood pressure: a meta-analysis of randomised controlled trials. <em>Adv Nutr</em>. 2020;12(1):157–165.</p>
+<p>[4] He FJ, Li J, Macgregor GA. Effect of lowering salt intake on blood pressure: a systematic review and meta-analysis of randomised trials. <em>BMJ</em>. 2013;346:f1325.</p>
+<p>[5] 中国高血压防治指南修订委员会. 中国高血压防治指南（2024 年修订版）. <em>中华高血压杂志</em>. 2024.</p>
+<p>[6] Cornelissen VA, Smart NA. Endurance training for blood pressure control: a systematic review and meta-analysis. <em>J Am Heart Assoc</em>. 2013;2(1):e004452.</p>
+<p>[7] MacDonald HV, Johnson BT, MacDonell HV, et al. Methodological characteristics and future directions for postexercise hypotension research. <em>J Am Heart Assoc</em>. 2016;5(5):e003128.</p>
+<p>[8] Naci H, Salcher-Konrad M, Singh S, et al. How does exercise treatment compare with antihypertensive medications? A network meta-analysis. <em>Br J Sports Med</em>. 2019;53(23):1468–1475.</p>
+<p>[9] Mach F, Baigent C, Catapano AL, et al. 2019 ESC/EAS Guidelines for the management of dyslipidaemias. <em>Eur Heart J</em>. 2019;40(41):3354–3423.</p>
+<p>[10] WHO. Guidelines on food labelling and nutrition: trans fatty acids. Geneva: World Health Organization; 2023.</p>
+<p>[11] Dehghan M, Mente A, Zhang X, et al. Associations of fats and carbohydrate intake with cardiovascular disease and mortality in 18 countries from five continents (PURE): a prospective cohort study. <em>Lancet</em>. 2017;390(10107):2050–2062.</p>
+<p>[12] Wang DD, Toledo E, Hu FB. Omega-3 fatty acids and cardiovascular disease: a dose-response meta-analysis. <em>J Am Heart Assoc</em>. 2023;12(5):e027474.</p>
+<p>[13] Skulas-Ray PR, Wilson PWF, Harris WS, et al. Omega-3 fatty acids for the management of hypertriglyceridemia: a science advisory from the American Heart Association. <em>Circulation</em>. 2019;140(12):e673–e691.</p>
+<p>[14] American Diabetes Association. Standards of Care in Diabetes—2024. <em>Diabetes Care</em>. 2024;47(Suppl 1):S1–S321.</p>
+<p>[15] Chiavaroli L, Zmirou A, Rahelić D, et al. Low glycaemic index diet for people with type 2 diabetes. <em>BMJ</em>. 2021;375:n2254.</p>
+<p>[16] Alberti KG, Eckel RH, Grundy SM, et al. Harmonizing the metabolic syndrome: a joint interim statement. <em>Circulation</em>. 2009;120(16):1640–1645.</p>
+<p>[17] Neter JE, Stam BE, Kok FJ, et al. Influence of weight reduction on blood pressure: a meta-analysis of randomized controlled trials. <em>Hypertension</em>. 2003;42(5):878–884.</p>
+<p>[18] Vilar-Gomez E, Martinez-Perez Y, Calzadilla-Bertolino L, et al. Weight loss through lifestyle modification significantly reduces features of nonalcoholic steatohepatitis. <em>Gastroenterology</em>. 2015;149(2):367–378.</p>
+<p>[19] Wall BT, Gorissen SH, Pennings B, et al. Aging is accompanied by a persistently impaired anabolic response to protein ingestion. <em>PLoS One</em>. 2015;10(11):e0140903.</p>
+<p>[20] Cuthbertson D, Smith K, Babraj J, et al. Anabolic signaling deficits underlie amino acid resistance of wasting, aging muscle. <em>FASEB J</em>. 2005;19(3):422–424.</p>
+<p>[21] Moore DR, Churchward-Venne TA, Witard O, et al. Muscle protein synthesis in response to varied protein intakes in young and older men. <em>J Gerontol A Biol Sci Med Sci</em>. 2015;70(4):511–518.</p>
+<p>[22] Tarnopolsky MA. Protein requirements for athletes and active people. In: <em>Clin J Sport Med</em>. 2008;18(6):497–498.</p>
+<p>[23] Bauer J, Biolo G, Cederholm T, et al. Evidence-based recommendations for optimal dietary protein intake in older people: the PROT-AGE Study Group. <em>J Am Med Dir Assoc</em>. 2013;14(8):542–559.</p>
+<p>[24] Deutz NE, Bauer JM, Barazzoni R, et al. Protein intake and exercise for optimal muscle function with aging: recommendations from the ESPEN Expert Group. <em>Clin Nutr</em>. 2014;33(2):209–225.</p>
+<p>[25] Cruz-Jentoft AJ, Bahat G, Bauer J, et al. Sarcopenia: revised European consensus on definition and diagnosis (EWGSOP2). <em>Age Ageing</em>. 2019;48(1):16–31.</p>
+<p>[26] Cermak NM, Res PT, de Groot LC, et al. Protein supplementation augments muscle mass and strength gains during prolonged resistance-type exercise training. <em>Am J Clin Nutr</em>. 2012;96(6):1454–1464.</p>
+<p>[27] Breen L, Phillips SM. Skeletal muscle protein metabolism and resistance exercise in older adults. <em>J Physiol</em>. 2011;589(9):2147–2154.</p>
+<p>[28] Bischoff-Ferrari HA, Dawson-Hughes B, Stöcklin E, et al. Oral vitamin D3 and calcium for secondary prevention of low-trauma fractures in elderly people. <em>Lancet Neurol</em>. 2004;3(11):684–688.</p>
+<p>[29] 参见基础教材 Ch24 §24.5 围绝经期与绝经后营养. 参考文献见 Ch24 原文.</p>
+<p>[30] 同上. §24.5.1–§24.5.6.</p>
+<p>[31] 同上. §24.5.4.</p>
+<p>[32] Luan Y, Zhang L, Wang Y, et al. Soy isoflavones for menopausal symptoms: a systematic review and meta-analysis. <em>PeerJ</em>. 2025;13:e19715.</p>
+<p>[33] Advances in Nutrition. Effects of soy isoflavones on estrogenic biomarkers. <em>Adv Nutr</em>. 2024/2025. PMC11784794.</p></div>
+</div>
+<div style="text-align:center;margin-top:60px;padding-top:40px;border-top:1px solid var(--border)">
+<p style="color:var(--text-muted);font-size:13px">3HFIT · Arise · 加五磅 · 三天营养课</p>
+</div>
+</div>
+</body>
+</html>

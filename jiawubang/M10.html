@@ -1,0 +1,302 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M10 · 平台期诊断决策树 — 加五磅 · 三天营养课</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg-primary:#070709;--bg-card:#111115;--bg-card-hover:#18181E;--bg-elevated:#1A1A22;--accent:#C8A45E;--accent-dim:#8A7040;--accent-glow:rgba(200,164,94,0.15);--text-primary:#E8E6E3;--text-secondary:#9A9898;--text-muted:#6B6969;--border:#1E1E24;--border-light:#2A2A32}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sans SC','Inter',sans-serif;line-height:1.8;min-height:100vh}
+::selection{background:var(--accent);color:var(--bg-primary)}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg-primary)}
+::-webkit-scrollbar-thumb{background:var(--border-light);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--accent-dim)}
+.hero{padding:80px 24px 60px;text-align:center;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,var(--accent-glow) 0%,transparent 70%);pointer-events:none;opacity:.4}
+.hero-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent-dim);padding:4px 16px;border-radius:20px;margin-bottom:24px}
+.hero h1{font-family:'Noto Serif SC',serif;font-size:clamp(28px,5vw,48px);font-weight:900;background:linear-gradient(135deg,var(--text-primary) 0%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:16px;position:relative}
+.main{max-width:800px;margin:0 auto;padding:40px 24px 80px}
+.section{margin-bottom:56px}
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.section-badge{width:4px;height:32px;background:linear-gradient(180deg,var(--accent),var(--accent-dim));border-radius:2px;flex-shrink:0}
+.section-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:1px;margin-bottom:4px}
+.section-title{font-family:'Noto Serif SC',serif;font-size:clamp(20px,3vw,28px);font-weight:700;color:var(--text-primary)}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:28px;margin-bottom:20px;transition:all .25s ease}
+.card:hover{border-color:var(--border-light);background:var(--bg-card-hover);transform:translateY(-1px)}
+.card-title{font-family:'Noto Serif SC',serif;font-size:clamp(18px,2.5vw,24px);font-weight:700;color:var(--text-primary);margin-bottom:24px;padding-left:16px;border-left:3px solid var(--accent)}
+.sub-title{font-family:'Noto Serif SC',serif;font-size:18px;font-weight:700;color:var(--text-primary);margin:28px 0 16px;padding-left:12px;border-left:3px solid var(--accent-dim)}
+p{color:var(--text-secondary);margin-bottom:16px;font-size:15px;line-height:1.9}
+strong{color:var(--text-primary);font-weight:600}
+em{color:var(--accent);font-style:italic}
+blockquote{background:var(--bg-elevated);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:20px 24px;margin:20px 0;font-size:14px;color:var(--text-secondary);line-height:1.8}
+hr{border:none;height:1px;background:var(--border);margin:40px 0}
+.formula{background:var(--bg-elevated);border:1px solid var(--border-light);border-radius:8px;padding:16px 24px;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--accent);text-align:center}
+li{color:var(--text-secondary);font-size:15px;line-height:1.8;margin-bottom:8px;padding-left:8px;list-style:none}
+li::before{content:'\203A';color:var(--accent);font-weight:700;margin-right:8px}
+ul,ol{margin-bottom:16px;padding-left:8px}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+th{background:var(--bg-elevated);color:var(--accent);font-weight:600;text-align:left;padding:12px 16px;border:1px solid var(--border-light)}
+td{color:var(--text-secondary);padding:10px 16px;border:1px solid var(--border)}
+tr:nth-child(even) td{background:rgba(26,26,34,0.5)}
+.nav-bar{position:sticky;top:0;z-index:100;background:rgba(7,7,9,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:12px 24px;overflow-x:auto}
+.nav-inner{max-width:800px;margin:0 auto;display:flex;gap:8px;flex-wrap:nowrap}
+.nav-pill{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.5px;padding:6px 14px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;transition:all .2s;white-space:nowrap;text-decoration:none}
+.nav-pill:hover,.nav-pill.active{border-color:var(--accent-dim);color:var(--accent);background:var(--accent-glow)}
+@media(max-width:640px){.hero{padding:60px 16px 40px}.main{padding:24px 16px 60px}.card{padding:20px}blockquote{padding:16px 18px}}
+</style>
+</head>
+<body>
+<div class="hero">
+<div class="hero-tag">MODULE 10</div>
+<h1>平台期诊断决策树</h1>
+<p style="color:var(--text-secondary);font-size:16px;max-width:600px;margin:0 auto">加五磅 · 三天营养课</p>
+</div>
+<div class="nav-bar"><div class="nav-inner"><a class="nav-pill" href="#sec-学术导言">学术导言</a><a class="nav-pill" href="#sec-101假平台vs真平台判断">10.1 假平台 vs 真平台判断</a><a class="nav-pill" href="#sec-102路径一饮食精度核查">10.2 路径一：饮食精度核查</a><a class="nav-pill" href="#sec-103路径二训练变量调整">10.3 路径二：训练变量调整</a><a class="nav-pill" href="#sec-104路径三NEAT优化">10.4 路径三：NEAT 优化</a><a class="nav-pill" href="#sec-105路径四与路径五Refeed与DietBreak">10.5 路径四与路径五：Refeed 与 Diet Break</a><a class="nav-pill" href="#sec-章末小结">章末小结</a><a class="nav-pill" href="#sec-思考题">思考题</a><a class="nav-pill" href="#sec-教练转化清单">教练转化清单</a><a class="nav-pill" href="#sec-参考文献">参考文献</a></div></div>
+<div class="main">
+<h1>M10 平台期诊断决策树</h1>
+<div class="section" id="sec-学术导言">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 01</div><h2 class="section-title">学术导言</h2></div></div>
+<div class="card"><p>本章覆盖减脂平台期的系统化诊断逻辑：假平台与真平台的鉴别、五路径分层干预决策树、Refeed与Diet Break的循证选择，以及NEAT优化的实操方案。</p>
+<p>读完本章，教练应能建立以下判断力：</p>
+<ul>
+<li><strong>平台期诊断的第一步永远是排除假平台。</strong> 测量误差、水钠波动和饮食精度不足构成了假平台的三类来源。Lichtman等1992年经典研究发现自报饮食热量摄入与实际摄入的偏差可达47%[7]，低估200至300 kcal/d即可完全消除一个设计赤字。"体重不降"在绝大多数情况下不等于平台期。</li>
+<li><strong>直接砍热量是平台期处理中最常见的方向性错误。</strong> 在未排除饮食精度和NEAT下降之前削减热量，加剧代谢适应和瘦体重流失。Hall等2012动态能量平衡模型证明减重过程中TEE随体重下降和FFM减少而降低，赤字是动态收窄的[4]。四条排查路径全部完成后才考虑热量处方调整。</li>
+<li><strong>NEAT下降是代谢适应的主要行为贡献者。</strong> Levine等1999年发表于JAMA的研究量化NEAT个体差异范围为150至900 kcal/d[1]，长期能量限制后NEAT可下降200至800 kcal/d[2]。这一代偿发生在潜意识层面，来访者本人通常完全意识不到。</li>
+<li><strong>Diet Break的核心价值是心理策略与依从性维持，代谢保护效应有限。</strong> Poon等2025系统综述和荟萃分析（n=881）发现Diet Break的直接代谢益处约47 kcal/d[15]，远低于Trexler等2014数学模型预测的数值[2]。Refeed适用于代谢适应早期（单日高碳低脂），Diet Break适用于深度代谢适应（维持热量3至7天）。</li>
+</ul>
+<p><strong>本章编排的逻辑如下：</strong> 先建立平台期的操作定义和假平台排除流程（10.1），确立诊断的前提条件；再按优先级展开五条干预路径：饮食精度核查（10.2）→训练变量调整（10.3）→NEAT优化（10.4）→Refeed与Diet Break（10.5）。这一排序遵循"先排除行为因素，再处理生理适应"的原则。饮食低估200至300 kcal/d即可完全消除设计赤字，投资回报率最高，排在第一位。NEAT下降的监测和干预排在代谢干预之前，因为行为代偿的纠正比热量处方调整更安全、更可持续。Refeed和Diet Break放在最后，因为只有在前三条路径均无法解释平台期时才应启动间歇性策略。</p>
+<p>当下教练圈关于平台期的讨论聚焦于几个尚未形成共识的问题。代谢适应是否可逆？Trexler等2014综述将代谢适应归纳为四个机制层面[2]，但逆转这些适应的最优策略仍缺乏高质量RCT。Diet Break vs Refeed的选择标准是什么？Byrne等2018 MATADOR试验支持间歇性能量限制在FFM保留上的优势[16]，但Poon等2025荟萃分析显示两组最终体重和瘦体重差异均无统计学意义[15]。平台期的心理干预如何嵌入营养咨询？减脂6至8周后依从率下降是12周方案脱落最强的预测因子[9]，但行为干预的具体方案尚未标准化。何时该结束减脂？减脂持续超过20至24周时代谢与心理风险随时间累积[1,2]，但"何时够了"的判断仍高度依赖个体化评估。</p>
+<hr /></div>
+</div><div class="section" id="sec-101假平台vs真平台判断">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 02</div><h2 class="section-title">10.1 假平台 vs 真平台判断</h2></div></div>
+<div class="card"><h4 class="sub-title">10.1.1 平台期的定义</h4>
+<p>减脂平台期（weight loss plateau）的操作定义是：在能量赤字方案执行 ≥4 周、依从率 ≥80% 的前提下，体重连续 2 周以上变化 &lt;0.5% 基线体重，且体脂率趋势同步停滞[2,4]。这个定义包含三个限定条件：执行时间足够长（&lt;4 周的体重波动不构成平台期）、依从率足够高（低依从性导致的停滞是行为问题而非生理问题）、变化幅度足够小（0.5%/2 周是排除正常波动的阈值）。</p>
+<p>不满足上述操作定义的"平台期"在临床实务中占绝大多数。来访者在社交媒体上看到的"7 天减脂方案"创造的体重下降，在最初 7 至 14 天内以水分丢失和糖原消耗为主体，随后速度自然放缓。将这种减速误判为"平台期"是最常见的认知偏差。</p><h4 class="sub-title">10.1.2 假平台的三类来源</h4>
+<p><strong>第一类：测量误差。</strong> 体重测量的标准化条件包括晨起空腹、排尿后、着同一件衣物、同品牌体重秤、同一时间点[5]。不满足这些条件时，单次体重读数的波动范围可达 0.5 至 1.5 kg，完全覆盖减脂期 4 周内的预期体重变化。生物电阻抗（bioelectrical impedance analysis, BIA）体脂秤的水分状态依赖性更强，饮水、运动、饮食盐分均可使单次体脂率读数偏移 1% 至 2%[5]。使用 BIA 设备时，单点数据不可作为平台期判断依据，必须以 4 周趋势均值作为判断基础。</p>
+<p><strong>第二类：水钠波动。</strong> 钠摄入量的日间波动可引起 0.5 至 2.0 kg 的水分潴留变化。高盐饮食（&gt;4000 mg Na/d）叠加碳水化合物摄入增加时，每克糖原结合 3 至 4 g 水的效应可使体重在 24 至 48 小时内回升 1.0 至 2.5 kg[2]。女性在黄体期（月经前 7 至 10 天）因醛固酮和抗利尿激素变化，体重可增加 0.5 至 2.0 kg[6]。这些波动在体重趋势图上制造出"平台"甚至"反弹"的视觉假象，但皮下脂肪量并未增加。</p>
+<p><strong>第三类：饮食精度不足。</strong> Lichtman 等 1992 年发表于 New England Journal of Medicine 的经典研究发现，自报饮食热量摄入与实际热量摄入之间的偏差可达 47%，肥胖受试者的低估幅度更大[7]。这一偏差在减脂期表现为"我确实按照方案在吃，但体重不减"。实际原因并非代谢适应，而是实际摄入量高于自报量 200 至 500 kcal/d，足以完全消除能量赤字。Livingstone 等 2004 年的综述进一步确认，膳食自我报告工具（包括 24 小时回顾法、食物频率问卷和饮食日记）的系统性低估幅度在 10% 至 45% 之间，体重管理人群中低估倾向更为显著[8]。</p><h4 class="sub-title">10.1.3 真平台的三类机制</h4>
+<p>排除假平台后，真平台的成因可归入三类生理或行为机制。</p>
+<p><strong>代谢适应（metabolic adaptation）。</strong> 长期能量缺口引发 RMR 下调 10% 至 15%、NEAT 自发减少 200 至 800 kcal/d、甲状腺激素（T3）下降 30% 至 40%、瘦素下降 30% 至 50%[2]。这些变化使有效能量赤字逐步收窄，当赤字趋近于零时体重停滞。Hall 2012 动态模型预测，按初始 500 kcal/d 赤字制定的减脂计划，实际进度在 8 至 12 周后会因 RMR 与 NEAT 联合下调而显著慢于线性预测值[4]。</p>
+<p><strong>行为松懈（behavioral drift）。</strong> 减脂 6 至 8 周后，来访者的饮食记录完成率和精确度常出现渐进性下降。"不再称量食物""周末饮食不记录""酱料和饮品不计算"等行为的累积效应，使实际热量摄入逐周上升。这种松懈是渐进的、潜意识层面的，来访者主观上仍然认为自己在"严格执行方案"。Miller 等 2018 年的系统综述指出，营养咨询前 2 至 4 周的依从率下降是 12 周方案脱落最强的预测因子[9]。行为松懈在平台期的角色是使实际摄入向维持热量回归，制造出"代谢变慢"的假象。</p>
+<p><strong>训练变量不匹配。</strong> 训练容量（volume）、强度（intensity）或频率（frequency）在减脂期未做合理调整，导致能量消耗端的贡献不足或恢复能力超载。训练容量过大叠加能量赤字时，中枢神经系统疲劳（central nervous system fatigue, CNS fatigue）累积，NEAT 进一步被抑制[2,10]。训练强度不足时，瘦体重保护信号减弱，FFM 流失比例上升，RMR 下降加速[10]。Refalo 等 2025 年发表于 Sports Medicine 的综述系统梳理了近失败训练（proximity-to-failure）框架：减脂期应优先保护训练强度（每组保留不超过 2 至 3 次余力，reps in reserve, RIR 2-3），而非增加训练容量[11]。</p><h4 class="sub-title">10.1.4 决策树第一步：假平台排除流程</h4>
+<p>平台期诊断的第一步永远是排除假平台。以下三步排查应在任何干预决策之前完成：</p>
+<p><strong>步骤一：测量标准化核查。</strong> 确认体重采集是否满足晨起空腹、排尿后、同件衣物、同秤、同时间五项条件。确认体成分测量是否使用 4 周趋势均值而非单点数据。如不满足，要求来访者按标准化条件重新采集 2 周数据后再评估。</p>
+<p><strong>步骤二：水钠波动排除。</strong> 回顾过去 2 周的饮食记录，检查钠摄入是否有异常波动（如连续多日高盐饮食、外食频率增加）。女性来访者需确认当前月经周期阶段。如存在水钠潴留因素，等待 1 至 2 周恢复正常饮食后再评估体重趋势。</p>
+<p><strong>步骤三：饮食精度初步评估。</strong> 计算饮食依从率（实际日均热量 ÷ 方案目标热量 × 100%）。依从率 ≥80% 进入真平台排查；依从率 70% 至 79% 进入路径一饮食精度核查（§10.2）；依从率 &lt;70% 优先处理行为依从性问题，暂不进入平台期诊断流程。</p>
+<p>完成三步排除后，确认真平台诊断，进入五路径干预决策。</p>
+<hr /></div>
+</div><div class="section" id="sec-102路径一饮食精度核查">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 03</div><h2 class="section-title">10.2 路径一：饮食精度核查</h2></div></div>
+<div class="card"><h4 class="sub-title">10.2.1 饮食低估的量化证据</h4>
+<p>饮食自我报告的系统性低估是减脂咨询中最常见的"平台期"真因。Lichtman 等 1992 年的双标记水（doubly labeled water, DLW）验证研究发现，自报热量摄入与实际热量摄入的偏差平均为 47%，在肥胖受试者中偏差更大[7]。NFCS（National Food Consumption Survey）数据表明，约 30% 至 50% 的成年人存在有临床意义的热量低估行为[8]。</p>
+<p>对减脂期来访者而言，低估 200 至 300 kcal/d 即可完全消除一个 300 至 500 kcal/d 的设计赤字。低估 500 kcal/d 时，来访者表面上在"执行 1800 kcal 的方案"，实际摄入 2300 kcal，接近维持热量，体重自然停滞。</p><h4 class="sub-title">10.2.2 隐藏热量来源的识别</h4>
+<p>饮食精度核查的核心任务是识别来访者未记录或低估的热量来源。以下六类是减脂咨询中最常见的隐藏热量：</p>
+<p><strong>酱料与调味汁。</strong> 一份 15 mL 的蛋黄酱含 90 至 100 kcal，一汤匙花生酱含 95 kcal，30 mL 的油醋汁含 120 至 150 kcal。"加一点沙拉酱""蘸一点酱汁"在来访者的主观认知中不构成"一顿饭"，但累积热量可达 200 至 400 kcal/d。</p>
+<p><strong>饮品热量。</strong> 含糖饮料、果汁、加糖咖啡和酒精饮品是容易被忽略的热量来源。一杯 480 mL 的全糖拿铁含 250 至 300 kcal，一瓶 330 mL 的啤酒含 140 至 150 kcal。来访者在记录饮食日记时常将饮品排除在外，认为"喝的不算吃的"[7]。</p>
+<p><strong>零食与加餐。</strong> 随手取食的坚果、水果干、饼干和糖果，单次摄入量小（50 至 150 kcal），但频率高（每日 3 至 6 次），累积热量可达 300 至 600 kcal/d。"没有正式坐下来吃"的零食在饮食日记中遗漏率最高。</p>
+<p><strong>烹饪用油。</strong> 中餐烹饪中植物油的用量普遍偏高。一份炒菜使用 15 至 30 mL 植物油（135 至 270 kcal），在外食场景中油脂用量更高。来访者在记录自制餐食时常常忽略计入烹饪用油的热量[8]。</p>
+<p><strong>"健康食物"的热量密度。"</strong> 牛油果、坚果、橄榄油、全脂乳制品等食物的营养密度高，但能量密度同样高。100 g 牛油果含 160 kcal，30 g 混合坚果含 170 至 200 kcal。来访者在"健康饮食"认知框架下对这些食物的热量警觉性显著低于加工食品。</p>
+<p><strong>周末与外食的系统性偏差。</strong> 工作日饮食记录良好但周末遗漏，或外食时不记录，是饮食日记中常见的选择性报告模式。2 个工作日加 1 个周末日的 3 日轮询法（2 weekdays + 1 weekend day）设计的初衷即覆盖这一偏差来源[5]。如果 3 日轮询中周末日热量显著高于工作日（差异 &gt;300 kcal），需进一步核查外食记录的完整性。</p><h4 class="sub-title">10.2.3 饮食精度核查清单</h4>
+<p>以下清单在复评节点（W4/W8/W12）对疑似饮食精度不足的来访者逐项执行：</p>
+<p><strong>记录完整性核查。</strong> 检查饮食日记是否覆盖全部进餐时段（早餐、午餐、晚餐、加餐、饮品），是否有"空白时段"（某个时段无任何记录但来访者承认有进食）。对比来访者自述的进餐习惯与日记记录的天数覆盖是否一致。</p>
+<p><strong>食物重量核实。</strong> 要求来访者展示其称量食物的方式。目测分量估计的误差范围可达 30% 至 50%，尤其在谷物、油脂和坚果类高能量密度食物中偏差最大[7,8]。如果来访者在方案启动 4 周后已停止使用食物秤，需重新要求称量至少 1 周。</p>
+<p><strong>酱料与饮品专项。</strong> 逐项询问过去 24 至 72 小时内所有调味品（沙拉酱、酱油、辣椒油、芝麻酱等）和饮品（含咖啡因饮料、酒精、果汁、蛋白饮料）的使用情况。使用 App（MyFitnessPal、Cronometer、薄荷健康等）的条形码扫描功能核实具体产品的营养成分数据。</p>
+<p><strong>App 数据导出。</strong> 要求来访者导出 App 中的完整饮食记录（而非截图或口头报告），核查每餐的食物条目数量和总热量是否与来访者自述一致。App 数据库中的食物条目与实际食物的营养成分偏差（如"一碗米饭"的定义重量与实际重量不一致）需逐项校准。</p>
+<p><strong>周末/外食专项核查。</strong> 单独询问周末和外食日的饮食内容，与 App 记录交叉比对。外食场景中"只吃了一半""没喝汤"等部分进食报告需估算实际摄入量比例。</p><h4 class="sub-title">10.2.4 核查后的决策分支</h4>
+<p>饮食精度核查完成后，按以下逻辑分流：</p>
+<p>发现显著遗漏（实际摄入高于自报量 &gt;200 kcal/d）：重新校准饮食日记，要求来访者在接下来 1 周内完整记录所有摄入，1 周后重新评估体重趋势。如体重恢复下降，平台期原因为饮食精度不足，无需调整热量处方。</p>
+<p>未发现显著遗漏（实际摄入与自报量偏差 &lt;200 kcal/d）：排除饮食精度因素，进入路径二训练变量调整（§10.3）。</p>
+<p>依从率仍 &lt;70%：不进入平台期诊断流程，优先处理行为依从性问题，使用跨理论模型（transtheoretical model, TTM）评估来访者所处的行为改变阶段[12]。</p>
+<hr /></div>
+</div><div class="section" id="sec-103路径二训练变量调整">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 04</div><h2 class="section-title">10.3 路径二：训练变量调整</h2></div></div>
+<div class="card"><h4 class="sub-title">10.3.1 训练变量与能量消耗的交互</h4>
+<p>训练是减脂期能量消耗的重要组成部分，但训练变量的调整必须在营养干预框架内进行，不越界到训练计划设计。教练在营养咨询场景中的角色是评估训练变量对能量平衡的影响，并与训练教练协同调整，而非独立设计训练方案。</p>
+<p>训练变量对能量平衡的影响通过两条路径实现。第一，训练直接增加能量消耗。一次 60 分钟的中等强度抗阻训练消耗约 200 至 400 kcal，具体数值取决于训练量、肌群参与范围和组间休息时长[13]。第二，训练通过维持瘦体重间接保护 RMR。Refalo 等 2025 年综述确认，维持训练强度（RIR 2-3）是减脂期保护瘦体重的首要措施[11]。训练强度下降时，机械张力信号减弱，肌肉蛋白质合成（muscle protein synthesis, MPS）响应降低，FFM 流失加速，RMR 随 FFM 减少而进一步下调[2,11]。</p><h4 class="sub-title">10.3.2 训练变量核查的三个维度</h4>
+<p><strong>训练频率（frequency）。</strong> 实际训练次数 ÷ 方案目标次数 × 100%。训练频率 &lt;75% 是微调和平台期的重要触发信号[5]。频率下降的直接后果是周训练量减少，能量消耗端贡献降低。频率下降的原因通常是恢复能力不足（能量赤字叠加训练量导致 CNS 疲劳累积）或行为依从性问题（时间冲突、动机下降）。</p>
+<p><strong>训练容量（volume）。</strong> 总重量 × 总组数 × 总次数 = 周训练量吨位（weekly training volume tonnage）。减脂期训练容量的常见错误是"越减越多"：来访者为了增加能量消耗而不断增加组数和次数，导致恢复能力超载、CNS 疲劳累积、NEAT 被进一步抑制[2,10]。减脂期训练容量的合理策略是维持或略低于增肌期水平（降幅 &lt;10%），通过维持机械张力信号保护瘦体重[11]。</p>
+<p><strong>训练强度（intensity）。</strong> 以 RPE（rating of perceived exertion）或 RIR 量化。减脂期的强度管理遵循近失败训练框架：每组保留 2 至 3 次余力（RIR 2-3），在不降低负重的条件下维持训练强度[11]。RPE 持续 ≥8 叠加训练量下降是过度训练信号；RPE 持续 ≤5 叠加训练量未增加是训练强度不足信号[5]。极度接近失败（RIR ≤1）在能量缺口下频繁使用会显著增加 CNS 疲劳[11]。</p><h4 class="sub-title">10.3.3 训练变量调整策略</h4>
+<p>饮食精度核查确认无显著遗漏后，按以下优先级调整训练变量：</p>
+<p><strong>优先级一：恢复训练频率。</strong> 如果训练频率 &lt;75%，优先解决频率问题。与来访者共同分析频率下降的原因：时间冲突则调整训练日安排；恢复不足则降低单次训练量（缩短训练时长至 45 分钟以内）；动机下降则进入行为干预流程。频率恢复至 ≥90% 后观察 2 周体重趋势。</p>
+<p><strong>优先级二：审视训练容量。</strong> 如果训练频率 ≥90% 但体重仍停滞，检查周训练量吨位是否在合理区间。训练量过高（较增肌期增加 &gt;20%）时，将训练量回调至增肌期水平，减少的组数通过缩短训练时长实现。训练量过低（较增肌期下降 &gt;20%）时，逐步增加 1 至 2 组/周，观察 2 周体重趋势和恢复状态。</p>
+<p><strong>优先级三：校准训练强度。</strong> 如果频率和容量均在合理区间，检查 RPE/RIR 数据。RPE 持续偏低（≤5）提示训练强度不足，机械张力信号不足以维持 MPS，FFM 流失风险升高。调整方案是在保持现有组数和次数的前提下，逐步增加负重（每 2 周增加 2.5% 至 5%），使 RPE 回到 7 至 8 区间。</p>
+<p>渐进超负荷（progressive overload）在减脂期的角色需要重新审视。增肌期的渐进超负荷以力量递增为目标（每 2 周应有 1% 至 2.5% 的力量提升），减脂期的渐进超负荷以维持为目标（力量不掉即为瘦体重保护信号）[5]。将增肌期的超负荷逻辑直接套用到减脂期，是导致训练容量过度累积和恢复能力崩溃的常见原因。</p>
+<hr /></div>
+</div><div class="section" id="sec-104路径三NEAT优化">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 05</div><h2 class="section-title">10.4 路径三：NEAT 优化</h2></div></div>
+<div class="card"><h4 class="sub-title">10.4.1 NEAT 下降的量化证据</h4>
+<p>NEAT 是代谢适应中贡献最大的行为变量。Levine 等 1999 年发表于 JAMA 的研究使用全身热量计和 DLW 技术，量化了 NEAT 的个体差异范围：在标准化条件下，不同个体的 NEAT 差异可达 150 至 900 kcal/d[1]。这一差异的生理基础涉及体型、肌纤维类型组成、交感神经张力和行为模式等多个层面。</p>
+<p>能量缺口对 NEAT 的影响更为直接。Trexler 等 2014 的综述报告，长期能量限制后 NEAT 可下降 200 至 800 kcal/d[2]。这一代偿是潜意识层面的行为调整：来访者不自觉地减少了站立时间、步行距离、手势频率和姿态转换次数。Knaan 等 2026 年发表于 Communications Medicine 的 RCT（NCT04460040）在超重成人中进一步量化了行为代偿：运动消耗的能量中相当比例可被日常活动量减少所抵消[14]。该研究人群为超重成人步行干预，向减脂健身人群外推时需谨慎，但其核心发现与 Levine 的早期证据一致。</p>
+<p>NEAT 下降 200 至 800 kcal/d 意味着什么。一个设计赤字号 500 kcal/d 的来访者，如果 NEAT 下降了 300 kcal/d，有效赤字收窄至 200 kcal/d。NEAT 下降 500 kcal/d 时，有效赤字降至零，体重停滞。这就是为什么"热量摄入没有变，训练没有变，但体重不减了"在临床上如此常见：变化发生在训练之外的日常行为层面，且来访者本人通常完全意识不到。</p><h4 class="sub-title">10.4.2 NEAT 监测方法</h4>
+<p>NEAT 的精确测量需要实验室级设备（全身热量计或加速度计结合 DLW），在教练咨询场景中不可行。实操中使用以下间接指标监测 NEAT 变化趋势：</p>
+<p><strong>日均步数。</strong> 智能手表或手机加速度计记录的日均步数是最便捷的 NEAT 代理指标。方案启动时建立基线（连续 7 天记录的均值），复评时对比当前日均步数与基线的差异。日均步数较基线下降 &gt;2000 步/d 是 NEAT 显著下降的信号[2]。</p>
+<p><strong>久坐时间。</strong> 连续坐姿或卧姿的时长。久坐时间较基线增加 &gt;60 min/d 叠加步数下降，高度提示 NEAT 代偿。</p>
+<p><strong>主观疲劳与活动意愿。</strong> SOWA 框架中 Activity 维度的主观评分下降（"日常活动量和训练量匹配吗？有没有觉得训练后第二天特别累？"），尤其是伴随"不想动""能坐就不想站"的主观报告时，NEAT 下降的概率升高。</p>
+<p><strong>训练外能量消耗估算。</strong> 如果有智能手表的"非运动卡路里"（non-exercise calories）数据，可对比基线期和复评期的变化趋势。该数据受设备算法影响，绝对值精度有限，但相对趋势有参考价值。</p><h4 class="sub-title">10.4.3 NEAT 提升策略</h4>
+<p>确认 NEAT 下降后，以下策略按可操作性从高到低排列：</p>
+<p><strong>结构化步行。</strong> 每日增加 2000 至 4000 步的目标步行。最有效的方式是将步行嵌入日常行为模式：通勤步行（提前一站下车）、午间步行（15 至 20 分钟餐后散步）、电话步行（接打电话时起身走动）。这种嵌入式的步行比"专门出去走 30 分钟"的依从性更高，因为不占用额外的时间预算。</p>
+<p><strong>站立替代久坐。</strong> 每 60 分钟久坐后起身活动 3 至 5 分钟。使用站立式办公桌、站立会议和定时器提醒均可。每日起身次数从基线水平逐步增加，目标为每小时至少一次姿态转换。</p>
+<p><strong>低强度有氧的合理嵌入。</strong> 每周 2 至 3 次、每次 20 至 30 分钟的低强度稳态有氧（low-intensity steady state, LISS），心率控制在最大心率的 55% 至 65%。LISS 对 CNS 疲劳的贡献极小，不干扰抗阻训练的恢复，同时提供约 100 至 200 kcal/次的额外能量消耗[10]。LISS 不应安排在抗阻训练后 2 小时内，以免干扰力量训练质量[10]。</p>
+<p><strong>避免过度增加 NEAT 的陷阱。</strong> NEAT 提升的幅度应控制在日均 100 至 300 kcal 的范围内。过度追求步数目标（如从基线 5000 步/d 骤增至 15000 步/d）会导致额外的疲劳累积和食欲增加，部分抵消 NEAT 提升带来的能量赤字[3]。Pontzer 的约束代谢模型（constrained metabolic model）提出，TEE 在中等活动量以上达到生理平台，继续增加活动量时机体通过下调其他代谢支出进行代偿[3]。NEAT 提升应以温和递增为原则，而非追求极端步数目标。</p>
+<hr /></div>
+</div><div class="section" id="sec-105路径四与路径五Refeed与DietBreak">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 06</div><h2 class="section-title">10.5 路径四与路径五：Refeed 与 Diet Break</h2></div></div>
+<div class="card"><h4 class="sub-title">10.5.1 决策逻辑：何时选择 Refeed，何时选择 Diet Break</h4>
+<p>路径一（饮食精度）、路径二（训练变量）和路径三（NEAT）均排除后，平台期的原因归入代谢适应。此时进入两条间歇性策略路径：Refeed（碳水补充日）和 Diet Break（饮食休息期）。两者的选择取决于平台期的严重程度和持续时间。</p>
+<p><strong>Refeed 的适用条件。</strong> 减脂 4 至 8 周内出现的轻度体重停滞（2 至 3 周体重变化 &lt;0.5%/2 周），伴随训练质量下降（主观 RPE 升高、力量停滞）和轻度心理疲劳。Refeed 是轻量级干预：单日高碳水摄入补充肌糖原、暂时提升瘦素水平，为接下来的训练周期提供燃料支持[2,15]。Refeed 不足以逆转深度代谢适应，适用于代谢适应的早期阶段。</p>
+<p><strong>Diet Break 的适用条件。</strong> 减脂 ≥8 周后出现的明显平台期（体重停滞 &gt;3 周），伴随多项代谢适应信号（力量持续下降、主观饥饿感评分 ≥7/10、睡眠质量下降、情绪低落）。Diet Break 是中等级干预：持续 3 至 7 天（最长不超过 14 天）的维持热量摄入，系统性地恢复瘦素、T3 和 NEAT 水平[2,15]。</p>
+<p>两者的核心区别在于持续时间和恢复深度。Refeed 是单日干预，恢复的主要是肌糖原和急性瘦素波动。Diet Break 是连续多日干预，恢复的维度更广（瘦素、T3、NEAT、心理状态），但恢复幅度仍然有限。Poon 等 2025 年的系统综述和荟萃分析（12 项 RCT、n=881）发现，Diet Break 的直接代谢益处约为 47 kcal/d，远低于 Trexler 等 2014 数学模型预测的数值[2,15]。Diet Break 的核心价值在于心理恢复与依从性维持，降低长期热量限制带来的饮食疲劳和暴食风险。</p><h4 class="sub-title">10.5.2 Refeed 执行方案</h4>
+<p><strong>热量与宏量营养素设定。</strong> 单日总热量达到维持水平或略高于维持（+5% 至 +10%）。碳水摄入 8 至 12 g/kgBM（或 5 至 8 g/kgBM，按训练强度选择），脂肪压低至总热量的 ≤20%，蛋白质维持减脂期靶值不变[2]。高碳低脂的组合最大化肌糖原再合成效率，同时避免脂肪摄入叠加高碳环境促进脂肪从头合成（de novo lipogenesis）。</p>
+<p><strong>时机选择。</strong> Refeed 安排在全周训练强度最大的当天（通常为腿部或背部训练日），以最大化碳水对训练表现的支持[2]。安排在减脂周期的中段（第 4 至 6 周），而非末期。减脂最后 2 至 3 周安排 Refeed 的价值有限，因为此时距离方案终点已近，间歇性恢复的时间窗口不足。</p>
+<p><strong>频率。</strong> 每 1 至 2 周安排 1 次 Refeed。频率取决于减脂深度和训练量：减脂深度较大（赤字 &gt;20% TEE）或训练量较高时，每周 1 次；减脂深度较小（赤字 10% 至 15% TEE）时，每 2 周 1 次。</p>
+<p><strong>注意事项。</strong> Refeed 不是"欺骗餐"（cheat meal）。Refeed 的宏量营养素经过精确计算，总热量有明确上限；欺骗餐是无节制的随意进食，热量可达维持水平的 2 至 3 倍[2]。已有暴食倾向的来访者不适合使用 Refeed，单日高碳饮食可能触发暴食-补偿循环。Refeed 后体重暂时回升 0.5 至 1.5 kg 属正常现象，主要成分为糖原结合水（每克糖原结合 3 至 4 g 水），应在 Refeed 前向来访者说明。</p><h4 class="sub-title">10.5.3 Diet Break 执行方案</h4>
+<p><strong>热量与宏量营养素设定。</strong> 热量目标为维持热量（TEE 估算值，容差 ±100 至 200 kcal/d）。蛋白质维持 ≥1.6 g/kgBM 不变，增加的热量主要来自碳水化合物（提升糖原和瘦素），脂肪维持或略增[2,15]。</p>
+<p><strong>持续时间。</strong> 3 至 7 天为标准区间。Trexler 等 2014 的数学模型预测每 2 周安排 1 天恢复至维持热量，16 周内可减少约 1 至 2 kg 瘦体重损失[2]。Byrne 等 2018 年 MATADOR 随机对照试验采用 2 周能量限制与 2 周能量平衡交替的方案（51 名肥胖男性），间歇性能量限制组减重更多（14.1 kg vs 9.1 kg）、脂肪减少更多（12.3 kg vs 8.0 kg），且经体成分校正后的静息能量消耗下降幅度显著更小[16]。该研究人群为肥胖男性，向训练者外推时需谨慎。Poon 等 2025 年的荟萃分析确认，Diet Break 组与持续减脂组的最终体重、脂肪量和瘦体重差异均无统计学意义（两组体重下降分别约 5.49 kg 与 5.19 kg），但持续减脂组的 RMR 下降幅度约为休整组的两倍[15]。</p>
+<p><strong>实施时机。</strong> 8 至 12 周减脂周期在第 6 周后安排 1 周维持热量。12 至 16 周周期在第 8 周与第 12 周后各安排 1 周。更长周期每 8 至 10 周一次。减脂期不足 4 周、距比赛日不足 4 至 6 周或处于维持/增肌期者无需使用[2]。</p>
+<p><strong>恢复流程。</strong> Diet Break 结束后在 2 至 3 天内逐步恢复赤字热量，避免断崖式削减。恢复赤字后观察 2 周体重趋势，确认平台期是否打破。如果 Diet Break 后平台期仍未打破，需重新回到路径一至路径三排查，考虑是否有遗漏的精度问题或 NEAT 持续下降。</p>
+<p><strong>来访者预期管理。</strong> Diet Break 期间体重回升 0.5 至 1.5 kg 是糖原结合水与胃肠道内容物的恢复，并非脂肪增加[2]。Diet Break 的目的不是继续减脂，是为下一个减脂阶段创造更好的生理和心理条件。将 Diet Break 定位为"战略性恢复"而非"减脂失败"，是来访者沟通的核心要点。</p><h4 class="sub-title">10.5.4 五路径优先级总结</h4>
+<p>平台期五路径的排查顺序和触发条件汇总如下：</p>
+<table>
+<thead>
+<tr>
+<th>优先级</th>
+<th>路径</th>
+<th>触发条件</th>
+<th>核心操作</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>前置</td>
+<td>假平台排除</td>
+<td>所有平台期报告</td>
+<td>测量标准化 + 水钠排除 + 依从率初筛</td>
+</tr>
+<tr>
+<td>路径一</td>
+<td>饮食精度核查</td>
+<td>依从率 &lt;80% 或怀疑低估</td>
+<td>隐藏热量识别 + 重新采集饮食日记</td>
+</tr>
+<tr>
+<td>路径二</td>
+<td>训练变量调整</td>
+<td>频率 &lt;75% 或容量/强度异常</td>
+<td>恢复频率 → 审视容量 → 校准强度</td>
+</tr>
+<tr>
+<td>路径三</td>
+<td>NEAT 优化</td>
+<td>步数较基线下降 &gt;2000 步/d</td>
+<td>结构化步行 + 站立替代 + LISS 嵌入</td>
+</tr>
+<tr>
+<td>路径四</td>
+<td>Refeed</td>
+<td>轻度停滞（2-3 周）+ 训练质量下降</td>
+<td>单日高碳低脂，每 1-2 周 1 次</td>
+</tr>
+<tr>
+<td>路径五</td>
+<td>Diet Break</td>
+<td>明显停滞（&gt;3 周）+ 多项代谢适应信号</td>
+<td>维持热量 3-7 天，每 8-10 周 1 次</td>
+</tr>
+</tbody>
+</table>
+<p>四条前置排查路径（假平台排除 + 路径一至路径三）应在调整热量处方之前全部完成。只有在四条排查路径均无法解释平台期时，才进入路径四和路径五。直接砍热量是平台期处理中最常见的方向性错误，在未完成系统排查前不应执行。</p>
+<hr /></div>
+</div><div class="section" id="sec-章末小结">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 07</div><h2 class="section-title">章末小结</h2></div></div>
+<div class="card"><p>平台期的诊断是一个排除法驱动的决策过程。第一步区分假平台（测量误差、水钠波动、饮食精度不足）与真平台（代谢适应、行为松懈、训练变量不匹配），假平台的排除优先于任何干预。真平台确认后，按饮食精度核查、训练变量调整、NEAT 优化、Refeed 和 Diet Break 五条路径逐层排查，每条路径有明确的触发条件和执行方案。</p>
+<p>饮食低估 200 至 300 kcal/d 即可完全消除设计赤字，饮食精度核查是平台期排查中投资回报率最高的步骤。训练变量调整聚焦频率、容量和强度三个维度，减脂期训练的首要目标是保护强度而非增加容量。NEAT 下降 200 至 800 kcal/d 是代谢适应的主要行为贡献者，日均步数和久坐时间是教练可操作的间接监测指标。Refeed 适用于代谢适应早期（单日高碳低脂），Diet Break 适用于深度代谢适应（维持热量 3 至 7 天），两者的核心价值均在于心理恢复与依从性维持，代谢保护效应有限。</p>
+<p>商业话术中的"代谢损伤"概念缺乏证据支持。代谢适应是可逆的生理现象，管理手段是有据可查的系统排查和分层干预。直接砍热量是方向性错误，应在完成全部排查路径后才考虑热量处方的调整。</p>
+<hr /></div>
+</div><div class="section" id="sec-思考题">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 08</div><h2 class="section-title">思考题</h2></div></div>
+<div class="card"><ol>
+<li>
+<p>写出平台期的操作定义（三个限定条件），并解释为什么 &lt;4 周的体重减速不构成平台期诊断。</p>
+</li>
+<li>
+<p>某来访者报告减脂第 6 周起体重连续 3 周未变。其饮食日记显示依从率 85%，BIA 数据显示体脂率变化为 +0.2%，但体重采集条件为"晚上称、穿不同衣服、不同秤"。判断这是假平台还是真平台，说明理由并给出下一步操作。</p>
+</li>
+<li>
+<p>比较 Refeed 和 Diet Break 在定义、持续时间、宏量营养素设定和适用条件四个维度的差异。Poon 等 2025 年的荟萃分析对 Diet Break 的代谢保护效应给出了什么结论？</p>
+</li>
+<li>
+<p>某来访者减脂第 8 周，方案目标热量 1800 kcal/d，3 日轮询实际日均摄入 1750 kcal，依从率 97%，但日均步数从基线 8000 步降至 5500 步。分析平台期的可能原因，给出干预方案和优先级排序。</p>
+</li>
+<li>
+<p>Levine 等 1999 年研究的 NEAT 个体差异范围是多少？在能量缺口下 NEAT 可下降多少？结合 Pontzer 的约束代谢模型，解释为什么不能通过无限增加 NEAT 来解决平台期。</p>
+</li>
+</ol>
+<hr /></div>
+</div><div class="section" id="sec-教练转化清单">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 09</div><h2 class="section-title">教练转化清单</h2></div></div>
+<div class="card"><table>
+<thead>
+<tr>
+<th>#</th>
+<th>转化项</th>
+<th>操作要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>平台期报告的标准回应</td>
+<td>先问"体重怎么称的"，再问"饮食记录完整吗"，最后看训练数据。禁止第一个反应是"砍热量"</td>
+</tr>
+<tr>
+<td>2</td>
+<td>体重测量标准化 SOP</td>
+<td>在知情同意书中写明五项条件（晨起、空腹、排尿后、同衣物、同秤），W0 时教会来访者执行</td>
+</tr>
+<tr>
+<td>3</td>
+<td>饮食精度核查工具包</td>
+<td>准备六类隐藏热量的核查清单（酱料、饮品、零食、烹饪油、健康食物、周末外食），复评时逐项询问</td>
+</tr>
+<tr>
+<td>4</td>
+<td>NEAT 监测基线建立</td>
+<td>W0 时要求来访者佩戴智能手表连续 7 天记录日均步数，作为 NEAT 基线。复评时对比当前步数与基线</td>
+</tr>
+<tr>
+<td>5</td>
+<td>Refeed 与 Diet Break 的选择逻辑</td>
+<td>轻度停滞（&lt;3 周）选 Refeed，明显停滞（&gt;3 周）选 Diet Break。两者执行前必须完成路径一至路径三的排查</td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
+</div><div class="section" id="sec-参考文献">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 10</div><h2 class="section-title">参考文献</h2></div></div>
+<div class="card"><p>[1] Levine JA, Eberhardt NL, Jensen MD. Role of nonexercise activity thermogenesis in resistance to fat gain in humans. Science. 1999;283(5399):212-5. doi:10.1126/science.283.5399.212.</p>
+<p>[2] Trexler ET, Smith-Ryan AE, Norton LE. Metabolic adaptation to weight loss: implications for the athlete. J Int Soc Sports Nutr. 2014;11(1):7. doi:10.1186/1550-2783-11-7.</p>
+<p>[3] Pontzer H, Trexler ET. Constrained total energy expenditure and metabolic compensation: a systematic review and meta-analysis. In: Pontzer H, Trexler ET, eds. Constrained Energy Expenditure. 2026. 综述纳入约 450 名受试者的 14 项研究.</p>
+<p>[4] Hall KD, Heymsfield SB, Kemnitz JW, Klein S, Schoeller DA, Speakman JR. Energy balance and its components: implications for body weight regulation. Am J Clin Nutr. 2012;95(4):989-94. doi:10.3945/ajcn.112.036350.</p>
+<p>[5] 咨询实务 Ch11 复评数据采集标准化（§2），体成分采集规范与依从率计算.</p>
+<p>[6] Reid RL, Yen SSC. Premenstrual syndrome. Am J Obstet Gynecol. 1981;139(4):474-8. doi:10.1016/0002-9378(81)90316-5.</p>
+<p>[7] Lichtman SW, Pisarska K, Berman ER, Pestone M, Dowling H, Offenbacher E, Weisel H, Heshka S, Matthews DE, Heymsfield SB. Discrepancy between self-reported and actual caloric intake and exercise in obese subjects. N Engl J Med. 1992;327(27):1893-8. doi:10.1056/NEJM199212313272701.</p>
+<p>[8] Livingstone MBE, Black AE. Markers of the validity of reported energy intake. J Nutr. 2003;133(suppl 3):895S-920S. doi:10.1093/jn/133.3.895S.</p>
+<p>[9] Miller V, McGillicuddy E, Lindsay KL, Gibney ER, Brennan L. A systematic review of the impact of adherence on weight loss in dietary intervention studies. Proc Nutr Soc. 2018;77(OCE2). doi:10.1017/S0029665118000942.</p>
+<p>[10] Stiegler P, Cunliffe A. The role of diet and exercise for the maintenance of fat-free mass and resting metabolic rate during weight loss. Sports Med. 2006;36(3):239-62. doi:10.2165/00007256-200636030-00006.</p>
+<p>[11] Refalo MC, Helms ER, Hamilton DL, Fyfe JJ. Towards an improved understanding of proximity-to-failure in resistance training. Sports Med. 2025;55(1):1-22. doi:10.1007/s40279-024-02110-2.</p>
+<p>[12] Prochaska JO, Velicer WF. The transtheoretical model of health behavior change. Am J Health Promot. 1997;12(1):38-48. doi:10.4278/0890-1171-12.1.38.</p>
+<p>[13] Tesch PA, Colliander EB, Dudley GA, Kaiser P. Aerobic and anaerobic energy expenditure during heavy resistance exercise. Med Sci Sports Exerc. 1986;18(suppl):S60.</p>
+<p>[14] Knaan T, et al. Mechanisms of energy compensation during prolonged exercise training: a randomized controlled trial. Commun Med. 2026. NCT04460040. doi:10.1038/s43856-026-01502-z. 研究人群为超重成人步行干预，向训练者减脂场景外推有限.</p>
+<p>[15] Poon ET, Tsang JH, Sun F, Zheng C, Wong SH. Effects of intermittent dieting with break periods on body composition and metabolic adaptation: a systematic review and meta-analysis. Nutr Rev. 2025;83(1):59-71. doi:10.1093/nutrit/nuad168.</p>
+<p>[16] Byrne NM, Sainsbury A, King NA, Hills AP, Wood RE. Intermittent energy restriction improves weight loss efficiency in obese men: the MATADOR study. Int J Obes (Lond). 2018;42(2):129-38. doi:10.1038/ijo.2017.206.</p></div>
+</div>
+<div style="text-align:center;margin-top:60px;padding-top:40px;border-top:1px solid var(--border)">
+<p style="color:var(--text-muted);font-size:13px">3HFIT · Arise · 加五磅 · 三天营养课</p>
+</div>
+</div>
+</body>
+</html>

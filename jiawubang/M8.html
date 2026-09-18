@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M8 · 减脂方案专题 — 加五磅 · 三天营养课</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg-primary:#070709;--bg-card:#111115;--bg-card-hover:#18181E;--bg-elevated:#1A1A22;--accent:#C8A45E;--accent-dim:#8A7040;--accent-glow:rgba(200,164,94,0.15);--text-primary:#E8E6E3;--text-secondary:#9A9898;--text-muted:#6B6969;--border:#1E1E24;--border-light:#2A2A32}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sans SC','Inter',sans-serif;line-height:1.8;min-height:100vh}
+::selection{background:var(--accent);color:var(--bg-primary)}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg-primary)}
+::-webkit-scrollbar-thumb{background:var(--border-light);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--accent-dim)}
+.hero{padding:80px 24px 60px;text-align:center;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,var(--accent-glow) 0%,transparent 70%);pointer-events:none;opacity:.4}
+.hero-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent-dim);padding:4px 16px;border-radius:20px;margin-bottom:24px}
+.hero h1{font-family:'Noto Serif SC',serif;font-size:clamp(28px,5vw,48px);font-weight:900;background:linear-gradient(135deg,var(--text-primary) 0%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:16px;position:relative}
+.main{max-width:800px;margin:0 auto;padding:40px 24px 80px}
+.section{margin-bottom:56px}
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.section-badge{width:4px;height:32px;background:linear-gradient(180deg,var(--accent),var(--accent-dim));border-radius:2px;flex-shrink:0}
+.section-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:1px;margin-bottom:4px}
+.section-title{font-family:'Noto Serif SC',serif;font-size:clamp(20px,3vw,28px);font-weight:700;color:var(--text-primary)}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:28px;margin-bottom:20px;transition:all .25s ease}
+.card:hover{border-color:var(--border-light);background:var(--bg-card-hover);transform:translateY(-1px)}
+.card-title{font-family:'Noto Serif SC',serif;font-size:clamp(18px,2.5vw,24px);font-weight:700;color:var(--text-primary);margin-bottom:24px;padding-left:16px;border-left:3px solid var(--accent)}
+.sub-title{font-family:'Noto Serif SC',serif;font-size:18px;font-weight:700;color:var(--text-primary);margin:28px 0 16px;padding-left:12px;border-left:3px solid var(--accent-dim)}
+p{color:var(--text-secondary);margin-bottom:16px;font-size:15px;line-height:1.9}
+strong{color:var(--text-primary);font-weight:600}
+em{color:var(--accent);font-style:italic}
+blockquote{background:var(--bg-elevated);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:20px 24px;margin:20px 0;font-size:14px;color:var(--text-secondary);line-height:1.8}
+hr{border:none;height:1px;background:var(--border);margin:40px 0}
+.formula{background:var(--bg-elevated);border:1px solid var(--border-light);border-radius:8px;padding:16px 24px;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--accent);text-align:center}
+li{color:var(--text-secondary);font-size:15px;line-height:1.8;margin-bottom:8px;padding-left:8px;list-style:none}
+li::before{content:'\203A';color:var(--accent);font-weight:700;margin-right:8px}
+ul,ol{margin-bottom:16px;padding-left:8px}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+th{background:var(--bg-elevated);color:var(--accent);font-weight:600;text-align:left;padding:12px 16px;border:1px solid var(--border-light)}
+td{color:var(--text-secondary);padding:10px 16px;border:1px solid var(--border)}
+tr:nth-child(even) td{background:rgba(26,26,34,0.5)}
+.nav-bar{position:sticky;top:0;z-index:100;background:rgba(7,7,9,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:12px 24px;overflow-x:auto}
+.nav-inner{max-width:800px;margin:0 auto;display:flex;gap:8px;flex-wrap:nowrap}
+.nav-pill{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.5px;padding:6px 14px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;transition:all .2s;white-space:nowrap;text-decoration:none}
+.nav-pill:hover,.nav-pill.active{border-color:var(--accent-dim);color:var(--accent);background:var(--accent-glow)}
+@media(max-width:640px){.hero{padding:60px 16px 40px}.main{padding:24px 16px 60px}.card{padding:20px}blockquote{padding:16px 18px}}
+</style>
+</head>
+<body>
+<div class="hero">
+<div class="hero-tag">MODULE 08</div>
+<h1>减脂方案专题</h1>
+<p style="color:var(--text-secondary);font-size:16px;max-width:600px;margin:0 auto">加五磅 · 三天营养课</p>
+</div>
+<div class="nav-bar"><div class="nav-inner"><a class="nav-pill" href="#sec-学术导言">学术导言</a><a class="nav-pill" href="#sec-板块一长期安全减脂60min">板块一 长期安全减脂（60 min）</a><a class="nav-pill" href="#sec-板块二短期脱水方案PeakWeek50min">板块二 短期脱水方案——Peak Week（50 min）</a><a class="nav-pill" href="#sec-板块三模板方案实操40min">板块三 模板方案实操（40 min）</a><a class="nav-pill" href="#sec-章末小结">章末小结</a><a class="nav-pill" href="#sec-思考题">思考题</a><a class="nav-pill" href="#sec-教练转化清单">教练转化清单</a><a class="nav-pill" href="#sec-参考文献">参考文献</a></div></div>
+<div class="main">
+<h1>M8 减脂方案专题</h1>
+<div class="section" id="sec-学术导言">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 01</div><h2 class="section-title">学术导言</h2></div></div>
+<div class="card"><p>本章覆盖减脂营养方案的完整决策链条：赤字幅度分层、蛋白保底策略、代谢适应管理、Diet Break与Refeed的循证选择，以及竞技场景下的Peak Week脱水方案。三套模板方案（12周标准减脂、8周赛前减脂、赛后恢复饮食）提供从启动到恢复的工作框架。</p>
+<p>读完本章，教练应能建立以下判断力：</p>
+<ul>
+<li><strong>热量缺口幅度按TEE百分比设定，不按固定kcal数。</strong> 同一个500 kcal赤字对TEE=1800 kcal的小个子来访者是−28%的激进赤字，对TEE=3200 kcal的高个肌肉男是−16%的中等赤字。体脂率越低，赤字越应保守[1,2]。</li>
+<li><strong>蛋白保底是保护瘦体重证据最强的单一干预。</strong> Helms等2014系统综述推荐热量限制下抗阻训练者2.3至3.1 g/kg FFM/d[4]，Refalo等2025贝叶斯荟萃回归确认蛋白剂量与FFM保留之间在所测范围内未出现平台[5]。蛋白靶值按体脂率分层：体脂越低越接近上限。</li>
+<li><strong>代谢适应是正常生理现象，不是"代谢损伤"。</strong> Trexler等2014综述将其归纳为RMR下调、NEAT下降、运动经济性提升和激素适应四个层面[7]。Diet Break的直接代谢益处约47 kcal/d[23]，核心价值应定位为心理策略与依从性支持。</li>
+<li><strong>Peak Week脱水方案缺乏RCT证据。</strong> 健美备赛的水钠操控和碳水填充策略主要依赖实践共识和生理学推理[26]，教练不得将其用于大众减脂场景。</li>
+</ul>
+<p><strong>本章编排的逻辑如下：</strong> 先建立赤字幅度与蛋白保底的方案骨架（板块一），再处理长期减脂中最常遇到的代谢适应与平台期问题（板块一的动态调整部分），然后转向竞技场景的短期脱水方案（板块二），最后用三套模板方案将前述决策逻辑整合为可执行的工作框架（板块三）。从长期安全减脂到短期竞技操控，证据等级递降，实操复杂度递增。</p>
+<p>当下健身圈关于减脂的讨论集中在几个核心争议：热量缺口的安全边界在哪里？Murphy与Koehler 2022荟萃回归显示约500 kcal/d的赤字可完全抵消抗阻训练带来的瘦体重增长[6]，这意味着赤字并非越大越好。代谢适应与平台期是否可逆？Pontzer与Trexler 2026综述纳入14项研究量化了能量代偿率[8]，但Diet Break的代谢保护效应远低于预期[23]。高蛋白低碳饮食与灵活饮食（IIFYM）哪个更优？减脂期是否需要周期化碳水或间歇性能量限制（IER）？Byrne等2018 MATADOR试验提示2周限制+1周维持的交替方案在FFM保留上可能优于持续限制[21]，但执行复杂度显著更高。这些问题的答案都需要回到赤字幅度、蛋白靶值和代谢适应的循证框架中寻找。</p>
+<hr /></div>
+</div><div class="section" id="sec-板块一长期安全减脂60min">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 02</div><h2 class="section-title">板块一 长期安全减脂（60 min）</h2></div></div>
+<div class="card"><h4 class="sub-title">8.1.1 减脂分层策略</h4>
+<p>减脂赤字幅度按总能量消耗（total energy expenditure, TEE）百分比设定，优于固定千卡数。同一个 500 kcal 赤字对 TEE=1800 kcal 的小个子来访者是 −28% 的激进赤字，对 TEE=3200 kcal 的高个肌肉男是 −16% 的中等赤字。固定千卡法不区分体型，按百分比自动适配[1,2]。</p>
+<p><strong>TEE 估算基础</strong>。静息代谢率（RMR）占总能量消耗的 60% 至 75%，是能量处方的计算基础。Mifflin-St Jeor 公式发表于 1990 年，基于 498 名健康成人数据推导，是目前一般成人 RMR 估算最准确的公式之一[9]。Cunningham 公式以瘦体重为唯一自变量，当来访者有可靠的 FFM 数据时（DXA 或多频 BIA），对肌肉发达或体脂率显著偏离均值的人群更准确[10]。两个公式在体脂率 18% 至 28% 的男性中通常差异 &lt;5%，可交叉验证。从 RMR 到 TEE 的桥梁系数是体力活动水平（physical activity level, PAL）= TEE / RMR。PAL 系数选择中最常见的错误是将"每周 3 次训练"等同于高度活动（PAL 1.725）。每周 3 次力量训练叠加 8 小时久坐办公，PAL 通常落在 1.4 至 1.55。保守选择低档并在 4 周后根据实测体重轨迹校准，比首诊选择高档再被迫下调更安全。</p>
+<p>公式精度的 ±15% 至 20% 误差区间必须告知来访者。Mifflin 公式在原始验证集上的预测均方根误差约 ±100 至 150 kcal/d，在扩展人群中个体偏差 ±15% 至 20% 是常态[9]。对一个估算 TEE=2200 kcal 的来访者，真实 TEE 落在 1870 至 2530 kcal 之间完全正常。将公式计算值当作精确处方而非估算起点，是减脂方案第 4 周"减不动"或"掉太快"的最常见原因。</p>
+<p><strong>分层决策树</strong></p>
+<p>第一层：保守赤字（−10% 至 −12% TEE，约 −200 至 −300 kcal/d）。适用条件：体脂率已较低（男性 &lt;15%、女性 &lt;22%）、接近遗传肌肉上限的系统训练者、从增肌期过渡到减脂期的首次启动阶段。预期减重速度 0.25% 至 0.5% 体重/周。这一层级的核心逻辑是体脂率越低，脂肪动员的激素环境越不利（瘦素下降、脂联素变化），机体更倾向于分解蛋白质供能[4,6]。保守赤字在这种条件下最大化瘦体重保留概率。</p>
+<p>第二层：标准赤字（−15% TEE，约 −300 至 −500 kcal/d）。适用条件：大多数临床健康健身人群的减脂启动方案，体脂率处于中等区间（男性 15% 至 25%、女性 22% 至 32%）。预期减重速度 0.5% 至 0.8% 体重/周。NHLBI 1998 临床指南推荐 BMI 27 至 35 的超重者每日赤字 300 至 500 kcal，可产生 0.5 至 1 lb/周的减重[1]。Garthe 等 2011 的 RCT 在精英运动员中证实，慢减组（0.7% 体重/周）瘦体重增加 2.1%，快减组（1.4% 体重/周）瘦体重减少 0.2%[11]。</p>
+<p>第三层：激进赤字（−20% 至 −25% TEE，约 −500 至 −1000 kcal/d）。适用条件：起始体脂率较高（男性 ≥25%、女性 ≥32%）的快速启动期，限 4 至 6 周。BMI &gt;35 的肥胖者可使用 500 至 1000 kcal/d 的较大赤字[1]。不可长期维持，需密切监测力量、瘦体重、月经和睡眠。Murphy 与 Koehler 2022 的荟萃回归显示，赤字 &gt;500 kcal/d 时瘦体重开始净流失[6]。</p>
+<p>决策路径：先评估起始体脂率和训练背景。体脂率高（男 ≥25%/女 ≥32%）选第三层启动 4 至 6 周后降至第二层。体脂率中等（男 15%-25%/女 22%-32%）直接选第二层。体脂率低（男 &lt;15%/女 &lt;22%）选第一层。每 4 周根据体重轨迹和力量数据校准[1,2,11]。</p><h4 class="sub-title">8.1.2 蛋白保底策略</h4>
+<p>减脂期蛋白质上调是保护瘦体重证据最强的单一营养干预。ISSN 2017 立场声明的 1.6 至 2.2 g/kg/d 区间主要基于等热量或微盈余研究[3]。Helms 等 2014 的系统综述专门针对热量限制下的抗阻训练者，推荐 2.3 至 3.1 g/kg FFM/d，需求随赤字严重程度和体脂率下降而上调[4]。Refalo 等 2025 纳入 29 项研究的贝叶斯荟萃回归发现，蛋白摄入与 FFM 变化之间存在线性剂量-反应关系（β=0.07/g/kgBM，95% HDI: −0.01 至 0.14），在所测范围内未出现平台[5]。</p>
+<p>三层证据的递进逻辑需要理解。ISSN 的 1.6 至 2.2 g/kg 区间主要基于等热量或微盈余研究，对深度热量限制是否充分未单独验证。Helms 的 2.3 至 3.1 g/kg FFM 区间显式针对热量限制下的训练人群，证据来自健美备赛领域的小样本 RCT 与长期实证，场景特异性强但样本量有限。Refalo 2025 用现代统计方法汇总 29 项研究，确认蛋白-FFM 剂量反应在热量限制下持续存在，但研究间异质性较高，结论应视为探索性而非确定性[5]。</p>
+<p><strong>蛋白靶值按体脂率分层</strong>。体脂率越高越接近下限（1.6 至 2.0 g/kgBM/d），体脂率越低越接近上限（2.3 至 2.7 g/kgBM/d）。这一分层的生理学依据涉及两个分子机制。第一，高体脂者的脂肪组织提供充裕的能量缓冲，蛋白质氧化供能比例相对较低；低体脂者在深度赤字中蛋白质氧化供能比例上升，糖异生通路的丙氨酸-葡萄糖循环和谷氨酰胺-葡萄糖回路加速运转，需要更多膳食蛋白质维持氮平衡[4]。第二，能量缺口通过下调 mTORC1（mechanistic target of rapamycin complex 1）活性引发合成代谢抵抗。AMPK（AMP-activated protein kinase）在能量不足时通过 TSC2、Raptor 等节点抑制 mTORC1，使亮氨酸激活 mTORC1 向溶酶体表面定位的效率降低[12]。低体脂者需要更高的亮氨酸摄入量来克服这一抑制[12,13]。</p>
+<table>
+<thead>
+<tr>
+<th>训练状态</th>
+<th>体脂率/减脂阶段</th>
+<th>蛋白靶值（g/kgBM/d）</th>
+<th>证据来源</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>无规律抗阻训练</td>
+<td>任意</td>
+<td>1.2 至 1.6</td>
+<td>ISSN 一般人群推荐下限[3]</td>
+</tr>
+<tr>
+<td>规律抗阻训练（≥2 次/wk，≥3 月）</td>
+<td>男 BF ≥20% 或女 BF ≥28%（启动期）</td>
+<td>1.6 至 2.0</td>
+<td>ISSN 基线[3]</td>
+</tr>
+<tr>
+<td>规律抗阻训练</td>
+<td>男 BF 12%-20% 或女 BF 22%-28%（中段）</td>
+<td>1.8 至 2.4</td>
+<td>ISSN + Helms 区间交集[3,4]</td>
+</tr>
+<tr>
+<td>系统抗阻训练（≥4 次/wk，≥1 年）</td>
+<td>男 BF &lt;12% 或女 BF &lt;22%（深度赤字）</td>
+<td>2.3 至 2.7</td>
+<td>Helms 2014[4]</td>
+</tr>
+<tr>
+<td>任意训练状态</td>
+<td>追求最大化 FFM 保留且消化耐受良好</td>
+<td>可参考上调至 1.9 至 2.7</td>
+<td>Refalo 2025[5]（探索性）</td>
+</tr>
+</tbody>
+</table>
+<p>Longland 等 2016 的 RCT（n=40，40% 能量缺口 + 每周 6 次高强度训练）提供了剂量-反应的直接证据：2.4 g/kg/d 组 4 周后瘦体重增加 1.2 kg、脂肪量减少 4.8 kg；1.2 g/kg/d 组瘦体重减少 0.1 kg、脂肪量减少 3.5 kg[14]。高蛋白组在极端能量缺口下实现了瘦体重净增长。</p>
+<p>蛋白质是刚性底线，不随碳水脂肪调整而下调。当来访者因预算、消化耐受或口味偏好无法达到靶值时，优先寻找替代蛋白源（植物蛋白组合、乳制品、蛋白粉）而非降低靶值。连续 2 周蛋白摄入低于靶值 80% 时，应在复评中作为优先问题处理。单餐分配按 0.3 至 0.4 g/kg（含亮氨酸 ≥2.5 至 3.0 g）、每日 4 至 5 餐执行[15]。Areta 等 2013 年比较 80 g 蛋白质在 12 小时恢复期内不同分配方式对肌原纤维 MPS 的影响，4×20 g 每 3 小时一次的模式产生最高 MPS 反应[16]。训练后"30 分钟蛋白窗口"在总蛋白充足条件下已被多项研究证伪，总量优先于时机[17]。</p>
+<p>超过 3.0 g/kg/d 的蛋白质通常无额外收益。Helms 2014 系统综述显示减脂期抗阻训练者的蛋白推荐上限约为 2.3 至 3.1 g/kg/d，超过此范围未观察到额外的瘦体重保留收益[4]。过高的蛋白摄入还可能挤占碳水摄入，影响训练表现。将额外的"饮食预算"用于提升训练质量或控制能量缺口，比单纯堆蛋白质更有效。</p>
+<p><strong>蛋白质量与亮氨酸阈值</strong>。蛋白靶值的实现需要考虑蛋白质质量和亮氨酸含量。亮氨酸是激活 mTORC1 信号通路的关键氨基酸，其阈值效应决定了单餐蛋白的有效性。单餐亮氨酸含量需达到 2.5 至 3.0 g 方可触发 MPS 的显著上升[12,13]。动物蛋白（鸡胸肉、牛肉、乳清蛋白）的亮氨酸含量约为 8% 至 11%（占总蛋白质量），20 g 动物蛋白即可达到亮氨酸阈值。植物蛋白（大豆、豌豆、大米）的亮氨酸含量约为 6% 至 8%，需要 30 至 35 g 植物蛋白才能达到等效亮氨酸量[13]。纯植物蛋白饮食的来访者需要将总蛋白靶值上浮 10% 至 20% 以补偿亮氨酸密度不足。</p>
+<p>蛋白来源的选择还应考虑食物基质效应（food matrix effect）。完整食物（鸡胸肉、鸡蛋、鱼）中的蛋白质释放速率和氨基酸谱优于分离蛋白粉，但蛋白粉在便捷性和剂量精度上有优势[15]。实操建议是以完整食物为主体（每日蛋白摄入的 60% 至 80%），蛋白粉作为补充和便捷来源。</p>
+<p><strong>间歇性能量限制（intermittent energy restriction, IER）</strong>。与持续能量限制（continuous energy restriction, CER）不同，IER 采用交替的限制与正常摄入周期。Byrne 等 2018 的 MATADOR 试验是 IER 的标志性研究，证实 2 周限制 + 1 周维持的交替方案在 16 周内产生的减重效果与 CER 相当，但 FFM 保留更优[21]。Peos 等 2021 的 ICECAP 试验进一步验证了 IER 在运动员中的应用[22]。IER 的理论优势在于维持期的热量恢复可以部分重置瘦素、T3 和 NEAT 水平，减少持续赤字引发的代谢适应累积。但 IER 的执行复杂度显著高于 CER（需要更精确的周期化管理），对来访者的记录依从性和教练的复评频率要求更高。目前 IER 尚未取代 CER 作为一线减脂策略，应视为一种可选的替代方案，尤其适合减脂 12 周以上出现显著代谢适应迹象的来访者。</p><h4 class="sub-title">8.1.3 代谢适应</h4>
+<p>代谢适应（metabolic adaptation）是长期能量缺口引发的循证生理现象，核心表现包括 RMR 下调、NEAT 下降和激素适应。Trexler 等 2014 的综述将其系统归纳为四个机制层面[7]。</p>
+<p><strong>适应性产热下降</strong>。长期能量限制后，RMR 下降幅度超过由体重和 FFM 减少所预测的值，这部分"额外"下调即为适应性产热（adaptive thermogenesis）。机制涉及甲状腺激素转换：T4 向活性 T3 的转化减少，向反 T3（reverse T3, rT3）的转化增加，导致线粒体氧化磷酸化解偶联程度降低，产热效率下降[7]。瘦素（leptin）在能量缺口 48 至 72 小时内即开始下降，幅度可达 30% 至 50%，通过下丘脑弓状核抑制促甲状腺激素释放激素（thyrotropin-releasing hormone, TRH），进一步压低 T3 水平[7]。脂肪组织的交感神经活性同步下降，β3 肾上腺素受体介导的脂肪分解减弱，进一步降低能量消耗[7]。</p>
+<p><strong>NEAT 下降是代谢适应的主要行为贡献者</strong>。NEAT 涵盖站立、行走、家务、情绪性活动等日常无意识活动消耗，个体差异极大（150 至 900 kcal/d），且对能量缺口极为敏感[18]。能量缺口持续存在时，机体通过减少日常无意识活动实现行为代偿，NEAT 可下降 200 至 800 kcal/d[7,18]。这一代偿是潜意识层面的行为调整，训练者通常不会意识到自己"动得更少了"。Pontzer 的约束代谢模型进一步提出，TEE 在中等活动量以上达到生理平台，继续增加活动量时机体通过下调炎症、生殖、应激反应等代谢支出"挤出"运动消耗预算[8]。Pontzer 与 Trexler 2026 的综述纳入 14 项研究、约 450 名受试者，量化了不同干预类型下的代偿率差异，但抗阻训练的具体代偿数值在不同子组分析中波动较大[8]。对减脂方案的启示是：不应将运动消耗 kcal 简单叠加到 TEE 上作为"可以多吃"的额度；运动在减脂中的首要角色是保护瘦体重，其次才是增加消耗[8]。</p>
+<p><strong>长期限制后的 RMR 变化</strong>。Hall 等 2012 发表于 American Journal of Clinical Nutrition 的动态能量平衡模型证明，减重过程中 TEE 随体重下降和代谢适应而降低，赤字是动态收窄的[19]。Wishnofsky 1958 年提出的"每减 1 磅需赤字 3500 kcal"静态规则系统性高估长期减重，因为 FFM 损失导致 RMR 下调（每损失 1 kg FFM，RMR 约下降 20 至 30 kcal/d），NEAT 代偿进一步收窄有效 TEE[19,20]。Hall 模型的核心假设包括：FFM 损失占总体重损失的比例随初始体脂率变化（高体脂者约 10% 至 15%，低体脂者约 25% 至 35%），RMR 变化与 FFM 变化成比例，NEAT 代偿程度与能量缺口大小呈正相关[19]。</p>
+<p>代谢适应的实操意义：当体重停滞超过 2 周时，先排除摄入低估（低估 200 至 300 kcal/d 即可完全消除赤字）和 NEAT 下降（步数较基线降低 &gt;2000 步/d），再判断是否为真正的代谢适应[7,18]。商业话术中的"代谢损伤"是对正常生理调节的妖魔化，真正的代谢适应在恢复正常热量后会逐步恢复，不需要昂贵的"代谢修复"产品。代谢适应是可控可逆的生理过程，核心管理手段是 Diet Break、NEAT 监测和赤字动态校准。</p>
+<p><strong>激素适应的全貌</strong>。除甲状腺轴和瘦素外，减脂期间的激素适应还涉及胰岛素敏感性变化、胃饥饿素（ghrelin）升高和生长激素分泌改变。减重初期胰岛素敏感性通常改善（尤其在高体脂人群中），但持续限制超过 8 至 12 周后，胰岛素敏感性可能因适应性变化而下降[7]。胃饥饿素是已知的唯一促食欲激素，在能量缺口 48 小时内即开始升高，且在体重维持 1 年后的受试者中仍然升高，这一发现来自 SUMMIT 试验的 1 年随访数据[7]。胰高血糖素样肽-1（glucagon-like peptide-1, GLP-1）和肽 YY（peptide YY, PYY）在减重后下降，这些饱腹感信号的减弱进一步增加了长期体重维持的难度。生长激素（growth hormone, GH）在急性饥饿时升高以保护 FFM，但慢性能量限制后 GH 脉冲分泌的昼夜模式发生紊乱，夜间 GH 峰值幅度降低[7]。</p>
+<p>这些激素变化共同构成了减脂后体重反弹的"生物记忆"。机体在经历能量缺口后，会通过提高食欲驱动力和降低能量消耗来建立新的代谢平衡点，使体重向更高水平回归。这一机制使减脂后的长期体重维持成为比减脂本身更大的挑战。教练在方案设计中应将"维持期策略"视为与"减脂期策略"同等重要的组成部分。</p><h4 class="sub-title">8.1.4 Diet Break 与 Refeed</h4>
+<p>Diet Break（饮食休息期）和 Refeed（碳水补充日）是减脂周期中两种不同的间歇性策略，定义、触发条件和执行方案存在本质差异。</p>
+<p><strong>Diet Break 定义与机制</strong>。Diet Break 指在减脂过程中主动将热量摄入提高至维持水平（或接近维持），持续 1 天至 2 周，然后恢复赤字。核心特征：热量目标是维持能量平衡而非暴食，目的是系统性恢复而非单纯心理慰藉[7]。理论上，维持热量摄入可部分恢复瘦素和 T3 水平、缓解 NEAT 下降、改善训练表现和心理状态[7]。动物研究显示间歇性正常热量摄入可以部分逆转慢性热量限制引发的代谢适应[7]。</p>
+<p>直接证据方面，Byrne 等 2018 的 MATADOR 随机对照试验（间歇性能量限制的奠基性研究）发现，间歇性限制组（2 周限制 + 1 周维持交替）在 16 周减重中的体重和脂肪量下降幅度与持续限制组相当，但 FFM 保留更优[21]。Peos 等 2021 的 ICECAP 试验二次分析显示，1 周 Diet Break 改善了间歇性节食组运动员的肌肉耐力[22]。Poon 等 2025 的系统综述和荟萃分析（n=881）发现，Diet Break 的直接代谢益处约为 47 kcal/d，主要价值在于心理和依从性改善，而非显著的代谢重置[23]。综合现有证据，Diet Break 的代谢保护效应不宜高估，其核心价值应定位为心理策略与依从性支持。</p>
+<p><strong>Diet Break 触发条件</strong>：减脂持续 8 至 12 周以上；主观饥饿感持续升高（评分 ≥7/10）；力量连续 2 周下降；来访者报告严重倦怠或暴食冲动。Diet Break 期间蛋白靶值维持不变，增加的热量主要来自碳水（提升糖原和瘦素），脂肪维持或略增[7,23]。Diet Break 结束后体重暂时回升 0.5 至 1.5 kg 是糖原和水分恢复的正常表现，非脂肪增加，应预先告知来访者避免焦虑[7]。</p>
+<p><strong>Refeed 定义与机制</strong>。Refeed Day（碳水补充日）是单日高碳水摄入（8 至 12 g/kgBM），脂肪压低（≤20% 总热量），蛋白维持，总热量达到或略超维持水平。核心目的：最大化肌糖原储备、暂时提升瘦素水平、为下一训练周期提供燃料支持[7]。每克糖原结合约 3 至 4 g 水，碳水填充后体重回升是糖原和水分恢复的预期表现。Refeed 应安排在全周训练强度最大的当天，以最大化碳水对训练表现的支持[7]。</p>
+<p><strong>两者差异对照</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>维度</th>
+<th>Diet Break</th>
+<th>Refeed</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>持续时间</td>
+<td>1 天至 2 周</td>
+<td>单日</td>
+</tr>
+<tr>
+<td>热量目标</td>
+<td>维持水平</td>
+<td>维持或略超</td>
+</tr>
+<tr>
+<td>宏量策略</td>
+<td>蛋白维持，碳水和脂肪灵活</td>
+<td>高碳（8-12 g/kg）、低脂（≤20%）、蛋白维持</td>
+</tr>
+<tr>
+<td>核心目的</td>
+<td>心理恢复 + 部分代谢缓解</td>
+<td>糖原补充 + 瘦素脉冲</td>
+</tr>
+<tr>
+<td>适用时机</td>
+<td>减脂 ≥8 周后周期性使用</td>
+<td>高强度训练日前或减脂中期</td>
+</tr>
+<tr>
+<td>证据等级</td>
+<td>有限但趋势一致（GRADE 低）</td>
+<td>极有限（实践共识为主）</td>
+</tr>
+</tbody>
+</table>
+<p>Diet Break 不是"欺骗餐"或"随便吃"，是有控制的热量提升至维持水平，来访者需继续记录[7]。Refeed 同样要求执行精度：碳水必须来自高 GI 来源（白米饭、面条、水果）以最大化糖原合成速率，脂肪必须压低以避免热量溢出。</p><h4 class="sub-title">8.1.5 复评与调整</h4>
+<p>减脂方案的监测与复评体系是方案成败的关键环节。公式估算的 TEE 是起点而非终值，方案启动 4 周后必须根据实测体重轨迹反推真实 TEE 并校准赤字[19]。</p>
+<p><strong>TEE 校准方法</strong>。使用组织能量密度近似值 7700 kcal/kg 体重[24]。实测日均赤字（kcal/d）= 实际减重（kg）× 7700 ÷ 天数。真实 TEE ≈ 实际摄入（kcal/d）+ 实测日均赤字。示例：来访者摄入稳定在 2200 kcal/d，4 周减重 2 kg。实测赤字 = 2 × 7700 ÷ 28 ≈ 550 kcal/d，真实 TEE ≈ 2200 + 550 = 2750 kcal/d。若 4 周仅减重 0.8 kg，实测赤字 ≈ 220 kcal/d，真实 TEE ≈ 2420 kcal/d。反推仅用于 4 周尺度的粗略校准，不可线性外推至 12 周以上的长期预测[19]。</p>
+<p><strong>监测频率与指标</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>指标</th>
+<th>频率</th>
+<th>评估方法</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>晨起空腹体重</td>
+<td>每日（来访者自测）</td>
+<td>同一秤、同一条件；计算 7 天滚动均值，不看单日</td>
+</tr>
+<tr>
+<td>腰围</td>
+<td>每 2 周</td>
+<td>髂嵴上缘与最低肋下缘中点，呼气末，精确 0.1 cm</td>
+</tr>
+<tr>
+<td>体成分（BIA/DXA）</td>
+<td>每 4 周</td>
+<td>同一设备、同一时间段、相同条件；关注趋势非绝对值</td>
+</tr>
+<tr>
+<td>力量表现</td>
+<td>每 1 至 2 周</td>
+<td>主要动作训练重量与次数；FFM 保留的功能学指标</td>
+</tr>
+<tr>
+<td>饮食依从性</td>
+<td>每日</td>
+<td>至少记录蛋白克数</td>
+</tr>
+<tr>
+<td>步数/NEAT</td>
+<td>每日</td>
+<td>手机或可穿戴设备；7 天均值与基线对比</td>
+</tr>
+<tr>
+<td>睡眠时长</td>
+<td>每日</td>
+<td>自报或设备</td>
+</tr>
+<tr>
+<td>主观状态</td>
+<td>每周</td>
+<td>饥饿感、精力、情绪 1-10 分</td>
+</tr>
+</tbody>
+</table>
+<p><strong>复评节点</strong>：第 2 周简短随访（电话/线上，确认执行难点、记录习惯）；第 4 周到店复评（体重轨迹、腰围、体成分、力量数据，按上述方法校准 TEE）；第 8 周复评（评估 4 周调整后的响应，决定是否触发 Diet Break）；第 12 周终评（决定进入维持期或继续减脂）[1,2]。</p>
+<p><strong>平台期处理决策树</strong>。体重平台期定义为在依从性 ≥80% 前提下，连续 2 周以上 7 天滚动平均体重无下降趋势（&lt;0.2 kg 变化）且腰围无下降[1,2]。"体重不降"不等于平台期，需先排除：水分潴留（高钠餐、月经周期、训练后炎症）、糖原波动（开始新训练计划后肌糖原储水）、记录不准确（低估摄入 200 至 300 kcal/d 即可完全消除赤字）[7,18]。</p>
+<p>处理步骤：第一步检查依从性（3 天饮食记录与方案靶值对比，蛋白达标率 &lt;80% 或总热量偏差 &gt;15% 则不调整方案，回到执行支持）。第二步检查 NEAT 变化（当前 7 天平均步数 vs 基线，步数下降 &gt;2000 步/d 则 NEAT 代偿，增加步数目标至基线水平，不调饮食）。第三步评估代谢适应（体重下降率 &lt;0.3%/wk 且力量稳定为轻度代谢适应，将赤字从 −15% 增至 −18%，约增加 75 至 100 kcal/d 缺口，通过减少碳水实现；力量下降 &gt;5% 或主观状态评分 &lt;4 则赤字过大，触发 Diet Break）。第四步赤字微调后观察 2 周，体重恢复下降趋势则继续，仍无下降则再次检查依从性与 NEAT，必要时将赤字增至 −20%（仅限起始体脂较高者）或建议间接测热法测量 RMR[1,2,7]。</p>
+<p><strong>触发调整的红旗条件与终止条件</strong>：体重停滞 &gt;2 周且依从性达标、力量下降 &gt;10%、主观疲劳评分持续 ≥7/10、女性月经紊乱或停止。出现月经停止、持续疲劳、力量显著下降、睡眠障碍或暴食频率增加时，应立即终止减脂并进入维持期或转介[1,2,7]。减脂持续超过 20 至 24 周也应考虑终止，长期热量限制的代谢与心理风险随时间累积[1,2]。</p>
+<p><strong>运动协同与生活方式</strong>。抗阻训练是减脂期间保留瘦体重最有效的运动干预，其效应独立于饮食干预。ACSM 2009 立场声明明确指出抗阻训练在减重期间可增加瘦体重、减少脂肪量[1]。Murphy 与 Koehler 2022 的荟萃回归提供了量化依据：在抗阻训练条件下，约 500 kcal/d 的赤字完全抵消了抗阻训练带来的瘦体重增长，赤字 &gt;500 kcal/d 时瘦体重开始净流失[6]。这意味着即使有抗阻训练，赤字幅度过大仍会导致肌肉流失。抗阻训练处方遵循 ACSM 基本推荐：频率每周 2 至 3 次非连续日覆盖全部主要肌群，强度 60% 至 80% 1RM，容量每个肌群 10 至 20 组/wk，减脂期维持训练容量比增加容量更重要[1]。</p>
+<p>睡眠不足通过多种途径损害减脂效果。Tasali 等 2022 年发表于 JAMA Internal Medicine 的 RCT 显示，在超重成人中，将每晚睡眠从 &lt;6.5 小时延长至 7 至 9 小时（仅通过睡眠卫生咨询），2 周后总能量摄入减少约 270 kcal/d[25]。机制涉及瘦素下降、胃饥饿素上升、胰岛素敏感性受损、前额叶抑制控制减弱。减脂方案中的睡眠推荐为每晚 7 至 9 小时[25]。</p>
+<p>NEAT 管理方面，应在方案启动时记录来访者的基线日均步数（7 天均值），减脂期间设定步数目标。对久坐来访者，从基线增加 2000 至 3000 步/d（约增加 100 至 150 kcal/d 消耗）通常可在不引发补偿性进食的前提下辅助赤字[18]。</p>
+<hr /></div>
+</div><div class="section" id="sec-板块二短期脱水方案PeakWeek50min">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 03</div><h2 class="section-title">板块二 短期脱水方案——Peak Week（50 min）</h2></div></div>
+<div class="card"><h4 class="sub-title">8.2.1 适用场景与定位</h4>
+<p>Peak Week（峰值周）是竞技健美与形体比赛前 5 至 7 天的营养与训练调整阶段，以最大化肌肉视觉饱和度与清晰度为目标[26]。其本质是短期脱水方案，通过操控水分、钠钾电解质和肌糖原储备，改变皮下与肌肉间的水分分布，使皮肤紧贴肌肉产生"干度"视觉效果。</p>
+<p>适用场景严格限定为三类：健美或形体比赛备赛的最终阶段、健身模特商业拍摄的短期体态调整、重量分级项目运动员称重前的急性降重。这三类场景共享一个特征：目标不是减脂，而是在极短时间内改变水分布局以达到视觉或称重目标[26,27]。</p>
+<p>适用边界必须明确。Peak Week 方案面向的是已完成 16 至 24 周系统减脂、体脂率已接近竞技目标（男性 &lt;8%、女性 &lt;14%）的竞技训练者[26]。大众健身教练不应将 Peak Week 方案用于普通减脂客户。教练向体脂率 20% 以上的客户推荐脱水方案，等于用竞技工具解决减脂问题，既无效果也无安全保障。教练独立执行 Peak Week 方案的边界是：可以解释原理和流程，但首次执行必须在有竞技备赛经验的教练或医疗团队监督下进行。</p>
+<p><strong>证据等级声明</strong>：Peak Week 的水负荷-排水方案、钠操控和碳水填充策略目前缺乏 RCT 证据，属实践共识和生理学推理[26]。所有数字（饮水量、钠摄入量等）均为实践中的典型范围，个体响应差异大。</p><h4 class="sub-title">8.2.2 水负荷-排水方案</h4>
+<p>7 天方案的典型结构为：Day 1 至 Day 4 水负荷（大量饮水，约 6 至 10 L/d）→ Day 5 至 Day 6 递减（逐渐减少至 3 至 4 L/d，再至 1.5 至 2 L/d）→ Day 7 限水（&lt;0.5 至 1 L/d 或完全禁水）[26]。</p>
+<p><strong>生理学原理</strong>。大量饮水抑制抗利尿激素（antidiuretic hormone, ADH）分泌。ADH 水平下降使肾集合管水通道蛋白 2（aquaporin-2, AQP2）表达减少，肾脏排水能力上调。当 Day 5 开始减少饮水时，ADH 的恢复存在延迟效应：下丘脑渗透压感受器感知血浆渗透压变化后，垂体后叶释放 ADH 的恢复通常需要 12 至 24 小时。利用这一延迟，在限水阶段机体仍维持高排水状态，从而实现净排水[26]。</p>
+<p>醛固酮（aldosterone）系统同样参与。高钠摄入持续 3 至 4 天抑制醛固酮分泌，促进肾脏排钠排水。当钠摄入突然减少或停止时，醛固酮的恢复同样存在 24 至 48 小时的延迟。在水负荷阶段维持高钠摄入，Day 6 至 Day 7 断钠，利用醛固酮延迟效应继续排钠排水[26]。</p>
+<p><strong>安全考量</strong>。完全禁水在高温环境下有心血管风险，限水时间不应超过 16 小时[27]。脱水导致血容量下降、每搏输出量减少、心输出量下降，严重时可引发低钠血症（Na &lt;135 mmol/L）导致头晕、恶心甚至脑水肿[27]。比赛中出现意识模糊、肌肉痉挛或心律不齐时，必须立即终止方案并补充电解质溶液。这些安全红线不可协商。</p><h4 class="sub-title">8.2.3 钠操控与碳水填充</h4>
+<p><strong>钠操控</strong>。高钠摄入（&gt;5 g NaCl/d）持续 3 至 4 天后突然断钠，利用醛固酮延迟效应促进排钠排水[26]。断钠后 24 至 48 小时内，醛固酮尚未恢复至基线水平，肾脏继续排钠排水。碳水填充阶段同步断钠，两个策略叠加产生最大脱水效果。</p>
+<p>钠操控的风险在于电解质紊乱。低钠血症可引发肌肉痉挛、心律失常和认知功能下降。低钾血症同样危险，表现为肌肉无力和心脏传导异常。MMA 等重量分级项目中，运动员赛前 24 小时内通过桑拿、隔热服和限水减重 1 至 3 kg 的做法，本质上是在无医疗监督下执行极端脱水，心血管事件和认知损害风险显著升高[27]。不推荐的主动脱水手段包括：桑拿、隔热服、热水浴。降重后报复性进食与液体补充不足同样危险。</p>
+<p><strong>碳水填充</strong>。碳水耗竭后填充是 Peak Week 的另一核心操作。Day 1 至 Day 4 低碳水（&lt;50 g/d）耗竭肌糖原 → Day 5 至 Day 7 高碳水填充（8 至 12 g/kgBM/d），利用糖原合成酶（glycogen synthase）活性上调加速糖原储备[26]。每克糖原结合约 3 g 水，碳水填充使肌细胞内水分增加，肌肉体积膨胀，视觉上产生"饱满"效果。同时皮下与肌肉间的水分因前述脱水方案减少，皮肤紧贴肌肉产生"干度"[26]。</p>
+<p>碳水填充的 timing 窗口：Day 5 和 Day 6 是填充主力日，Day 7 根据比赛日期微调。填充碳水应选择高 GI、低纤维来源（白米饭、面条、果酱、蜂蜜），减少胃肠道内容物体积。填充过程中体重回升 1 至 3 kg 是糖原和水分恢复的预期表现，非脂肪增加。</p>
+<p><strong>实操流程汇总</strong>：</p>
+<table>
+<thead>
+<tr>
+<th>天次</th>
+<th>饮水</th>
+<th>钠</th>
+<th>碳水</th>
+<th>目标</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Day 1-3</td>
+<td>6-10 L/d</td>
+<td>高钠（&gt;5 g NaCl/d）</td>
+<td>低碳（&lt;50 g/d）</td>
+<td>耗竭糖原，上调 AQP2 排水</td>
+</tr>
+<tr>
+<td>Day 4</td>
+<td>6-8 L/d</td>
+<td>高钠</td>
+<td>低碳</td>
+<td>维持脱水信号</td>
+</tr>
+<tr>
+<td>Day 5</td>
+<td>3-4 L/d</td>
+<td>断钠</td>
+<td>高碳开始（6-8 g/kg/d）</td>
+<td>启动糖原填充</td>
+</tr>
+<tr>
+<td>Day 6</td>
+<td>1.5-2 L/d</td>
+<td>断钠</td>
+<td>高碳（8-12 g/kg/d）</td>
+<td>最大化糖原</td>
+</tr>
+<tr>
+<td>Day 7</td>
+<td>&lt;0.5-1 L/d</td>
+<td>断钠</td>
+<td>高碳微调</td>
+<td>脱水 + 饱满</td>
+</tr>
+</tbody>
+</table><h4 class="sub-title">8.2.4 安全红线与赛后恢复</h4>
+<p><strong>绝对禁忌</strong>。以下人群必须拒绝 Peak Week 脱水方案：进食障碍史（神经性厌食、神经性贪食、OSFED）；电解质异常（低钾、低钠病史）；心血管风险（心律失常、先天性心脏病、高血压未控制）；肾功能异常；妊娠或哺乳期；未成年运动员[1,2,26,27]。</p>
+<p><strong>利尿剂禁止</strong>。利尿剂（袢利尿剂如呋塞米、噻嗪类利尿剂）通过药理机制强制排钠排水，其脱水速度和程度不可控，可导致严重电解质紊乱甚至猝死。利尿剂属于处方药物，教练建议客户使用利尿剂构成违法行为。这一红线不可突破[26]。</p>
+<p><strong>赛后恢复协议</strong>。比赛或拍摄结束后，立即执行 Recovery Diet（恢复饮食）策略：</p>
+<p>第一阶段（赛后 0 至 48 小时）：立即补充电解质溶液（钠浓度 ≥50 mmol/L，约 1.1 g NaCl/L），液体补充量为失水量的 150%[27]。恢复维持热量或适度盈余（+10% 至 +20%），碳水优先恢复至 4 至 6 g/kgBM/d，蛋白维持 ≥2.0 g/kgBM/d。不执行 Reverse Diet（反向饮食），即不通过逐周缓慢增加 50 至 100 kcal 的方式恢复热量。Reverse Diet 的理论假设（缓慢增加热量可以"欺骗"代谢）缺乏生理学依据，实践中反而延长低能量可用性状态，持续代谢抑制[28]。Rosenbaum 等 2008 的研究表明，代谢适应的逆转主要依赖于体重增加本身，而非热量恢复速率。单纯增加热量摄入而不增加体重，无法充分逆转代谢抑制。</p>
+<p>第二阶段（赛后 1 至 8 周）：热量维持或 +10% 至 +20% 盈余，目标 4 至 8 周内增重 5% 至 10%。体重回升中约 40% 至 50% 为水分恢复，20% 至 40% 为脂肪增加，15% 至 25% 为瘦体重恢复[28]。适度体脂增加是代谢和激素恢复的必要代价。赛后初期的体重增加包含糖原恢复（每克结合约 3 至 4 g 水）、细胞外液和细胞内液恢复、肠道内容物和肌肉恢复，真正脂肪增加通常只占总增重的 20% 至 40%[28]。</p>
+<p>第三阶段（心理关注）：赛后体重回升引发的焦虑和恐惧是进食障碍的高风险信号。教练应预先告知来访者体重回升的生理必然性，将评估指标从体重转向能量水平、睡眠质量、情绪稳定性和训练表现。高风险人群特征包括：既往进食障碍史、完美主义倾向、低自尊、竞技压力、社交孤立。出现持续无法恢复正常饮食、对体重增加有强烈恐惧、限制性进食行为（"我再减一点"）、社交隔离或回避与食物相关的场合时，应立即转介心理治疗师[28]。</p>
+<p><strong>赛后心理支持的实操要点</strong>。教练应在备赛开始前就向来访者建立心理预期：赛后体重回升 3% 至 8% 是生理必然，其中大部分为水分和糖原，真正脂肪增加有限。备赛日志中应包含心理状态记录（每日情绪评分 1-10），赛后每 3 至 5 天回顾一次。当来访者出现"我想再备一场赛"的冲动时，教练需评估动机来源（是真实的竞技需求还是对体重的不安全感），后者是进食障碍的早期信号。赛后 2 至 4 周是进食障碍高发窗口期，教练应提高随访频率至每周 1 次，直到来访者饮食和体重稳定[28]。</p>
+<p><strong>体重分级项目运动员的特殊考量</strong>。MMA、拳击、举重等需要称重的项目，运动员在赛前 24 至 72 小时内通过脱水降重 3% 至 8% 是常见做法[27]。这种做法的风险显著高于健美的 Peak Week 方案：脱水速度更快、减重幅度更大、称重后的恢复时间更短。降重后的报复性进食与液体补充不足导致脱水后的高渗状态持续延长，急性肾损伤、热射病和心律失常风险显著升高[27]。教练不应建议运动员执行减重方案，此类操作应在运动医学团队和竞技体能教练的联合监督下进行。教练的角色是帮助运动员在称重后尽快恢复正常水合状态和电解质平衡。</p>
+<hr /></div>
+</div><div class="section" id="sec-板块三模板方案实操40min">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 04</div><h2 class="section-title">板块三 模板方案实操（40 min）</h2></div></div>
+<div class="card"><h4 class="sub-title">8.3.1 模板 A：12 周标准减脂</h4>
+<p>适用对象：临床健康、有规律抗阻训练背景（≥2 次/wk，持续 ≥3 月）、体脂率中等（男 18%-25%、女 24%-32%）的大众健身人群。</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>周次</th>
+<th>热量策略</th>
+<th>蛋白靶值</th>
+<th>复评节点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>启动期</td>
+<td>W1-W2</td>
+<td>−15% TEE</td>
+<td>1.8-2.0 g/kgBM/d</td>
+<td>W2 简短随访：执行难点、记录习惯确认</td>
+</tr>
+<tr>
+<td>主减期</td>
+<td>W3-W8</td>
+<td>−15% TEE，W4 校准后可能微调</td>
+<td>2.0-2.4 g/kgBM/d</td>
+<td>W4 到店复评：体重轨迹、腰围、TEE 校准；W8 复评：Diet Break 判断</td>
+</tr>
+<tr>
+<td>冲刺期</td>
+<td>W9-W11</td>
+<td>−12% TEE（缩小赤字）</td>
+<td>2.0-2.4 g/kgBM/d</td>
+<td>W10 复评：力量趋势、主观状态</td>
+</tr>
+<tr>
+<td>恢复期</td>
+<td>W12</td>
+<td>反向滴定至维持（+150 kcal/2wk）</td>
+<td>1.6-2.0 g/kgBM/d</td>
+<td>W12 终评：进入维持期方案</td>
+</tr>
+</tbody>
+</table>
+<p>启动期（W1-W2）：以 −15% TEE 启动，蛋白 1.8 至 2.0 g/kgBM/d。向来访者披露公式 ±15% 至 20% 误差区间，告知 4 周后校准[9,10]。W2 简短随访（10 至 15 分钟），确认来访者掌握记录方法、执行难点和步数目标。不调整方案。</p>
+<p>主减期（W3-W8）：W4 到店复评是核心节点。根据 4 周体重轨迹反推真实 TEE，判断估算偏差是否在 ±15% 内。体重下降速度符合预期（0.5% 至 0.8%/wk）则不调整；下降过快（&gt;1%/wk）则上调热量 100 至 150 kcal/d；下降不足且依从性达标则微调赤字至 −18%。W8 复评评估是否需要 Diet Break：减脂已达 8 周且出现力量下降或主观疲劳信号时，安排 1 周 Diet Break（维持热量，蛋白不变，碳水上调）[7,21,23]。</p>
+<p>冲刺期（W9-W11）：主动缩小赤字至 −12% TEE。逻辑是连续 8 周以上减脂后，代谢适应累积（NEAT 下降、瘦素降低、T3 下调），继续维持原赤字效率递减且瘦体重流失风险升高[7]。缩小赤字的同时保持蛋白靶值不变。此阶段碳水不低于 3 g/kgBM/d 以保障糖原储备和训练质量[29]。</p>
+<p>恢复期（W12）：每 2 周增加 100 至 150 kcal/d 至体重稳定。保留抗阻训练和蛋白靶值（可降至 1.6 至 2.0 g/kgBM/d[3]）。监测频率降至每周 1 次体重和每月 1 次腰围。体重反弹 &gt;3 kg 时重启轻度赤字（−10% TEE）。</p>
+<p><strong>实操要点</strong>：模板 A 最常见的执行失误发生在 W4 至 W8 区间。来访者因体重下降而过度兴奋，自行加大赤字或增加有氧量，导致力量快速下降和 FFM 流失。教练应在 W2 随访时明确传达：前 4 周的减重速度是"校准基线"而非"追求目标"，方案调整必须在教练指导下进行，自行加大赤字将导致后续复评数据失真。另一常见失误是碳水和脂肪的随意调整：来访者减少碳水但脂肪不降，导致热量赤字未改变但蛋白和碳水同时被挤占，训练质量和瘦体重保留同时受损。教练应明确：热量调整优先通过碳水实现，脂肪不低于总热量的 20%（保障必需脂肪酸和激素合成），蛋白永远不动。</p><h4 class="sub-title">8.3.2 模板 B：8 周赛前减脂</h4>
+<p>适用对象：有竞技健美或形体比赛经验、已完成 offseason 增肌期、体脂率已处于中低区间（男 12%-18%、女 20%-26%）的训练者。本模板为激进方案，必须在有竞技备赛经验的教练监督下执行。</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>周次</th>
+<th>热量策略</th>
+<th>蛋白靶值</th>
+<th>安全监控</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>主减期</td>
+<td>W1-W5</td>
+<td>−20% TEE</td>
+<td>2.3-2.7 g/kgBM/d</td>
+<td>W3 复评：力量、睡眠、疲劳；W5 复评：体成分、Diet Break 判断</td>
+</tr>
+<tr>
+<td>收紧期</td>
+<td>W6-W7</td>
+<td>−15% TEE（缩小赤字）</td>
+<td>2.3-2.7 g/kgBM/d</td>
+<td>每周复评：力量趋势、月经/性欲、情绪</td>
+</tr>
+<tr>
+<td>Peak Week</td>
+<td>W8</td>
+<td>水钠操控 + 碳水填充</td>
+<td>维持蛋白</td>
+<td>全程教练监督</td>
+</tr>
+</tbody>
+</table>
+<p>主减期（W1-W5）：以 −20% TEE 启动，蛋白 2.3 至 2.7 g/kgBM/d。这一赤字幅度对应的减重速度约 0.8% 至 1.2%/wk，接近安全上限[4,11]。W3 复评重点：力量是否下降 &gt;5%、主观疲劳评分是否 ≥7/10、睡眠是否恶化。W5 复评：体成分评估 FFM 变化，若 FFM 流失 &gt;1 kg 则缩小赤字至 −15%。W5 结束后根据状态安排 3 至 5 天 Diet Break（维持热量，高碳）[7,21,23]。</p>
+<p>收紧期（W6-W7）：缩小赤字至 −15% TEE。蛋白维持不变，碳水作为调平变量。此阶段的核心任务是在保持体脂下降趋势的同时最大化瘦体重保留和训练表现。碳水不低于 3 g/kgBM/d 以保障糖原储备[29]。训练处方维持主要动作强度（重量不降或仅轻微下降 ≤5%），每组保留 2 至 3 次余力（近失败训练框架）[30]。</p>
+<p>Peak Week（W8）：执行板块二所述的 7 天水钠操控和碳水填充方案。全程教练监督，首次执行需在经验丰富教练指导下完成。</p>
+<p><strong>安全监控要点</strong>：本模板全程监测 IOC 2023 RED-S 共识声明列出的多维度诊断指标[31]：月经状态（女性）、性欲、疲劳、骨健康、免疫功能、心理状态。任何单项出现红旗信号即缩小赤字或终止减脂。</p>
+<p><strong>赛前最后 2 周常见问题处理</strong>。力量下降 &gt;5% 是训练量不足还是能量供给不足？首先检查训练频率和容量：赛前因焦虑而减少训练量（"怕练掉了"）是常见错误，训练容量维持不低于主减期的 70% 至 80%，强度（重量）维持不变。力量下降更可能是碳水不足导致的糖原耗竭而非肌肉流失。此时将碳水恢复至 ≥4 g/kgBM/d，观察 3 至 5 天。如果力量恢复则确认为碳水不足；如果力量持续下降且主观状态评分 &lt;4，则应考虑缩小赤字或提前进入维持期。睡眠恶化和情绪波动同步发生时，RED-S 风险升高，应立即评估是否需要终止减脂[31]。</p><h4 class="sub-title">8.3.3 模板 C：Post-Diet Recovery Diet（恢复饮食方案）</h4>
+<p>适用对象：完成 12 至 20 周减脂或竞技备赛后、需要恢复代谢健康和建立维持期饮食方案的训练者。本模板取代传统 Reverse Diet 的"逐周缓慢加热量"策略，采用 Recovery Diet 原则：立即脱离能量赤字，允许适度体重恢复[28]。</p>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>周次</th>
+<th>热量策略</th>
+<th>蛋白靶值</th>
+<th>核心任务</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>恢复启动</td>
+<td>W1-W2</td>
+<td>立即至维持热量或 +10% 至 +20%</td>
+<td>2.0-2.4 g/kgBM/d</td>
+<td>脱离赤字、补充电解质、恢复糖原</td>
+</tr>
+<tr>
+<td>代谢重建</td>
+<td>W3-W6</td>
+<td>维持热量 ±10%</td>
+<td>1.8-2.2 g/kgBM/d</td>
+<td>找到真实维持热量、体重稳定</td>
+</tr>
+<tr>
+<td>稳态评估</td>
+<td>W7-W8</td>
+<td>根据体重趋势微调</td>
+<td>1.6-2.0 g/kgBM/d</td>
+<td>确认维持热量、过渡到长期维持方案</td>
+</tr>
+</tbody>
+</table>
+<p>恢复启动（W1-W2）：赛后或减脂结束后第二天，立即将热量提升至预估维持量或 +10% 至 +20% 盈余。蛋白维持 2.0 至 2.4 g/kgBM/d，碳水快速恢复至 4 至 6 g/kgBM/d，脂肪正常至略高[28]。体重预期回升 2% 至 4%，主要成分为糖原、水分和肠道内容物，非脂肪增加。向来访者预先解释这一现象，避免引发焦虑。</p>
+<p>代谢重建（W3-W6）：热量维持 ±10%，蛋白降至 1.8 至 2.2 g/kgBM/d。此阶段的核心任务是找到真实维持热量。方法是观察 4 周体重趋势：体重稳定 ±0.5 kg 时的日均摄入即为真实维持热量。体重增长过快（&gt;1 kg/wk 持续 2 周），下调热量 100 至 150 kcal/d，但仍维持 ≥ 维持水平。目标 4 至 8 周内增重不超过起始体重的 5% 至 10%[28]。</p>
+<p>稳态评估（W7-W8）：确认维持热量后，蛋白可降至 1.6 至 2.0 g/kgBM/d[3]。逐步从精确追踪转向灵活饮食：从"追踪所有"到"仅追踪蛋白质"，从"每日追踪"到"每周抽查"[28]。在维持期，训练者可以发展内在饱腹感信号，建立与食物的健康关系。监测频率降至每周 1 次体重和每月 1 次腰围。</p>
+<p>完全恢复的标志：全天精力充沛、入睡容易且睡眠质量好、情绪稳定、正常饥饿和饱腹感恢复、女性月经恢复（通常需 3 至 6 个月）、男性性欲恢复、训练表现达到或超过赛前水平、体重稳定在比赛体重 +5% 至 +10%[28]。</p>
+<p><strong>从精确追踪到灵活饮食的过渡路径</strong>。完全恢复饮食记录在长期维持中既不现实也不必要。教练应引导来访者沿以下阶梯渐进过渡：第一步（W1-W4）追踪所有宏量营养素，确保蛋白达标；第二步（W5-W8）仅追踪蛋白质和总热量，碳水和脂肪凭直觉选择；第三步（W9-W12）每日仅追踪蛋白质，总热量凭内在饱腹感信号调节；第四步（W13+）每周抽查 2 至 3 天，确认蛋白达标和体重稳定。最终目标是来访者可以在不记录的情况下维持健康饮食模式，蛋白摄入自然达到 1.6 至 2.0 g/kgBM/d，总热量控制在维持水平 ±10%。</p>
+<p><strong>维持期的长期监测策略</strong>。完全恢复后，来访者应从"治疗模式"转入"预防模式"。核心监测指标简化为两个：每周晨起体重（7 天滚动均值）和每月腰围。体重波动 &gt;3 kg 时触发"预警-干预"流程：第 1 周增加记录频率（每日记录饮食 3 天），第 2 周如果体重未回落则启动轻度赤字（−10% TEE）。这一流程的目的是在体重反弹初期及时干预，避免来访者重新进入长周期减脂。</p>
+<hr /></div>
+</div><div class="section" id="sec-章末小结">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 05</div><h2 class="section-title">章末小结</h2></div></div>
+<div class="card"><p>减脂方案的核心决策链条是：先判断能量可用性和健康风险，再判断减脂速率，最后讨论宏量营养素比例和周期化工具。蛋白保底（2.0 至 2.4 g/kgBM/d）是保护瘦体重证据最强的单一干预，其优先级高于碳水和脂肪的比例调整。代谢适应是正常生理现象，管理手段包括 Diet Break、NEAT 监测和赤字动态校准，Diet Break 的核心价值在于心理策略和依从性支持，代谢保护效应有限。Peak Week 脱水方案属于竞技工具，缺乏 RCT 证据，教练不得将其用于大众减脂场景。赛后恢复应采用 Recovery Diet 原则（立即脱离赤字、允许适度增重），Reverse Diet 的缓慢加热量策略缺乏生理学依据且可能延长低能量可用性状态。三套模板方案提供了从启动到恢复的完整工作框架，教练应根据个体复评数据动态调整。</p>
+<hr /></div>
+</div><div class="section" id="sec-思考题">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 06</div><h2 class="section-title">思考题</h2></div></div>
+<div class="card"><ol>
+<li>
+<p>一名 28 岁男性力量训练者（体重 80 kg，体脂率 16%，训练 3 年），当前 TEE 估算 2600 kcal/d。请为其选择赤字幅度、蛋白靶值和减重速度，并解释为什么不选择 −20% TEE 的激进方案。如果他在第 6 周报告力量下降 8%、主观疲劳评分 7/10，你应如何处理？</p>
+</li>
+<li>
+<p>对比 Diet Break 和 Refeed 在定义、热量目标、宏量策略和适用时机上的差异。Poon 等 2025 系统综述发现 Diet Break 的直接代谢益处约 47 kcal/d，这一数据如何影响你对 Diet Break 核心价值的判断？</p>
+</li>
+<li>
+<p>为什么 Peak Week 的水负荷-排水方案必须标注"缺乏 RCT 证据"？从 ADH 和醛固酮延迟效应的角度，解释该方案的生理学原理和主要风险。教练在什么条件下可以参与 Peak Week 的执行？</p>
+</li>
+<li>
+<p>对比 Reverse Diet 和 Recovery Diet 的核心原则差异。为什么说 Reverse Diet 在实践中可能延长低能量可用性状态？Rosenbaum 等 2008 的发现如何支持 Recovery Diet 的立场？</p>
+</li>
+<li>
+<p>两名来访者同为 70 kg、每周 3 次力量训练。A 体脂率 28%、无训练经验（首次系统训练），B 体脂率 12%、训练 4 年。请分别为两人选择蛋白靶值区间、赤字幅度和减重速度目标，并解释差异的生理学依据。</p>
+</li>
+</ol>
+<hr /></div>
+</div><div class="section" id="sec-教练转化清单">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 07</div><h2 class="section-title">教练转化清单</h2></div></div>
+<div class="card"><ol>
+<li>减脂赤字按 TEE 百分比设定（默认 −15%），不按固定 500 kcal；体脂率越低越应保守。</li>
+<li>蛋白靶值按训练状态和体脂率分层选择（1.6 至 2.7 g/kgBM/d），蛋白是刚性底线不可下调。</li>
+<li>每 4 周根据体重轨迹校准 TEE；平台期先查依从性和 NEAT，再微调赤字，不跳过步骤。</li>
+<li>Diet Break 在减脂 8 至 12 周后或出现过度赤字信号时使用；核心价值是心理策略和依从性支持，不是代谢重置。</li>
+<li>减脂持续不超过 20 至 24 周；出现月经停止、持续力量下降或严重疲劳，立即终止并转介。</li>
+<li>Peak Week 方案仅适用于竞技场景，不得用于大众减脂；首次执行必须在经验丰富教练监督下。</li>
+<li>利尿剂是绝对红线，教练建议客户使用利尿剂构成违法行为。</li>
+<li>赛后恢复采用 Recovery Diet 原则（立即至维持热量），不执行 Reverse Diet。</li>
+<li>三套模板方案是工作起点，所有参数必须根据个体复评数据动态调整。</li>
+<li>抗阻训练在减脂期间不可让位，有氧辅助但不替代抗阻；NEAT 步数从基线逐步增加。</li>
+</ol>
+<hr /></div>
+</div><div class="section" id="sec-参考文献">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 08</div><h2 class="section-title">参考文献</h2></div></div>
+<div class="card"><p>[1] Donnelly JE, Blair SN, Jakicic JM, et al. American College of Sports Medicine position stand. Appropriate physical activity intervention strategies for weight loss and prevention of weight regain for adults. Med Sci Sports Exerc. 2009;41(2):459-71. doi:10.1249/MSS.0b013e3181949334.</p>
+<p>[2] NHLBI Obesity Education Initiative. Clinical guidelines on the identification, evaluation, and treatment of overweight and obesity in adults. Arch Intern Med. 1998;158(17):1855-67. doi:10.1001/archinte.158.17.1855.</p>
+<p>[3] Jäger R, Kerksick CM, Campbell BI, et al. International Society of Sports Nutrition position stand: protein and exercise. J Int Soc Sports Nutr. 2017;14:20. doi:10.1186/s12970-017-0177-8.</p>
+<p>[4] Helms ER, Zinn C, Rowlands DS, Brown SR. A systematic review of dietary protein during caloric restriction in resistance trained lean athletic individuals. Int J Sport Nutr Exerc Metab. 2014;24(2):127-38. doi:10.1123/ijsnem.2013-0054.</p>
+<p>[5] Refalo MC, Helms ER, Hamilton DL, Fyfe JJ. Protein intake during energy restriction: a Bayesian meta-regression of effects on lean mass in resistance-trained individuals. Sports Med. 2025;55(3):567-84. doi:10.1007/s40279-024-02132-w.</p>
+<p>[6] Murphy C, Koehler K. Energy deficiency impairs resistance training gains in lean mass but not strength: a meta-analysis and meta-regression. Scand J Med Sci Sports. 2022;32(1):125-37. doi:10.1111/sms.14075.</p>
+<p>[7] Trexler ET, Smith-Ryan AE, Norton LE. Metabolic adaptation to weight loss: implications for the athlete. J Int Soc Sports Nutr. 2014;11(1):7. doi:10.1186/1550-2783-11-7.</p>
+<p>[8] Pontzer H, Trexler ET. Constrained total energy expenditure and metabolic adaptation in humans. Annu Rev Nutr. 2026;46:321-48. doi:10.1146/annurev-nutr-041525-073200.</p>
+<p>[9] Mifflin MD, St Jeor ST, Hill LA, Scott BJ, Daugherty SA, Koh YT. A new predictive equation for resting energy expenditure in healthy individuals. Am J Clin Nutr. 1990;51(2):241-7. doi:10.1093/ajcn/51.2.241.</p>
+<p>[10] Cunningham JJ. Body composition as a determinant of energy expenditure: a synthetic review and a proposed general prediction equation. Am J Clin Nutr. 1991;54(6):963-9. doi:10.1093/ajcn/54.6.963.</p>
+<p>[11] Garthe I, Raastad T, Refsnes PE, Koivisto A, Sundgot-Borgen J. Effect of two different weight-loss rates on body composition and strength and power-related performance in elite athletes. Int J Sport Nutr Exerc Metab. 2011;21(2):97-104. doi:10.1123/ijsnem.21.2.97.</p>
+<p>[12] Drummond MJ, Dreyer HC, Fry CS, et al. Rapamycin administration in humans blocks the contraction-induced increase in skeletal muscle protein synthesis. J Physiol. 2009;587(Pt 7):1535-46. doi:10.1113/jphysiol.2008.166355.</p>
+<p>[13] Philip A, Baehr LM, Edmunds S, et al. Leucine activates Akt signaling maximally in chronically resistance-trained human skeletal muscle. Med Sci Sports Exerc. 2022;54(2):290-9. doi:10.1249/MSS.0000000000002793.</p>
+<p>[14] Longland TM, Oikawa SY, Wycherley TP, et al. Higher compared with lower dietary protein during an energy deficit combined with intense exercise promotes greater lean mass gain and fat mass loss: a randomized trial. Am J Clin Nutr. 2016;103(3):738-46. doi:10.3945/ajcn.115.119339.</p>
+<p>[15] Morton RW, Murphy KT, McKellar SR, et al. A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength in healthy adults. Br J Sports Med. 2018;52(6):376-84. doi:10.1136/bjsports-2017-097608.</p>
+<p>[16] Areta JL, Burke LM, Ross ML, et al. Timing and distribution of protein ingestion during prolonged recovery from resistance exercise alters myofibrillar protein synthesis. J Physiol. 2013;591(9):2319-31. doi:10.1113/jphysiol.2012.244897.</p>
+<p>[17] Schoenfeld BJ, Aragon AA. How much protein can the human body use in a single meal for muscle-building? Implications for daily protein distribution. J Sports Sci. 2018;36(6):627-36. doi:10.1080/02640414.2017.1370669.</p>
+<p>[18] Levine JA, Lanningham-Foster L, McCrady SK, et al. Interindividual variation in posture allocation: possible role in human obesity. Science. 2005;307(5709):584-6. doi:10.1126/science.1106561.</p>
+<p>[19] Hall KD, Heymsfield SB, Kemnitz JW, Klein S, Schoeller DA, Speakman JR. Energy balance and its components: implications for body weight regulation. Am J Clin Nutr. 2012;95(4):989-94. doi:10.3945/ajcn.112.036350.</p>
+<p>[20] Wishnofsky M. Caloric equivalents of gained or lost weight. Am J Clin Nutr. 1958;6(5):542-6. doi:10.1093/ajcn/6.5.542.</p>
+<p>[21] Byrne DN, Sainsbury A, King NA, Hills AP, Wood RE. Intermittent energy restriction improves weight loss efficiency in obese men: the MATADOR study. Int J Obes (Lond). 2018;42(2):129-38. doi:10.1038/ijo.2017.206.</p>
+<p>[22] Peos N, Kuipers C, Koidl J, et al. Intermittent energy restriction improves body composition and preserves muscle mass in athletes. Med Sci Sports Exerc. 2021;53(8S):641. doi:10.1249/01.mss.0000763980.53856.ea.</p>
+<p>[23] Poon ET, et al. Effects of intermittent dieting with break periods on body composition and metabolic adaptation: a systematic review and meta-analysis. Nutr Rev. 2025;83(1):59-71. doi:10.1093/nutrit/nuad168.</p>
+<p>[24] Hall KD. What is the required energy deficit per unit body weight loss? Int J Obes (Lond). 2008;32(3):573-6. doi:10.1038/sj.ijo.0803732.</p>
+<p>[25] Tasali E, Wroblewski K, Kahn E, et al. Effect of sleep extension on objectively assessed energy intake among adults with overweight in real-life settings. JAMA Intern Med. 2022;182(4):365-74. doi:10.1001/jamainternmed.2021.8098.</p>
+<p>[26] Helms ER, Aragon AA, Fitschen PJ. Evidence-based recommendations for natural bodybuilding contest preparation: nutrition and supplementation. J Int Soc Sports Nutr. 2014;11:20. doi:10.1186/1550-2783-11-20.</p>
+<p>[27] Walberg Rankin JL. Dietary strategies for weight loss in athletes. In: Burke L, Deakin V, eds. Clinical sports nutrition. 5th ed. Sydney: McGraw-Hill; 2015. p. 177-204.</p>
+<p>[28] Slater GJ, Dieter BP, Marsh DJ, Helms ER, Shaw G, Iraki J. Is an energy surplus required to maximize skeletal muscle hypertrophy associated with resistance training? Front Nutr. 2019;6:131. doi:10.3389/fnut.2019.00131.</p>
+<p>[29] Thomas DT, Erdman KA, Burke LM. Joint position statement: Nutrition and athletic performance. Med Sci Sports Exerc. 2016;48(3):543-68. doi:10.1249/MSS.0000000000000852.</p>
+<p>[30] Refalo MC, Helms ER, Hamilton DL, Fyfe JJ. Towards an improved understanding of proximity-to-failure in resistance training. Sports Med. 2025;55(1):1-22. doi:10.1007/s40279-024-02110-2.</p>
+<p>[31] Mountjoy M, Ackerman KE, Bailey DM, et al. 2023 International Olympic Committee's (IOC) consensus statement on Relative Energy Deficiency in Sport (REDs). Br J Sports Med. 2023;57(17):1073-98. doi:10.1136/bjsports-2023-106994.</p></div>
+</div>
+<div style="text-align:center;margin-top:60px;padding-top:40px;border-top:1px solid var(--border)">
+<p style="color:var(--text-muted);font-size:13px">3HFIT · Arise · 加五磅 · 三天营养课</p>
+</div>
+</div>
+</body>
+</html>

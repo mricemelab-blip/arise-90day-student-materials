@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>M7 · 首次咨询SOP与行为改变干预框架 — 加五磅 · 三天营养课</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif+SC:wght@400;700;900&family=Noto+Sans+SC:wght@300;400;500;700&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{--bg-primary:#070709;--bg-card:#111115;--bg-card-hover:#18181E;--bg-elevated:#1A1A22;--accent:#C8A45E;--accent-dim:#8A7040;--accent-glow:rgba(200,164,94,0.15);--text-primary:#E8E6E3;--text-secondary:#9A9898;--text-muted:#6B6969;--border:#1E1E24;--border-light:#2A2A32}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{background:var(--bg-primary);color:var(--text-primary);font-family:'Noto Sans SC','Inter',sans-serif;line-height:1.8;min-height:100vh}
+::selection{background:var(--accent);color:var(--bg-primary)}
+::-webkit-scrollbar{width:6px}
+::-webkit-scrollbar-track{background:var(--bg-primary)}
+::-webkit-scrollbar-thumb{background:var(--border-light);border-radius:3px}
+::-webkit-scrollbar-thumb:hover{background:var(--accent-dim)}
+.hero{padding:80px 24px 60px;text-align:center;border-bottom:1px solid var(--border);position:relative;overflow:hidden}
+.hero::before{content:'';position:absolute;top:0;left:50%;transform:translateX(-50%);width:600px;height:600px;background:radial-gradient(circle,var(--accent-glow) 0%,transparent 70%);pointer-events:none;opacity:.4}
+.hero-tag{display:inline-block;font-family:'JetBrains Mono',monospace;font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--accent);border:1px solid var(--accent-dim);padding:4px 16px;border-radius:20px;margin-bottom:24px}
+.hero h1{font-family:'Noto Serif SC',serif;font-size:clamp(28px,5vw,48px);font-weight:900;background:linear-gradient(135deg,var(--text-primary) 0%,var(--accent) 100%);-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text;margin-bottom:16px;position:relative}
+.main{max-width:800px;margin:0 auto;padding:40px 24px 80px}
+.section{margin-bottom:56px}
+.section-header{display:flex;align-items:center;gap:12px;margin-bottom:32px;padding-bottom:16px;border-bottom:1px solid var(--border)}
+.section-badge{width:4px;height:32px;background:linear-gradient(180deg,var(--accent),var(--accent-dim));border-radius:2px;flex-shrink:0}
+.section-num{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);letter-spacing:1px;margin-bottom:4px}
+.section-title{font-family:'Noto Serif SC',serif;font-size:clamp(20px,3vw,28px);font-weight:700;color:var(--text-primary)}
+.card{background:var(--bg-card);border:1px solid var(--border);border-radius:12px;padding:28px;margin-bottom:20px;transition:all .25s ease}
+.card:hover{border-color:var(--border-light);background:var(--bg-card-hover);transform:translateY(-1px)}
+.card-title{font-family:'Noto Serif SC',serif;font-size:clamp(18px,2.5vw,24px);font-weight:700;color:var(--text-primary);margin-bottom:24px;padding-left:16px;border-left:3px solid var(--accent)}
+.sub-title{font-family:'Noto Serif SC',serif;font-size:18px;font-weight:700;color:var(--text-primary);margin:28px 0 16px;padding-left:12px;border-left:3px solid var(--accent-dim)}
+p{color:var(--text-secondary);margin-bottom:16px;font-size:15px;line-height:1.9}
+strong{color:var(--text-primary);font-weight:600}
+em{color:var(--accent);font-style:italic}
+blockquote{background:var(--bg-elevated);border-left:3px solid var(--accent);border-radius:0 8px 8px 0;padding:20px 24px;margin:20px 0;font-size:14px;color:var(--text-secondary);line-height:1.8}
+hr{border:none;height:1px;background:var(--border);margin:40px 0}
+.formula{background:var(--bg-elevated);border:1px solid var(--border-light);border-radius:8px;padding:16px 24px;margin:16px 0;font-family:'JetBrains Mono',monospace;font-size:14px;color:var(--accent);text-align:center}
+li{color:var(--text-secondary);font-size:15px;line-height:1.8;margin-bottom:8px;padding-left:8px;list-style:none}
+li::before{content:'\203A';color:var(--accent);font-weight:700;margin-right:8px}
+ul,ol{margin-bottom:16px;padding-left:8px}
+table{width:100%;border-collapse:collapse;margin:20px 0;font-size:14px}
+th{background:var(--bg-elevated);color:var(--accent);font-weight:600;text-align:left;padding:12px 16px;border:1px solid var(--border-light)}
+td{color:var(--text-secondary);padding:10px 16px;border:1px solid var(--border)}
+tr:nth-child(even) td{background:rgba(26,26,34,0.5)}
+.nav-bar{position:sticky;top:0;z-index:100;background:rgba(7,7,9,0.95);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);padding:12px 24px;overflow-x:auto}
+.nav-inner{max-width:800px;margin:0 auto;display:flex;gap:8px;flex-wrap:nowrap}
+.nav-pill{font-family:'JetBrains Mono',monospace;font-size:11px;letter-spacing:.5px;padding:6px 14px;border-radius:6px;border:1px solid var(--border);background:transparent;color:var(--text-muted);cursor:pointer;transition:all .2s;white-space:nowrap;text-decoration:none}
+.nav-pill:hover,.nav-pill.active{border-color:var(--accent-dim);color:var(--accent);background:var(--accent-glow)}
+@media(max-width:640px){.hero{padding:60px 16px 40px}.main{padding:24px 16px 60px}.card{padding:20px}blockquote{padding:16px 18px}}
+</style>
+</head>
+<body>
+<div class="hero">
+<div class="hero-tag">MODULE 07</div>
+<h1>首次咨询SOP与行为改变干预框架</h1>
+<p style="color:var(--text-secondary);font-size:16px;max-width:600px;margin:0 auto">加五磅 · 三天营养课</p>
+</div>
+<div class="nav-bar"><div class="nav-inner"><a class="nav-pill" href="#sec-学术导言">学术导言</a><a class="nav-pill" href="#sec-7160分钟咨询标准流程">7.1 60分钟咨询标准流程</a><a class="nav-pill" href="#sec-72行为改变三层框架知道做到坚持">7.2 行为改变三层框架：知道→做到→坚持</a><a class="nav-pill" href="#sec-73执业边界与法律风险">7.3 执业边界与法律风险</a><a class="nav-pill" href="#sec-章末小结">章末小结</a><a class="nav-pill" href="#sec-思考题">思考题</a><a class="nav-pill" href="#sec-教练转化清单">教练转化清单</a><a class="nav-pill" href="#sec-参考文献">参考文献</a></div></div>
+<div class="main">
+<h1>M7 首次咨询SOP与行为改变干预框架</h1>
+<div class="section" id="sec-学术导言">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 01</div><h2 class="section-title">学术导言</h2></div></div>
+<div class="card"><p>本章覆盖首次营养咨询的完整操作体系：60分钟标准流程的设计与执行，行为改变三层框架（知道→做到→坚持）的诊断逻辑与干预技术选择，以及执业边界的法律规范与转介决策。</p>
+<p><strong>核心要点：</strong></p>
+<ul>
+<li>首次咨询同时完成三件事：判断来访者是否在执业范围内、建立协作式工作联盟、识别行为改变阶段与卡点[2][3]。任何一项缺失都导致后续方案缺乏根基。</li>
+<li>60分钟标准流程将有限时间切分为功能明确的阶段：知情同意→红线筛查→评估采集→方案框架讲解→答疑签约[5]。红线筛查优先于详细问诊，行为阶段判定优先于方案输出。</li>
+<li>行为改变技术分类学（Behaviour Change Technique Taxonomy v1, BCTTv1）将干预拆解为93项最小可识别技术单元，按COM-B模型（能力、机会、动机）诊断卡点后匹配对应BCT[10][12]。对机会短板追加营养教育无法改变行为。</li>
+<li>跨理论模型（Transtheoretical Model, TTM）的关键警示：阶段不是单向递进的，来访者可能在Action与Contemplation之间反复摆动[3]。对前意向阶段来访者派发行动计划属于阶段错配。</li>
+<li>运动营养咨询师的执业边界由三层规范共同划定：国际专业组织的范围声明、中国法律法规的资质要求、机构自身的执业标准[5]。不可做医学诊断、不做PES营养诊断、不调整在用药物。</li>
+</ul>
+<p><strong>本章编排的逻辑如下：</strong> 先建立60分钟标准流程（§7.1），这是首次咨询的可执行操作框架，确保在有限带宽内同时完成安全筛查、信息采集与关系建立；再进入行为改变三层框架（§7.2），提供诊断"知道但做不到"和"做不到就坚持不了"的理论工具，将卡点分解为能力、机会、动机三个可干预变量；最后锁定执业边界与法律风险（§7.3），明确什么能做、什么不能做、什么情况必须转介。流程是操作层，理论是诊断层，边界是约束层。缺少约束的流程和理论在实际应用中构成伦理和法律风险。</p>
+<p>饮食记录的可靠性是当前教练圈的高频讨论话题。客户自述"吃得很干净"与3日饮食记录的实际数据之间的系统性偏差是普遍现象。24小时膳食回顾（24-hour Dietary Recall）依赖记忆，存在回忆偏倚和社交期望偏倚；食物称重的依从性随天数递减；拍照记录看似客观，但遗漏调味品、酱料和零食的比例不低。部分教练开始将饮食记录视为行为评估工具而非精确数据采集手段，记录过程本身即体现出来访者的依从性、自我觉察能力和潜在的进食模式问题，这些信息有时比宏量营养素的精确数值更有临床价值。</p>
+<p>首次咨询中的进食障碍（eating disorder）识别也成为热点议题。极端体脂目标、既往极端断食史、SCOFF筛查阳性的来访者在以减脂为主导的训练人群中并不罕见。如何在5至10分钟内完成红线筛查，筛查阳性后如何在不引发防御反应的前提下建议转介，以及来访者拒绝转介时如何处置，是每次首诊都可能遇到的实务决策[5]。</p>
+<hr /></div>
+</div><div class="section" id="sec-7160分钟咨询标准流程">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 02</div><h2 class="section-title">7.1 60分钟咨询标准流程</h2></div></div>
+<div class="card"><p>首次咨询的时间结构必须在有限带宽内同时完成安全筛查、信息采集与关系建立。以下六段式流程将60分钟切分为功能明确的阶段，每段附带标准化话术框架与关键动作清单。</p><h4 class="sub-title">7.1.1 破冰与知情同意（0–5 min）</h4>
+<p>破冰的核心任务是让来访者明确知晓咨询服务的性质、边界与数据使用方式，同时建立基本的信任感。这一阶段对应MI四过程中的Engaging（投入），核心目标是让来访者感到被接纳而非被审视[4]。</p>
+<p><strong>标准话术框架</strong>：</p>
+<p>"我是[姓名]，你的运动营养咨询师。接下来的60分钟，我会先跟你聊你的目标和现状，然后做一些基础测量。在开始之前，有几件事需要你了解：我的服务范围是帮助健康人群和病情稳定的慢病人群通过饮食和营养优化训练效果与健康管理。我不是医生，不提供医学营养治疗，不替代医师。今天我们聊的内容会存入你的档案，所有信息按个人信息保护法的要求保密存储。这是知情同意书，里面包含服务范围、隐私政策和转介条款，请阅读后签署。"</p>
+<p><strong>关键动作清单</strong>：
+- 递交知情同意书，逐条说明服务范围、隐私政策、信息共享授权、紧急转介条款、费用与取消政策[5]
+- 确认来访者签署，含敏感个人信息单独同意（涉及健康史、体检报告、量表结果等）[6]
+- 知情同意书存入档案，保留期限不少于服务结束后3年[5]
+- 说明可能的转介情形："如果评估中发现某些情况超出我的服务范围，我会明确告诉你并建议更合适的专业路径"</p><h4 class="sub-title">7.1.2 目标设定与红线筛查（5–15 min）</h4>
+<p>目标设定与红线筛查同步进行。来访者陈述目标的过程中，咨询师同步完成红线快速筛查。这一安排基于一个关键判断：红线筛查必须在详细问诊之前完成，以避免在已采集大量个人健康信息后才发现需要转介[5]。这一顺序也符合《个人信息保护法》第28至29条对敏感个人信息处理的"必要性"原则[6]。</p>
+<p><strong>红线7类判据的快速识别</strong>[5]：</p>
+<table>
+<thead>
+<tr>
+<th>编号</th>
+<th>红线类别</th>
+<th>快速识别要点</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>饮食障碍倾向</td>
+<td>BMI&lt;17.5；极端体脂目标；既往催吐/泻药/极端断食史</td>
+</tr>
+<tr>
+<td>2</td>
+<td>急性期/重症慢病</td>
+<td>透析、化疗在程；肝硬化失代偿；心衰NYHA III-IV级</td>
+</tr>
+<tr>
+<td>3</td>
+<td>孕产期高危</td>
+<td>妊娠糖尿病、妊娠期高血压、子痫前期</td>
+</tr>
+<tr>
+<td>4</td>
+<td>儿童年龄红线</td>
+<td>&lt;6岁不主导食谱；6-12岁仅限家长教育</td>
+</tr>
+<tr>
+<td>5</td>
+<td>单一复杂用药</td>
+<td>华法林、长期二甲双胍、糖皮质激素、免疫抑制剂</td>
+</tr>
+<tr>
+<td>6</td>
+<td>心理障碍并发</td>
+<td>PHQ-9≥15或GAD-7≥15；自伤念头</td>
+</tr>
+<tr>
+<td>7</td>
+<td>老年多重用药综合征</td>
+<td>≥65岁+用药≥5种+肾功能下降/营养风险/衰弱</td>
+</tr>
+</tbody>
+</table>
+<p><strong>目标设定话术框架</strong>（MI的OARS开放式提问）[4]：
+- "今天来，希望我帮你解决什么？"
+- "这个目标背后，最想改变的是什么？"
+- "如果这个目标实现了，生活会有什么不同？"
+- "之前尝试过哪些方法？是什么让你停下来的？"</p>
+<p><strong>关键动作清单</strong>：
+- 逐项核对红线7类，即使全阴也记录"已询问，阴性"[5]
+- 来访者主诉极端体脂目标（男&lt;8%，女&lt;12%）或既往极端饮食史，即时启动SCOFF进食障碍筛查[5]
+- SCOFF≥2分触发红线1转介流程，停止本咨询
+- 红线全阴或模棱两可进入灰色地带评估SOP[5]</p><h4 class="sub-title">7.1.3 评估数据采集（15–30 min）</h4>
+<p>通过红线筛查的来访者进入评估采集阶段。15分钟内需完成膳食模式快速评估、人体测量与行为卡点识别。这一阶段整合了NCP评估框架的D1-D5五域数据[7]，并适配为健身场景的精简版。</p>
+<p><strong>膳食评估</strong>：首诊采用24小时膳食回顾（24-hour Dietary Recall, 24HR）的快速版[8]。USDA自动化多轮次法（AMPM）五步流程中，首诊重点执行第一步（快速列表）和第四步（详细描述），省略遗忘食物清单的完整追问[8]。同时布置3日饮食记录（2个训练日+1个休息日）作为下次咨询的定量分析主力[8]。</p>
+<p><strong>人体测量</strong>：按ISAK标准执行基础测量[9]。
+- 身高：赤背贴柱，Frankfort平面定位，连续2次差值≤0.5 cm取均值[9]
+- 体重：轻薄衣物赤脚，排空膀胱，连续2次差值≤0.2 kg取均值[9]
+- 腰围：髂前上棘与第12肋中点，水平环绕不压迫，连续2次取均值[9]
+- 体成分：BIA可用于趋势监测，单次绝对值不构成判断依据；需向来访者说明水合状态对测量值的影响（变异系数3%-8%）[8]</p>
+<p><strong>行为卡点快速识别</strong>：使用COM-B三格轻量版[10]。
+- C（能力，Capability）：知识或技能缺失——"不知道怎么算热量""不会备餐"
+- O（机会，Opportunity）：环境因素阻碍——"公司没有健康午餐""下班太晚"
+- M（动机，Motivation）：意愿不足或被压制——"知道该这样但就是不想"</p>
+<p>三格版将反思性动机与自动性动机合并为M格，首诊分诊中足够使用[10]。当干预反复失效时，再拆分为六格完整版暴露被掩盖的自动性动机短板。</p>
+<p><strong>关键动作清单</strong>：
+- 完成24HR快速版，记录前一日三餐+零食+补剂+饮料
+- 完成身高、体重、BMI、腰围测量并记录
+- 完成COM-B三格轻量评估，标注最大短板格
+- 布置3日饮食记录任务，进行10分钟拍照称重培训
+- 采集体重史（近12个月最高/最低/当前）、训练史、用药史</p><h4 class="sub-title">7.1.4 方案框架讲解（30–45 min）</h4>
+<p>首次咨询不输出完整的个体化饮食方案。方案制定需等待3日饮食记录收齐、必要医学指标确认后在第二次咨询进行。此阶段的任务是向来访者讲解方案框架与干预逻辑，让其理解"接下来会做什么、为什么这样做"。</p>
+<p><strong>方案框架讲解的结构</strong>：</p>
+<p>第一步，反馈评估发现。用非评判性语言总结采集到的信息："从你描述的饮食模式来看，训练日的蛋白质摄入集中在晚餐一餐，训练前后各餐的碳水分配偏低。体测数据显示腰围处于中心性肥胖的临界范围。"</p>
+<p>第二步，解释干预逻辑。将COM-B评估结果翻译为来访者能理解的语言："你提到下班后没精力做饭，这是时间和条件的问题，不是意志力问题。我们会先从最容易改变的一个点入手，而不是同时改所有东西。"</p>
+<p>第三步，给出方向性建议。明确具体数值区间但标注个体化空间："力量训练人群的蛋白质需求一般在1.6-2.2 g/kg/d范围内[11]，你的体重是80 kg，对应的日摄入区间是128-176 g。具体分配方案等3日饮食记录分析后再定。"</p>
+<p>第四步，设定行为目标。与来访者协作设定首个行为目标（BCT 1.1行为目标设定[12]）："在下次咨询前，你想先改变哪一件事？"目标须满足时间锚定、可观察、一周内可完成三个条件。</p>
+<p><strong>关键动作清单</strong>：
+- 反馈发现时使用MI的总结技术（收集型总结），不夹带评判[4]
+- 干预逻辑讲解限于方向，不输出完整食谱
+- 行为目标由来访者自行选择优先级，咨询师引导具体化
+- 明确告知"完整方案在第二次咨询给出"</p><h4 class="sub-title">7.1.5 答疑与签约（45–55 min）</h4>
+<p>答疑阶段处理来访者的疑问、担忧与期望校准。签约确认后续咨询的频率、费用与服务协议。</p>
+<p><strong>常见疑问与标准回应</strong>：</p>
+<p>"多久能看到效果？"体重的可见变化通常需要4-6周，前提是方案执行率在70%以上。前两周的变化主要是水分波动，不是真实的脂肪或肌肉变化。"</p>
+<p>"我需要完全戒掉外卖吗？"不需要。外卖是当前条件限制下的现实选择，我们会在这个现实基础上找到优化空间，而不是要求你回到一个不现实的状态。"</p>
+<p>"你能帮我调药吗？"用药调整不在我的执业范围内。如果你目前的用药方案与饮食有关联，我会建议你跟主治医生沟通，我可以帮你准备沟通时需要带的信息。"</p>
+<p><strong>关键动作清单</strong>：
+- 回答疑问时遵循EPE（问-说-问）框架[8]
+- 确认后续咨询频率：建议每2-4周一次复评，根据风险等级调整
+- 签署服务协议，含费用、取消政策、信息共享授权
+- 确认来访者的紧急联系人信息</p><h4 class="sub-title">7.1.6 后续安排（55–60 min）</h4>
+<p>最后5分钟完成收尾与任务布置。</p>
+<p><strong>标准收尾话术</strong>：</p>
+<p>"今天信息采集到这里。你的三项任务：第一，完成3日饮食记录，包含2个训练日和1个休息日，拍照加称重；第二，[来访者自选的行为目标]；第三，如果有近期体检报告，下次咨询带过来。下次咨询的时间是[具体日期]，届时我会根据3日饮食记录给你完整的个体化方案。"</p>
+<p><strong>关键动作清单</strong>：
+- 复述当日咨询要点，来访者确认
+- 确认3日饮食记录的具体日期安排
+- 过渡型总结标志咨询结束[4]
+- 档案归档，红线筛查记录、知情同意书、人体测量数据、COM-B三格评估全部入库</p>
+<hr /></div>
+</div><div class="section" id="sec-72行为改变三层框架知道做到坚持">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 03</div><h2 class="section-title">7.2 行为改变三层框架：知道→做到→坚持</h2></div></div>
+<div class="card"><p>营养咨询的真实卡点通常不在知识层。COM-B模型将任何行为的发生条件分解为能力（Capability）、机会（Opportunity）、动机（Motivation）三个必要条件，三者同时具备行为才可能持续[10]。这一分解为"知道→做到→坚持"三阶段提供了诊断语言与干预路径。</p><h4 class="sub-title">7.2.1 "知道"阶段：知识缺口与信息交付</h4>
+<p>来访者带着知识缺口进入咨询。知识缺口的诊断需要先区分两类性质完全不同的情况。第一类是真正的知识空白：来访者不知道蛋白质需要量、不了解训练日与休息日的营养差异、对食品标签阅读缺乏基本能力。第二类是知识错配：来访者掌握的"知识"中混杂大量来自社交媒体的错误信息，心理能力（C-psychological）中的批判性筛选不足[10]。</p>
+<p>对第一类，干预策略是Education（教育），提供信息以增加知识或理解[10]。对第二类，干预策略是Training（训练），传授技能使来访者获得行为能力，而非重复更多信息[10]。Education让来访者理解概念（"蛋白质需要1.6-2.2 g/kg/d"），Training让来访者会做这件事（"把1.6 g/kg翻译成你今晚的菜单"）。许多教练将两者混做"科普"，结果是来访者理解了但不会做[10]。</p>
+<p>信息交付使用EPE框架（问-说-问）[8]。先 elicitation（引出）来访者已有认知，再 provide（提供）循证信息，最后 elicitation（引出）来访者对新信息的理解与整合。这一框架确保信息交付是协作式的而非灌输式的，符合MI的Evocation精神[4]。</p><h4 class="sub-title">7.2.2 "做到"阶段：从知识到行为的转化机制</h4>
+<p>"知道但做不到"是营养咨询中最常见的卡点。COM-B模型为这一卡点提供三个诊断方向[10]：</p>
+<p><strong>机会短板型</strong>：来访者能复述蛋白质需求与膳食结构，但下班后缺乏烹饪时间与食材可及性，物理机会（O-physical）不足。对这类来访者追加营养教育无法改变行为，需要的干预是环境重构（BCT 12.1），将零食从书桌移到厨房高柜，或将预切净菜纳入采购清单[12]。</p>
+<p><strong>能力错配型</strong>：来访者知道要"多吃蛋白质"，但不会计算、不会备餐、不会读标签。需要的干预是操作指导（BCT 4.1）与行为示范（BCT 6.1），现场示范食品标签阅读六步法，让来访者复演一遍[12]。</p>
+<p><strong>动机冲突型</strong>：来访者清楚戒糖有助于减脂，在反思性动机（M-reflective，可言说的理由）与自动性动机（M-automatic，习惯与情绪驱动）之间存在未处理的张力。判别问题："你吃之前，心里先有'要不要吃'的念头，还是直接就吃了？"有念头但选择吃指向M-reflective未对齐，直接吃了再后悔指向M-automatic习惯型[10]。</p>
+<p>行为改变技术分类学（Behaviour Change Technique Taxonomy v1, BCTTv1）将干预拆解到最小可识别、可独立实施的技术单元[12]。Michie等通过Delphi专家共识法从124项候选技术中确定93项BCT，按相似性聚类为16组。健身咨询场景高频使用约20项，覆盖80%以上的日常操作[12]。</p><h4 class="sub-title">7.2.3 "坚持"阶段：习惯自动化与复发预防</h4>
+<p>行为持续超过6个月后进入维持阶段（Maintenance），核心任务从"启动行为"转向"防止复发"[3]。维持阶段的来访者已建立基本的行为模式，干预重心从BCT的行为启动技术（目标设定、行动计划、环境重构）转向习惯巩固（BCT 8.3）与社会支持长期化（BCT 3.1）[12]。</p>
+<p>复发的识别与处理需要区分两个层次。第一层是单次失误（lapse）：一次聚餐后热量超标。处理策略是引导来访者将其视为数据点而非失败，分析触发情境（BCT 1.2问题解决），制定下次同类情境的应对方案[12]。第二层是行为回退（relapse）：连续两周以上回到旧模式。处理策略是重新评估COM-B六格，判断是环境变化（搬家、换工作）、动机衰减还是新的能力瓶颈导致回退，然后调整BCT组合[10]。</p>
+<p>跨理论模型（Transtheoretical Model, TTM）为"坚持"阶段提供了一个关键警示：阶段不是单向递进的。来访者可能在Action与Contemplation之间反复 oscillate。减脂期第八周开始反复说"还要不要继续"，这是从Action退回Contemplation的信号，咨询策略应从加任务切回反映矛盾[3]。</p><h4 class="sub-title">7.2.4 各阶段教练干预策略总表</h4>
+<table>
+<thead>
+<tr>
+<th>阶段</th>
+<th>核心卡点</th>
+<th>教练干预策略</th>
+<th>推荐BCT</th>
+<th>禁忌</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>知道</td>
+<td>知识空白或知识错配</td>
+<td>EPE信息交付+Education/Training区分</td>
+<td>BCT 4.1操作指导、BCT 5.1健康后果信息、BCT 6.1行为示范</td>
+<td>重复更多信息而不教授操作技能</td>
+</tr>
+<tr>
+<td>做到</td>
+<td>机会/能力/动机短板</td>
+<td>COM-B诊断→最大短板BCT匹配</td>
+<td>BCT 1.1目标设定、BCT 1.4行动计划、BCT 12.1环境重构、BCT 12.5添加环境物品</td>
+<td>对机会短板做动机激发</td>
+</tr>
+<tr>
+<td>坚持</td>
+<td>习惯固化与复发预防</td>
+<td>TTM阶段判定→维持期BCT组合</td>
+<td>BCT 8.3习惯形成、BCT 1.5复评目标、BCT 3.1社会支持、BCT 1.2问题解决</td>
+<td>将咨询频率降至零；反复追加新任务</td>
+</tr>
+</tbody>
+</table>
+<hr /></div>
+</div><div class="section" id="sec-73执业边界与法律风险">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 04</div><h2 class="section-title">7.3 执业边界与法律风险</h2></div></div>
+<div class="card"><p>运动营养咨询师的执业边界由三层规范共同划定：国际专业组织的范围声明、中国法律法规的资质要求、以及咨询机构自身的执业标准。任何一项不满足即构成越界。</p><h4 class="sub-title">7.3.1 三类从业者的执业范围划分</h4>
+<p><strong>运动营养咨询师（SNC）</strong>：可面向健康人群与慢病稳定期人群制定个体化膳食方案与运动营养方案。不可提供医学营养治疗（Medical Nutrition Therapy, MNT），不处理疾病状态的临床营养管理，不调整在用药物[5]。SNC课程证书是教育与能力证明，不是中国境内的执业资格[5]。</p>
+<p><strong>注册营养师（Registered Dietitian, RD）</strong>：由中国营养学会注册营养师工作委员会认证，准入要求为营养及相关专业本科及以上学历、1年以上工作经验及全国统一考试。RD可进入疾病状态的营养支持，独立或配合医疗执行医学营养治疗[13]。在AND的标准化体系中，RD是唯一有权执行NCP第二步（营养诊断）并使用PES语句的专业身份[7]。</p>
+<p><strong>医生（医师）</strong>：拥有医学诊断权、处方权和药物调整权。营养相关决策中涉及疾病诊断、药物-营养相互作用调整、急性期营养支持的，必须由医师主导或授权[5]。</p>
+<p>ACSM对认证私人教练（CPT）的营养建议范围做出明确区分：CPT可以传播经科学验证的一般性营养信息（宏量营养素功能、能量平衡原理、膳食指南），但不得提供MNT、不得制定针对疾病的个体化膳食处方、不得诊断营养缺乏或饮食障碍[14]。ACE的健康教练认证同样将营养实践限定在"一般健康教育"与"行为改变支持"层面[15]。SNC的能力范围介于"一般营养教育者"与"RD"之间，高于CPT的一般教育定位，但不进入RD的临床营养领域。</p><h4 class="sub-title">7.3.2 必须转介的情况清单</h4>
+<p>以下情况即使在来访者明确请求时也不应承担，属于RD、医师或精神/心理专科医师的执业范围[5]：</p>
+<table>
+<thead>
+<tr>
+<th>类别</th>
+<th>不可做事项</th>
+<th>合规处置</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>医学诊断</td>
+<td>不下"高血压""糖尿病""营养不良"等医学分类</td>
+<td>发现异常指标提示就医</td>
+</tr>
+<tr>
+<td>药物相关</td>
+<td>不调整任何在用药物的剂量或停服</td>
+<td>记录用药史，涉及药物-营养相互作用时转介主治医师</td>
+</tr>
+<tr>
+<td>急性期/重症营养</td>
+<td>不接管透析、化疗期、心衰急性期等场景</td>
+<td>直接转介主治医师或临床营养科</td>
+</tr>
+<tr>
+<td>饮食障碍干预</td>
+<td>不为活动期进食障碍客户制定减重或控热量方案</td>
+<td>SCOFF阳性时转介精神科与临床营养科</td>
+</tr>
+<tr>
+<td>复杂用药饮食决策</td>
+<td>华法林与维生素K、二甲双胍与B12等食物-药物相互作用场景</td>
+<td>转介主治医师与临床营养科</td>
+</tr>
+<tr>
+<td>补剂医疗用途</td>
+<td>不以治疗或治愈疾病为目的推荐补剂</td>
+<td>补剂建议仅限运动表现与健康维护目的</td>
+</tr>
+</tbody>
+</table>
+<p>灰色地带（已诊断慢病但当前指标稳定、咨询目标在医学状态下可能安全可行）使用三问决策SOP[5]：Q1医学状态是否已由医师确认→Q2拟实施方案是否影响在用药物的效果或安全性→Q3来访者的目标在当前医学状态下是否安全可行。三问中任一不满足即转介或调整方案。</p><h4 class="sub-title">7.3.3 知情同意与隐私保护</h4>
+<p>知情同意是首次咨询正式开始前必须完成的法律程序。AND《Code of Ethics》原则1（不伤害，Non-maleficence）要求从业者"在能力范围内实践"并"在必要时转介"[16]，原则2（自主，Autonomy）要求"保护客户隐私与机密"[16]。中国的《个人信息保护法》（PIPL）将医疗健康信息列为敏感个人信息，处理前须取得单独同意并满足必要性原则[6]。</p>
+<p>知情同意书必须包含以下要素：
+- 咨询师资质与执业范围的明确说明
+- 服务内容与预期收益、局限性
+- 隐私保护政策与信息存储方式
+- 可能的转介情形与转介路径
+- 信息共享授权条款（涉及与主治医师协同的场景）
+- 费用与取消政策
+- 紧急转介条款</p>
+<p>来访者拒绝转介时的处置程序[5]：以非评判语气说明转介理由与不转介的潜在风险；提供具体转介路径；如仍拒绝，在档案中记录"已告知转介建议及风险，来访者拒绝"并签字确认；对饮食障碍等高风险情形，不得继续提供可能恶化状况的服务；设定2-4周回访窗口确认来访者是否已就医。</p>
+<hr /></div>
+</div><div class="section" id="sec-章末小结">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 05</div><h2 class="section-title">章末小结</h2></div></div>
+<div class="card"><p>首次咨询的核心功能是在60分钟内同时完成安全筛查、信息采集与关系建立。红线筛查优先于详细问诊，行为阶段判定优先于方案输出，知情同意优先于任何数据采集。行为改变三层框架（知道→做到→坚持）将COM-B诊断、BCT技术选择与MI对话交付整合为一条可执行的操作链。执业边界的判断不是一次性的静态声明，而是在每次咨询中持续进行的动态评估。</p>
+<hr /></div>
+</div><div class="section" id="sec-思考题">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 06</div><h2 class="section-title">思考题</h2></div></div>
+<div class="card"><ol>
+<li>
+<p>一位28岁男性来访者，BMI 16.8，主诉"想在6周内体脂降到8%以下"，自述"之前试过连续3天只喝水和咖啡"。请列出该来访者触发了哪些红线判据，以及你的处置步骤。</p>
+</li>
+<li>
+<p>一位45岁女性来访者，高血压稳定期（在医师指导下服药，近3个月血压达标），主诉减脂目标。请使用灰色地带三问决策SOP逐步判断，给出你的决策结论和复评频率建议。</p>
+</li>
+<li>
+<p>一位来访者在首诊COM-B三格评估中，C格评分为0（营养知识充分，能精确复述蛋白质需求与训练日碳水分配），O格评分为1（偶有不便但基本可控），M格评分为3（"道理全懂但就是坚持不了"）。请分析这一评分模式指向的干预方向，并从BCT高频20项中选择2-3项最匹配的干预技术。</p>
+</li>
+<li>
+<p>比较ACSM-CPT、3HFIT SNC与中国注册营养师（RD）三个身份在营养咨询场景中的执业范围差异。三个身份在哪些场景中可以独立工作，哪些场景中必须协同或转介？</p>
+</li>
+</ol>
+<hr /></div>
+</div><div class="section" id="sec-教练转化清单">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 07</div><h2 class="section-title">教练转化清单</h2></div></div>
+<div class="card"><ol>
+<li>首次咨询60分钟分为六段：破冰知情同意(5min)→目标设定与红线筛查(10min)→评估采集(15min)→方案框架讲解(15min)→答疑签约(10min)→后续安排(5min)。红线筛查在详细问诊之前完成。</li>
+<li>红线7类判据中任一项阳性即触发转介流程，停止本咨询。SCOFF≥2分转介精神科+临床营养科。PHQ-9≥15或GAD-7≥15转介精神科。</li>
+<li>首次咨询不输出完整饮食方案。方案制定需等待3日饮食记录收齐后在第二次咨询进行。</li>
+<li>行为改变的三类卡点（能力短板、机会短板、动机短板）需要不同的BCT干预策略。对机会短板追加营养教育无法改变行为。</li>
+<li>TTM五阶段中，对前意向阶段来访者派发行动计划属于阶段错配。首诊5分钟内完成阶段判定。</li>
+<li>运动营养咨询师不做医学诊断、不做PES营养诊断、不调整在用药物、不处理急性期临床营养问题。</li>
+<li>知情同意在首次咨询正式开始前完成，含服务范围说明、隐私政策、信息共享授权、紧急转介条款。</li>
+<li>灰色地带用三问决策SOP：医学状态确认→干预影响评估→目标安全性判断，任一环节不满足即转介。</li>
+</ol>
+<hr /></div>
+</div><div class="section" id="sec-参考文献">
+<div class="section-header"><div class="section-badge"></div><div><div class="section-num">SECTION 08</div><h2 class="section-title">参考文献</h2></div></div>
+<div class="card"><p>[1] Hartmann-Boyce J, Johns DJ, Jebb SA, Aveyard P; Behavioural Weight Management Review Group. Effect of behavioural techniques and delivery mode on effectiveness of weight loss: systematic review, meta-analysis and meta-regression. <em>Obes Rev</em>. 2014;15(suppl 3):S1-S14. doi:10.1111/obr.12154</p>
+<p>[2] Lundahl B, Burke BL. The effectiveness and applicability of motivational interviewing: a practice-friendly review of four meta-analyses. <em>J Clin Psychol</em>. 2009;65(11):1232-1245. doi:10.1002/jclp.20637</p>
+<p>[3] Prochaska JO, Velicer WF. The transtheoretical model of health behavior change. <em>Am J Health Promot</em>. 1997;12(1):38-48. doi:10.4278/0890-1171-12.1.38</p>
+<p>[4] Miller WR, Rollnick S. <em>Motivational Interviewing: Helping People Change</em>. 4th ed. New York: Guilford Press; 2023.</p>
+<p>[5] 3HFIT SNC咨询实务教材. 第1章：营养咨询的定义范围与执业边界. 内部教材v4版.</p>
+<p>[6] 全国人民代表大会常务委员会. 中华人民共和国个人信息保护法. 2021-08-20通过，2021-11-01施行.</p>
+<p>[7] Academy of Nutrition and Dietetics. Nutrition Care Process. https://www.ncpro.org/（最近核证2025年）.</p>
+<p>[8] 3HFIT SNC咨询实务教材. 第2章：营养评估工具与档案系统. 内部教材v4版.</p>
+<p>[9] International Society for the Advancement of Kinanthropometry. ISAK International Standards for Anthropometric Assessment. <em>ISAK Manual</em>. 2022.</p>
+<p>[10] Michie S, van Stralen MM, West R. The behaviour change wheel: a new method for characterising and designing behaviour change interventions. <em>Implement Sci</em>. 2011;6:42. doi:10.1186/1748-5908-6-42</p>
+<p>[11] Morton RW, Murphy KT, McKellar SR, et al. A systematic review, meta-analysis and meta-regression of the effect of protein supplementation on resistance training-induced gains in muscle mass and strength in healthy adults. <em>Br J Sports Med</em>. 2018;52(6):376-384. doi:10.1136/bjsports-2017-097608</p>
+<p>[12] Michie S, Richardson M, Johnston M, et al. The behavior change technique taxonomy (v1) of 93 hierarchically clustered techniques: building an international consensus for the reporting of behavior change interventions. <em>Ann Behav Med</em>. 2013;87(1):81-97. doi:10.1007/s12160-013-9486-6</p>
+<p>[13] 中国营养学会注册营养师工作委员会. 注册营养师水平评价制度暂行规定. https://www.crdietitian.org/（2016年发布，2023年修订）.</p>
+<p>[14] American College of Sports Medicine. <em>ACSM's Resources for the Personal Trainer</em>. 6th ed. Philadelphia: Wolters Kluwer; 2024.</p>
+<p>[15] American Council on Exercise. <em>ACE Personal Trainer Manual</em>. 6th ed. San Diego: ACE; 2024.</p>
+<p>[16] Academy of Nutrition and Dietetics/Commission on Dietetic Registration. <em>Code of Ethics for the Nutrition and Dietetics Profession</em>. Effective June 1, 2018.</p></div>
+</div>
+<div style="text-align:center;margin-top:60px;padding-top:40px;border-top:1px solid var(--border)">
+<p style="color:var(--text-muted);font-size:13px">3HFIT · Arise · 加五磅 · 三天营养课</p>
+</div>
+</div>
+</body>
+</html>
